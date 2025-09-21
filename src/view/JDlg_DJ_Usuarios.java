@@ -4,6 +4,8 @@
  */
 package view;
 
+import tools.Util;
+import view_Pesquisar.JDlg_DJ_UsuariosPesquisar;
 /**
  *
  * @author danie
@@ -16,6 +18,10 @@ public class JDlg_DJ_Usuarios extends javax.swing.JDialog {
     public JDlg_DJ_Usuarios(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setTitle("Cadastro de usuários");
+        setLocationRelativeTo(null);        
+        Util.habilitar(false, jTxt_DJ_Codigo, jTxt_DJ_Nome, jTxt_DJ_Apelido, jFmt_DJ_Cpf, jFmt_DJ_DataDeNascimento,
+                jPwf_DJ_Senha, jCbo_DJ_Nivel, jChb_DJ_Ativo, jBtn_DJ_Confirmar, jBtn_DJ_Cancelar);
     }
 
     /**
@@ -54,21 +60,51 @@ public class JDlg_DJ_Usuarios extends javax.swing.JDialog {
 
         jBtn_DJ_Incluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-mais-24.png"))); // NOI18N
         jBtn_DJ_Incluir.setText("Incluir");
+        jBtn_DJ_Incluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn_DJ_IncluirActionPerformed(evt);
+            }
+        });
 
         jBtn_DJ_Alterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-alter-24.png"))); // NOI18N
         jBtn_DJ_Alterar.setText("Alterar");
+        jBtn_DJ_Alterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn_DJ_AlterarActionPerformed(evt);
+            }
+        });
 
         jBtn_DJ_Excluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-entrada-proibida-24.png"))); // NOI18N
         jBtn_DJ_Excluir.setText("Excluir");
+        jBtn_DJ_Excluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn_DJ_ExcluirActionPerformed(evt);
+            }
+        });
 
         jBtn_DJ_Confirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-botão-de-opção-marcado-24.png"))); // NOI18N
         jBtn_DJ_Confirmar.setText("Confirmar");
+        jBtn_DJ_Confirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn_DJ_ConfirmarActionPerformed(evt);
+            }
+        });
 
         jBtn_DJ_Cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-cancelar-24.png"))); // NOI18N
         jBtn_DJ_Cancelar.setText("Cancelar");
+        jBtn_DJ_Cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn_DJ_CancelarActionPerformed(evt);
+            }
+        });
 
         jBtn_DJ_Pesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-pesquisar-24.png"))); // NOI18N
         jBtn_DJ_Pesquisar.setText("Pesquisar");
+        jBtn_DJ_Pesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn_DJ_PesquisarActionPerformed(evt);
+            }
+        });
 
         jLabel6.setText("Senha");
 
@@ -151,7 +187,7 @@ public class JDlg_DJ_Usuarios extends javax.swing.JDialog {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel6)
                                     .addComponent(jLabel4))
-                                .addGap(267, 267, 267)
+                                .addGap(366, 366, 366)
                                 .addComponent(jLabel5)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -216,6 +252,68 @@ public class JDlg_DJ_Usuarios extends javax.swing.JDialog {
     private void jCbo_DJ_NivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCbo_DJ_NivelActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCbo_DJ_NivelActionPerformed
+
+    private void jBtn_DJ_IncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_IncluirActionPerformed
+        // TODO add your handling code here:
+        Util.habilitar(true, jTxt_DJ_Codigo, jTxt_DJ_Nome, jTxt_DJ_Apelido, jFmt_DJ_Cpf, jFmt_DJ_DataDeNascimento,
+                jPwf_DJ_Senha, jCbo_DJ_Nivel, jChb_DJ_Ativo, jBtn_DJ_Confirmar, jBtn_DJ_Cancelar);
+        
+        Util.habilitar(false, jBtn_DJ_Alterar, jBtn_DJ_Excluir, jBtn_DJ_Pesquisar, jBtn_DJ_Incluir);
+        
+        Util.limpar(jTxt_DJ_Codigo, jTxt_DJ_Nome, jTxt_DJ_Apelido, jFmt_DJ_Cpf, jFmt_DJ_DataDeNascimento,
+                jPwf_DJ_Senha, jCbo_DJ_Nivel, jChb_DJ_Ativo);
+        
+        jTxt_DJ_Codigo.grabFocus();
+    }//GEN-LAST:event_jBtn_DJ_IncluirActionPerformed
+
+    private void jBtn_DJ_ConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_ConfirmarActionPerformed
+        // TODO add your handling code here:
+        Util.habilitar(false, jTxt_DJ_Codigo, jTxt_DJ_Nome, jTxt_DJ_Apelido, jFmt_DJ_Cpf, jFmt_DJ_DataDeNascimento,
+                jPwf_DJ_Senha, jCbo_DJ_Nivel, jChb_DJ_Ativo, jBtn_DJ_Confirmar, jBtn_DJ_Cancelar);
+        
+        Util.habilitar(true, jBtn_DJ_Alterar, jBtn_DJ_Excluir, jBtn_DJ_Pesquisar, jBtn_DJ_Incluir);
+        
+        Util.limpar(jTxt_DJ_Codigo, jTxt_DJ_Nome, jTxt_DJ_Apelido, jFmt_DJ_Cpf, jFmt_DJ_DataDeNascimento,
+                jPwf_DJ_Senha, jCbo_DJ_Nivel, jChb_DJ_Ativo);
+    }//GEN-LAST:event_jBtn_DJ_ConfirmarActionPerformed
+
+    private void jBtn_DJ_CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_CancelarActionPerformed
+        // TODO add your handling code here:
+        Util.habilitar(false, jTxt_DJ_Codigo, jTxt_DJ_Nome, jTxt_DJ_Apelido, jFmt_DJ_Cpf, jFmt_DJ_DataDeNascimento,
+                jPwf_DJ_Senha, jCbo_DJ_Nivel, jChb_DJ_Ativo, jBtn_DJ_Confirmar, jBtn_DJ_Cancelar);
+        
+        Util.habilitar(true, jBtn_DJ_Alterar, jBtn_DJ_Excluir, jBtn_DJ_Pesquisar, jBtn_DJ_Incluir);
+        
+        Util.limpar(jTxt_DJ_Codigo, jTxt_DJ_Nome, jTxt_DJ_Apelido, jFmt_DJ_Cpf, jFmt_DJ_DataDeNascimento,
+                jPwf_DJ_Senha, jCbo_DJ_Nivel, jChb_DJ_Ativo);
+    }//GEN-LAST:event_jBtn_DJ_CancelarActionPerformed
+
+    private void jBtn_DJ_ExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_ExcluirActionPerformed
+        // TODO add your handling code here:
+        if(Util.perguntar("Deseja Excluir?")){
+            Util.limpar(jTxt_DJ_Codigo, jTxt_DJ_Nome, jTxt_DJ_Apelido, jFmt_DJ_Cpf, jFmt_DJ_DataDeNascimento,
+                jPwf_DJ_Senha, jCbo_DJ_Nivel, jChb_DJ_Ativo);
+            Util.mensagem("Exluido com sucesso!");
+        } else {
+            Util.mensagem("Exclusão cancelada!");
+        }
+    }//GEN-LAST:event_jBtn_DJ_ExcluirActionPerformed
+
+    private void jBtn_DJ_AlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_AlterarActionPerformed
+        // TODO add your handling code here:
+        Util.habilitar(true, jTxt_DJ_Nome, jTxt_DJ_Apelido, jFmt_DJ_Cpf, jFmt_DJ_DataDeNascimento,
+                jPwf_DJ_Senha, jCbo_DJ_Nivel, jChb_DJ_Ativo, jBtn_DJ_Confirmar, jBtn_DJ_Cancelar);
+        
+        Util.habilitar(false, jBtn_DJ_Alterar, jBtn_DJ_Excluir, jBtn_DJ_Pesquisar, jBtn_DJ_Incluir, jTxt_DJ_Codigo);
+        
+        jTxt_DJ_Nome.grabFocus();
+    }//GEN-LAST:event_jBtn_DJ_AlterarActionPerformed
+
+    private void jBtn_DJ_PesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_PesquisarActionPerformed
+        // TODO add your handling code here:
+        JDlg_DJ_UsuariosPesquisar jDlg_DJ_UsuariosPesquisar = new JDlg_DJ_UsuariosPesquisar(null, true);
+        jDlg_DJ_UsuariosPesquisar.setVisible(true);
+    }//GEN-LAST:event_jBtn_DJ_PesquisarActionPerformed
 
     /**
      * @param args the command line arguments

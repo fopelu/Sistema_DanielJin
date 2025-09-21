@@ -15,6 +15,9 @@ public class JFrm_DJ_Principal extends javax.swing.JFrame {
      */
     public JFrm_DJ_Principal() {
         initComponents();
+        setLocationRelativeTo(null);
+        setTitle("Sistema de compras de flores artificiais");
+        setExtendedState(MAXIMIZED_BOTH);
     }
 
     /**
@@ -28,55 +31,80 @@ public class JFrm_DJ_Principal extends javax.swing.JFrame {
 
         jMenuBar1 = new javax.swing.JMenuBar();
         jMnu_DJ_Cadastros = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        jMni_DJ_Usuarios = new javax.swing.JMenuItem();
+        jMni_DJ_Fornecedor = new javax.swing.JMenuItem();
+        jMni_DJ_Vendedor = new javax.swing.JMenuItem();
+        jMni_DJ_Produtos = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
-        jMenuItem5 = new javax.swing.JMenuItem();
+        jMni_DJ_Sair = new javax.swing.JMenuItem();
         jMnu_DJ_Movimentos = new javax.swing.JMenu();
-        jMenuItem6 = new javax.swing.JMenuItem();
+        jMni_DJ_Compras = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jMnu_DJ_Cadastros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-cadastro-24.png"))); // NOI18N
         jMnu_DJ_Cadastros.setText("Cadastros");
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-usuário-24.png"))); // NOI18N
-        jMenuItem1.setText("Usuários");
-        jMnu_DJ_Cadastros.add(jMenuItem1);
+        jMni_DJ_Usuarios.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMni_DJ_Usuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-usuário-24.png"))); // NOI18N
+        jMni_DJ_Usuarios.setText("Usuários");
+        jMni_DJ_Usuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMni_DJ_UsuariosActionPerformed(evt);
+            }
+        });
+        jMnu_DJ_Cadastros.add(jMni_DJ_Usuarios);
 
-        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-fornecedor-24.png"))); // NOI18N
-        jMenuItem2.setText("Fornecedor");
-        jMnu_DJ_Cadastros.add(jMenuItem2);
+        jMni_DJ_Fornecedor.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMni_DJ_Fornecedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-fornecedor-24.png"))); // NOI18N
+        jMni_DJ_Fornecedor.setText("Fornecedor");
+        jMni_DJ_Fornecedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMni_DJ_FornecedorActionPerformed(evt);
+            }
+        });
+        jMnu_DJ_Cadastros.add(jMni_DJ_Fornecedor);
 
-        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Z, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-pessoa-24.png"))); // NOI18N
-        jMenuItem3.setText("Vendedor");
-        jMnu_DJ_Cadastros.add(jMenuItem3);
+        jMni_DJ_Vendedor.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Z, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMni_DJ_Vendedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-pessoa-24.png"))); // NOI18N
+        jMni_DJ_Vendedor.setText("Vendedor");
+        jMni_DJ_Vendedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMni_DJ_VendedorActionPerformed(evt);
+            }
+        });
+        jMnu_DJ_Cadastros.add(jMni_DJ_Vendedor);
 
-        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-flores-24.png"))); // NOI18N
-        jMenuItem4.setText("Produtos");
-        jMnu_DJ_Cadastros.add(jMenuItem4);
+        jMni_DJ_Produtos.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMni_DJ_Produtos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-flores-24.png"))); // NOI18N
+        jMni_DJ_Produtos.setText("Produtos");
+        jMni_DJ_Produtos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMni_DJ_ProdutosActionPerformed(evt);
+            }
+        });
+        jMnu_DJ_Cadastros.add(jMni_DJ_Produtos);
         jMnu_DJ_Cadastros.add(jSeparator1);
 
-        jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ESCAPE, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
-        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-exportar-24.png"))); // NOI18N
-        jMenuItem5.setText("Sair");
-        jMnu_DJ_Cadastros.add(jMenuItem5);
+        jMni_DJ_Sair.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ESCAPE, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        jMni_DJ_Sair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-exportar-24.png"))); // NOI18N
+        jMni_DJ_Sair.setText("Sair");
+        jMni_DJ_Sair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMni_DJ_SairActionPerformed(evt);
+            }
+        });
+        jMnu_DJ_Cadastros.add(jMni_DJ_Sair);
 
         jMenuBar1.add(jMnu_DJ_Cadastros);
 
         jMnu_DJ_Movimentos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-movimento-24.png"))); // NOI18N
         jMnu_DJ_Movimentos.setText("Movimentos");
 
-        jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-carrinho-de-compras-24.png"))); // NOI18N
-        jMenuItem6.setText("Compras");
-        jMnu_DJ_Movimentos.add(jMenuItem6);
+        jMni_DJ_Compras.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMni_DJ_Compras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-carrinho-de-compras-24.png"))); // NOI18N
+        jMni_DJ_Compras.setText("Compras");
+        jMnu_DJ_Movimentos.add(jMni_DJ_Compras);
 
         jMenuBar1.add(jMnu_DJ_Movimentos);
 
@@ -95,6 +123,35 @@ public class JFrm_DJ_Principal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMni_DJ_UsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMni_DJ_UsuariosActionPerformed
+        // TODO add your handling code here:
+        JDlg_DJ_Usuarios jDlg_DJ_Usuarios = new JDlg_DJ_Usuarios(null, true);
+        jDlg_DJ_Usuarios.setVisible(true);
+    }//GEN-LAST:event_jMni_DJ_UsuariosActionPerformed
+
+    private void jMni_DJ_VendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMni_DJ_VendedorActionPerformed
+        // TODO add your handling code here:
+        JDlg_DJ_Vendedor jDlg_DJ_Vendedor = new JDlg_DJ_Vendedor(null, true);
+        jDlg_DJ_Vendedor.setVisible(true);
+    }//GEN-LAST:event_jMni_DJ_VendedorActionPerformed
+
+    private void jMni_DJ_FornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMni_DJ_FornecedorActionPerformed
+        // TODO add your handling code here:
+        JDlg_DJ_Vendedor jDlg_DJ_Vendedor = new JDlg_DJ_Vendedor(null, true);
+        jDlg_DJ_Vendedor.setVisible(true);
+    }//GEN-LAST:event_jMni_DJ_FornecedorActionPerformed
+
+    private void jMni_DJ_ProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMni_DJ_ProdutosActionPerformed
+        // TODO add your handling code here:
+        JDlg_DJ_Produtos jDlg_DJ_Produtos = new JDlg_DJ_Produtos(null, true);
+        jDlg_DJ_Produtos.setVisible(true);
+    }//GEN-LAST:event_jMni_DJ_ProdutosActionPerformed
+
+    private void jMni_DJ_SairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMni_DJ_SairActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jMni_DJ_SairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -133,12 +190,12 @@ public class JFrm_DJ_Principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMni_DJ_Compras;
+    private javax.swing.JMenuItem jMni_DJ_Fornecedor;
+    private javax.swing.JMenuItem jMni_DJ_Produtos;
+    private javax.swing.JMenuItem jMni_DJ_Sair;
+    private javax.swing.JMenuItem jMni_DJ_Usuarios;
+    private javax.swing.JMenuItem jMni_DJ_Vendedor;
     private javax.swing.JMenu jMnu_DJ_Cadastros;
     private javax.swing.JMenu jMnu_DJ_Movimentos;
     private javax.swing.JPopupMenu.Separator jSeparator1;
