@@ -4,6 +4,9 @@
  */
 package view;
 
+import tools.Util;
+import view_Pesquisar.JDlg_DJ_VendedorPesquisar;
+
 /**
  *
  * @author danie
@@ -16,6 +19,10 @@ public class JDlg_DJ_Vendedor extends javax.swing.JDialog {
     public JDlg_DJ_Vendedor(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setTitle("Cadastro de Vendedor");
+        setLocationRelativeTo(null);
+        Util.habilitar(false, jTxt_DJ_Nome, jTxt_DJ_Endereco, jTxt_DJ_Email, jTxt_DJ_Codigo,
+                jFmt_DJ_CEP, jFmt_DJ_CPF, jFmt_DJ_Telefone, jBtn_DJ_Cancelar, jBtn_DJ_Confirmar);
     }
 
     /**
@@ -52,21 +59,51 @@ public class JDlg_DJ_Vendedor extends javax.swing.JDialog {
 
         jBtn_DJ_Cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-cancelar-24.png"))); // NOI18N
         jBtn_DJ_Cancelar.setText("Cancelar");
+        jBtn_DJ_Cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn_DJ_CancelarActionPerformed(evt);
+            }
+        });
 
         jBtn_DJ_Pesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-pesquisar-24.png"))); // NOI18N
         jBtn_DJ_Pesquisar.setText("Pesquisar");
+        jBtn_DJ_Pesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn_DJ_PesquisarActionPerformed(evt);
+            }
+        });
 
         jBtn_DJ_Incluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-mais-24.png"))); // NOI18N
         jBtn_DJ_Incluir.setText("Incluir");
+        jBtn_DJ_Incluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn_DJ_IncluirActionPerformed(evt);
+            }
+        });
 
         jBtn_DJ_Alterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-alter-24.png"))); // NOI18N
         jBtn_DJ_Alterar.setText("Alterar");
+        jBtn_DJ_Alterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn_DJ_AlterarActionPerformed(evt);
+            }
+        });
 
         jBtn_DJ_Excluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-entrada-proibida-24.png"))); // NOI18N
         jBtn_DJ_Excluir.setText("Excluir");
+        jBtn_DJ_Excluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn_DJ_ExcluirActionPerformed(evt);
+            }
+        });
 
         jBtn_DJ_Confirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-botão-de-opção-marcado-24.png"))); // NOI18N
         jBtn_DJ_Confirmar.setText("Confirmar");
+        jBtn_DJ_Confirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn_DJ_ConfirmarActionPerformed(evt);
+            }
+        });
 
         jLabel6.setText("Endereço");
 
@@ -201,6 +238,68 @@ public class JDlg_DJ_Vendedor extends javax.swing.JDialog {
     private void jFmt_DJ_CPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFmt_DJ_CPFActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jFmt_DJ_CPFActionPerformed
+
+    private void jBtn_DJ_IncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_IncluirActionPerformed
+        // TODO add your handling code here:
+        Util.habilitar(true, jTxt_DJ_Nome, jTxt_DJ_Endereco, jTxt_DJ_Email, jTxt_DJ_Codigo,
+                jFmt_DJ_CEP, jFmt_DJ_CPF, jFmt_DJ_Telefone, jBtn_DJ_Cancelar, jBtn_DJ_Confirmar);
+        
+        Util.habilitar(false, jBtn_DJ_Alterar, jBtn_DJ_Pesquisar, jBtn_DJ_Incluir, jBtn_DJ_Excluir);
+        
+        Util.limpar(jTxt_DJ_Nome, jTxt_DJ_Endereco, jTxt_DJ_Email, jTxt_DJ_Codigo,
+                jFmt_DJ_CEP, jFmt_DJ_CPF, jFmt_DJ_Telefone);
+        
+        jTxt_DJ_Codigo.grabFocus();
+    }//GEN-LAST:event_jBtn_DJ_IncluirActionPerformed
+
+    private void jBtn_DJ_AlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_AlterarActionPerformed
+        // TODO add your handling code here:
+        Util.habilitar(true, jTxt_DJ_Nome, jTxt_DJ_Endereco, jTxt_DJ_Email,
+                jFmt_DJ_CEP, jFmt_DJ_CPF, jFmt_DJ_Telefone, jBtn_DJ_Cancelar, jBtn_DJ_Confirmar);
+        
+        Util.habilitar(false, jBtn_DJ_Alterar, jBtn_DJ_Pesquisar, jBtn_DJ_Incluir, jBtn_DJ_Excluir, jTxt_DJ_Codigo);
+        
+        jTxt_DJ_Nome.grabFocus();
+    }//GEN-LAST:event_jBtn_DJ_AlterarActionPerformed
+
+    private void jBtn_DJ_CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_CancelarActionPerformed
+        // TODO add your handling code here:
+        Util.habilitar(false, jTxt_DJ_Nome, jTxt_DJ_Endereco, jTxt_DJ_Email, jTxt_DJ_Codigo,
+                jFmt_DJ_CEP, jFmt_DJ_CPF, jFmt_DJ_Telefone, jBtn_DJ_Cancelar, jBtn_DJ_Confirmar);
+        
+        Util.habilitar(true, jBtn_DJ_Alterar, jBtn_DJ_Pesquisar, jBtn_DJ_Incluir, jBtn_DJ_Excluir);
+        
+        Util.limpar(jTxt_DJ_Nome, jTxt_DJ_Endereco, jTxt_DJ_Email, jTxt_DJ_Codigo,
+                jFmt_DJ_CEP, jFmt_DJ_CPF, jFmt_DJ_Telefone);
+    }//GEN-LAST:event_jBtn_DJ_CancelarActionPerformed
+
+    private void jBtn_DJ_ConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_ConfirmarActionPerformed
+        // TODO add your handling code here:
+        Util.habilitar(false, jTxt_DJ_Nome, jTxt_DJ_Endereco, jTxt_DJ_Email, jTxt_DJ_Codigo,
+                jFmt_DJ_CEP, jFmt_DJ_CPF, jFmt_DJ_Telefone, jBtn_DJ_Cancelar, jBtn_DJ_Confirmar);
+        
+        Util.habilitar(true, jBtn_DJ_Alterar, jBtn_DJ_Pesquisar, jBtn_DJ_Incluir, jBtn_DJ_Excluir);
+        
+        Util.limpar(jTxt_DJ_Nome, jTxt_DJ_Endereco, jTxt_DJ_Email, jTxt_DJ_Codigo,
+                jFmt_DJ_CEP, jFmt_DJ_CPF, jFmt_DJ_Telefone);
+    }//GEN-LAST:event_jBtn_DJ_ConfirmarActionPerformed
+
+    private void jBtn_DJ_ExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_ExcluirActionPerformed
+        // TODO add your handling code here:
+        if(Util.perguntar("Deseja Excluir?")){
+            Util.limpar(jTxt_DJ_Nome, jTxt_DJ_Endereco, jTxt_DJ_Email, jTxt_DJ_Codigo,
+                jFmt_DJ_CEP, jFmt_DJ_CPF, jFmt_DJ_Telefone);
+            Util.mensagem("Exluido com sucesso!");
+        } else {
+            Util.mensagem("Exclusão cancelada!");
+        }
+    }//GEN-LAST:event_jBtn_DJ_ExcluirActionPerformed
+
+    private void jBtn_DJ_PesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_PesquisarActionPerformed
+        // TODO add your handling code here:
+        JDlg_DJ_VendedorPesquisar jDlg_DJ_VendedorPesquisar = new JDlg_DJ_VendedorPesquisar(null, true);
+        jDlg_DJ_VendedorPesquisar.setVisible(true);
+    }//GEN-LAST:event_jBtn_DJ_PesquisarActionPerformed
 
     /**
      * @param args the command line arguments

@@ -4,6 +4,8 @@
  */
 package view;
 
+import tools.Util;
+import view_Pesquisar.JDlg_DJ_ProdutosPesquisar;
 /**
  *
  * @author danie
@@ -16,6 +18,10 @@ public class JDlg_DJ_Produtos extends javax.swing.JDialog {
     public JDlg_DJ_Produtos(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setTitle("Cadastro de Produtos");
+        setLocationRelativeTo(null);
+        Util.habilitar(false, jTxt_DJ_Nome, jTxt_DJ_Codigo, jTxt_DJ_Descricao, jTxt_DJ_Material,
+                jTxt_DJ_NomeFlor, jTxt_DJ_Preco, jFmt_DJ_Avaliacao, jBtn_DJ_Cancelar, jBtn_DJ_Confirmar);
     }
 
     /**
@@ -52,21 +58,51 @@ public class JDlg_DJ_Produtos extends javax.swing.JDialog {
 
         jBtn_DJ_Cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-cancelar-24.png"))); // NOI18N
         jBtn_DJ_Cancelar.setText("Cancelar");
+        jBtn_DJ_Cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn_DJ_CancelarActionPerformed(evt);
+            }
+        });
 
         jBtn_DJ_Pesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-pesquisar-24.png"))); // NOI18N
         jBtn_DJ_Pesquisar.setText("Pesquisar");
+        jBtn_DJ_Pesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn_DJ_PesquisarActionPerformed(evt);
+            }
+        });
 
         jBtn_DJ_Incluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-mais-24.png"))); // NOI18N
         jBtn_DJ_Incluir.setText("Incluir");
+        jBtn_DJ_Incluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn_DJ_IncluirActionPerformed(evt);
+            }
+        });
 
         jBtn_DJ_Alterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-alter-24.png"))); // NOI18N
         jBtn_DJ_Alterar.setText("Alterar");
+        jBtn_DJ_Alterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn_DJ_AlterarActionPerformed(evt);
+            }
+        });
 
         jBtn_DJ_Excluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-entrada-proibida-24.png"))); // NOI18N
         jBtn_DJ_Excluir.setText("Excluir");
+        jBtn_DJ_Excluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn_DJ_ExcluirActionPerformed(evt);
+            }
+        });
 
         jBtn_DJ_Confirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-botão-de-opção-marcado-24.png"))); // NOI18N
         jBtn_DJ_Confirmar.setText("Confirmar");
+        jBtn_DJ_Confirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn_DJ_ConfirmarActionPerformed(evt);
+            }
+        });
 
         jLabel5.setText("Avaliação");
 
@@ -182,6 +218,68 @@ public class JDlg_DJ_Produtos extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jBtn_DJ_IncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_IncluirActionPerformed
+        // TODO add your handling code here:
+        Util.habilitar(true, jTxt_DJ_Nome, jTxt_DJ_Codigo, jTxt_DJ_Descricao, jTxt_DJ_Material,
+                jTxt_DJ_NomeFlor, jTxt_DJ_Preco, jFmt_DJ_Avaliacao, jBtn_DJ_Cancelar, jBtn_DJ_Confirmar);
+        
+        Util.habilitar(false, jBtn_DJ_Alterar, jBtn_DJ_Pesquisar, jBtn_DJ_Incluir, jBtn_DJ_Excluir);
+        
+        Util.limpar(jTxt_DJ_Nome, jTxt_DJ_Codigo, jTxt_DJ_Descricao, jTxt_DJ_Material,
+                jTxt_DJ_NomeFlor, jTxt_DJ_Preco, jFmt_DJ_Avaliacao);
+        
+        jTxt_DJ_Codigo.grabFocus();
+    }//GEN-LAST:event_jBtn_DJ_IncluirActionPerformed
+
+    private void jBtn_DJ_AlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_AlterarActionPerformed
+        // TODO add your handling code here:
+        Util.habilitar(true, jTxt_DJ_Nome, jTxt_DJ_Descricao, jTxt_DJ_Material,
+                jTxt_DJ_NomeFlor, jTxt_DJ_Preco, jFmt_DJ_Avaliacao, jBtn_DJ_Cancelar, jBtn_DJ_Confirmar);
+        
+        Util.habilitar(false, jBtn_DJ_Alterar, jBtn_DJ_Pesquisar, jBtn_DJ_Incluir, jBtn_DJ_Excluir, jTxt_DJ_Codigo);
+        
+        jTxt_DJ_Nome.grabFocus();
+    }//GEN-LAST:event_jBtn_DJ_AlterarActionPerformed
+
+    private void jBtn_DJ_ConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_ConfirmarActionPerformed
+        // TODO add your handling code here:
+        Util.habilitar(false, jTxt_DJ_Nome, jTxt_DJ_Descricao, jTxt_DJ_Material, jTxt_DJ_Codigo,
+                jTxt_DJ_NomeFlor, jTxt_DJ_Preco, jFmt_DJ_Avaliacao, jBtn_DJ_Cancelar, jBtn_DJ_Confirmar);
+        
+        Util.habilitar(true, jBtn_DJ_Alterar, jBtn_DJ_Pesquisar, jBtn_DJ_Incluir, jBtn_DJ_Excluir);
+        
+        Util.limpar(jTxt_DJ_Nome, jTxt_DJ_Codigo, jTxt_DJ_Descricao, jTxt_DJ_Material,
+                jTxt_DJ_NomeFlor, jTxt_DJ_Preco, jFmt_DJ_Avaliacao);
+    }//GEN-LAST:event_jBtn_DJ_ConfirmarActionPerformed
+
+    private void jBtn_DJ_CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_CancelarActionPerformed
+        // TODO add your handling code here:
+        Util.habilitar(false, jTxt_DJ_Nome, jTxt_DJ_Descricao, jTxt_DJ_Material, jTxt_DJ_Codigo,
+                jTxt_DJ_NomeFlor, jTxt_DJ_Preco, jFmt_DJ_Avaliacao, jBtn_DJ_Cancelar, jBtn_DJ_Confirmar);
+        
+        Util.habilitar(true, jBtn_DJ_Alterar, jBtn_DJ_Pesquisar, jBtn_DJ_Incluir, jBtn_DJ_Excluir);
+        
+        Util.limpar(jTxt_DJ_Nome, jTxt_DJ_Codigo, jTxt_DJ_Descricao, jTxt_DJ_Material,
+                jTxt_DJ_NomeFlor, jTxt_DJ_Preco, jFmt_DJ_Avaliacao);
+    }//GEN-LAST:event_jBtn_DJ_CancelarActionPerformed
+
+    private void jBtn_DJ_ExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_ExcluirActionPerformed
+        // TODO add your handling code here:
+        if(Util.perguntar("Deseja Excluir?")){
+            Util.limpar(jTxt_DJ_Nome, jTxt_DJ_Codigo, jTxt_DJ_Descricao, jTxt_DJ_Material,
+                jTxt_DJ_NomeFlor, jTxt_DJ_Preco, jFmt_DJ_Avaliacao);
+            Util.mensagem("Exluido com sucesso!");
+        } else {
+            Util.mensagem("Exclusão cancelada!");
+        }
+    }//GEN-LAST:event_jBtn_DJ_ExcluirActionPerformed
+
+    private void jBtn_DJ_PesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_PesquisarActionPerformed
+        // TODO add your handling code here:
+        JDlg_DJ_ProdutosPesquisar jDlg_DJ_ProdutosPesquisar = new JDlg_DJ_ProdutosPesquisar(null, true);
+        jDlg_DJ_ProdutosPesquisar.setVisible(true);
+    }//GEN-LAST:event_jBtn_DJ_PesquisarActionPerformed
 
     /**
      * @param args the command line arguments

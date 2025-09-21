@@ -8,15 +8,15 @@ package view_Pesquisar;
  *
  * @author danie
  */
-public class JDlg_DJ_UsuariosPesquisar extends javax.swing.JDialog {
+public class JDlg_DJ_VendedorPesquisar extends javax.swing.JDialog {
 
     /**
-     * Creates new form JDlg_DJ_UsuariosPesquisar
+     * Creates new form JDlg_DJ_VendedorPesquisar
      */
-    public JDlg_DJ_UsuariosPesquisar(java.awt.Frame parent, boolean modal) {
+    public JDlg_DJ_VendedorPesquisar(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        setTitle("Tabela de Usuários");
+        setTitle("Tabela de Vendedor");
         setLocationRelativeTo(null);
     }
 
@@ -30,12 +30,12 @@ public class JDlg_DJ_UsuariosPesquisar extends javax.swing.JDialog {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTbl_DJ_TabelaUsuarios = new javax.swing.JTable();
+        jTbl_DJ_Vendedor = new javax.swing.JTable();
         jBtn_DJ_OK = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jTbl_DJ_TabelaUsuarios.setModel(new javax.swing.table.DefaultTableModel(
+        jTbl_DJ_Vendedor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -46,7 +46,7 @@ public class JDlg_DJ_UsuariosPesquisar extends javax.swing.JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTbl_DJ_TabelaUsuarios);
+        jScrollPane1.setViewportView(jTbl_DJ_Vendedor);
 
         jBtn_DJ_OK.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-ok-24.png"))); // NOI18N
         jBtn_DJ_OK.setText("OK");
@@ -62,17 +62,17 @@ public class JDlg_DJ_UsuariosPesquisar extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jBtn_DJ_OK)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 7, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jBtn_DJ_OK, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jBtn_DJ_OK)
+                .addContainerGap())
         );
 
         pack();
@@ -100,20 +100,20 @@ public class JDlg_DJ_UsuariosPesquisar extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JDlg_DJ_UsuariosPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JDlg_DJ_VendedorPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JDlg_DJ_UsuariosPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JDlg_DJ_VendedorPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JDlg_DJ_UsuariosPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JDlg_DJ_VendedorPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JDlg_DJ_UsuariosPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JDlg_DJ_VendedorPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                JDlg_DJ_UsuariosPesquisar dialog = new JDlg_DJ_UsuariosPesquisar(new javax.swing.JFrame(), true);
+                JDlg_DJ_VendedorPesquisar dialog = new JDlg_DJ_VendedorPesquisar(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -128,6 +128,6 @@ public class JDlg_DJ_UsuariosPesquisar extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBtn_DJ_OK;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTbl_DJ_TabelaUsuarios;
+    private javax.swing.JTable jTbl_DJ_Vendedor;
     // End of variables declaration//GEN-END:variables
 }
