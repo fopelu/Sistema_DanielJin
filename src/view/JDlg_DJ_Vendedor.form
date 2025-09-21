@@ -26,34 +26,34 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jTxt_Codigo" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jTxt_Nome" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jTxt_Endereco" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jTxt_DJ_Codigo" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jTxt_DJ_Nome" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jTxt_DJ_Endereco" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jFmt_Telefone" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jFmt_CPF" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jFmt_DJ_Telefone" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jFmt_DJ_CPF" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jFmt_CEP" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jTxt_Email" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jFmt_DJ_CEP" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jTxt_DJ_Email" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                              <Component id="jBtn_DJ_Incluir" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                              <Component id="jBtn_DJ_Alterar" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jButton3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jBtn_DJ_Excluir" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jButton4" min="-2" max="-2" attributes="0"/>
+                              <Component id="jBtn_DJ_Confirmar" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jButton5" min="-2" max="-2" attributes="0"/>
+                              <Component id="jBtn_DJ_Cancelar" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jButton6" min="-2" max="-2" attributes="0"/>
+                              <Component id="jBtn_DJ_Pesquisar" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel2" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
@@ -82,15 +82,15 @@
               <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jTxt_Codigo" min="-2" max="-2" attributes="0"/>
+              <Component id="jTxt_DJ_Codigo" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jTxt_Nome" min="-2" max="-2" attributes="0"/>
+              <Component id="jTxt_DJ_Nome" min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                      <Component id="jFmt_CEP" min="-2" max="-2" attributes="0"/>
+                      <Component id="jFmt_DJ_CEP" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -98,7 +98,7 @@
                           <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jFmt_CPF" min="-2" max="-2" attributes="0"/>
+                      <Component id="jFmt_DJ_CPF" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -108,21 +108,21 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jFmt_Telefone" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTxt_Email" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jFmt_DJ_Telefone" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTxt_DJ_Email" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="jTxt_Endereco" min="-2" max="-2" attributes="0"/>
+              <Component id="jTxt_DJ_Endereco" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton6" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jBtn_DJ_Incluir" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jBtn_DJ_Alterar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jBtn_DJ_Excluir" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jBtn_DJ_Confirmar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jBtn_DJ_Cancelar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jBtn_DJ_Pesquisar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -130,7 +130,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="jButton5">
+    <Component class="javax.swing.JButton" name="jBtn_DJ_Cancelar">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/img/icons8-cancelar-24.png"/>
@@ -138,7 +138,7 @@
         <Property name="text" type="java.lang.String" value="Cancelar"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton6">
+    <Component class="javax.swing.JButton" name="jBtn_DJ_Pesquisar">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/img/icons8-pesquisar-24.png"/>
@@ -146,7 +146,7 @@
         <Property name="text" type="java.lang.String" value="Pesquisar"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="jBtn_DJ_Incluir">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/img/icons8-mais-24.png"/>
@@ -154,7 +154,7 @@
         <Property name="text" type="java.lang.String" value="Incluir"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
+    <Component class="javax.swing.JButton" name="jBtn_DJ_Alterar">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/img/icons8-alter-24.png"/>
@@ -162,7 +162,7 @@
         <Property name="text" type="java.lang.String" value="Alterar"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton3">
+    <Component class="javax.swing.JButton" name="jBtn_DJ_Excluir">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/img/icons8-entrada-proibida-24.png"/>
@@ -170,7 +170,7 @@
         <Property name="text" type="java.lang.String" value="Excluir"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton4">
+    <Component class="javax.swing.JButton" name="jBtn_DJ_Confirmar">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/img/icons8-bot&#xe3;o-de-op&#xe7;&#xe3;o-marcado-24.png"/>
@@ -178,9 +178,9 @@
         <Property name="text" type="java.lang.String" value="Confirmar"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTxt_Email">
+    <Component class="javax.swing.JTextField" name="jTxt_DJ_Email">
     </Component>
-    <Component class="javax.swing.JTextField" name="jTxt_Codigo">
+    <Component class="javax.swing.JTextField" name="jTxt_DJ_Codigo">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
@@ -192,16 +192,16 @@
         <Property name="text" type="java.lang.String" value="Nome"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTxt_Endereco">
+    <Component class="javax.swing.JTextField" name="jTxt_DJ_Endereco">
     </Component>
-    <Component class="javax.swing.JTextField" name="jTxt_Nome">
+    <Component class="javax.swing.JTextField" name="jTxt_DJ_Nome">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
         <Property name="text" type="java.lang.String" value="CEP"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JFormattedTextField" name="jFmt_CEP">
+    <Component class="javax.swing.JFormattedTextField" name="jFmt_DJ_CEP">
       <Properties>
         <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
           <Format format="#####-###" subtype="-1" type="5"/>
@@ -213,14 +213,14 @@
         <Property name="text" type="java.lang.String" value="CPF"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JFormattedTextField" name="jFmt_CPF">
+    <Component class="javax.swing.JFormattedTextField" name="jFmt_DJ_CPF">
       <Properties>
         <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
           <Format format="###.###.###-##" subtype="-1" type="5"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jFmt_CPFActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jFmt_DJ_CPFActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
@@ -228,7 +228,7 @@
         <Property name="text" type="java.lang.String" value="Telefone"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JFormattedTextField" name="jFmt_Telefone">
+    <Component class="javax.swing.JFormattedTextField" name="jFmt_DJ_Telefone">
       <Properties>
         <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
           <Format format="(##) ####-####" subtype="-1" type="5"/>

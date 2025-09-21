@@ -27,12 +27,12 @@ public class JDlg_DJ_Usuarios extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        jBtn_DJ_Incluir = new javax.swing.JButton();
+        jBtn_DJ_Alterar = new javax.swing.JButton();
+        jBtn_DJ_Excluir = new javax.swing.JButton();
+        jBtn_DJ_Confirmar = new javax.swing.JButton();
+        jBtn_DJ_Cancelar = new javax.swing.JButton();
+        jBtn_DJ_Pesquisar = new javax.swing.JButton();
         jFmt_DJ_DataDeNascimento = new javax.swing.JFormattedTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -52,23 +52,23 @@ public class JDlg_DJ_Usuarios extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-mais-24.png"))); // NOI18N
-        jButton1.setText("Incluir");
+        jBtn_DJ_Incluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-mais-24.png"))); // NOI18N
+        jBtn_DJ_Incluir.setText("Incluir");
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-alter-24.png"))); // NOI18N
-        jButton2.setText("Alterar");
+        jBtn_DJ_Alterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-alter-24.png"))); // NOI18N
+        jBtn_DJ_Alterar.setText("Alterar");
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-entrada-proibida-24.png"))); // NOI18N
-        jButton3.setText("Excluir");
+        jBtn_DJ_Excluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-entrada-proibida-24.png"))); // NOI18N
+        jBtn_DJ_Excluir.setText("Excluir");
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-botão-de-opção-marcado-24.png"))); // NOI18N
-        jButton4.setText("Confirmar");
+        jBtn_DJ_Confirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-botão-de-opção-marcado-24.png"))); // NOI18N
+        jBtn_DJ_Confirmar.setText("Confirmar");
 
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-cancelar-24.png"))); // NOI18N
-        jButton5.setText("Cancelar");
+        jBtn_DJ_Cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-cancelar-24.png"))); // NOI18N
+        jBtn_DJ_Cancelar.setText("Cancelar");
 
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-pesquisar-24.png"))); // NOI18N
-        jButton6.setText("Pesquisar");
+        jBtn_DJ_Pesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-pesquisar-24.png"))); // NOI18N
+        jBtn_DJ_Pesquisar.setText("Pesquisar");
 
         jLabel6.setText("Senha");
 
@@ -119,42 +119,41 @@ public class JDlg_DJ_Usuarios extends javax.swing.JDialog {
                         .addComponent(jFmt_DJ_Cpf)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jFmt_DJ_DataDeNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPwf_DJ_Senha)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(122, 122, 122)
+                                .addComponent(jChb_DJ_Ativo)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel8))
+                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jCbo_DJ_Nivel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton6))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel4)
-                            .addComponent(jPwf_DJ_Senha, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(9, 9, 9)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, 0)
-                                .addComponent(jLabel5)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addGap(122, 122, 122)
-                                        .addComponent(jChb_DJ_Ativo)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel8))
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jCbo_DJ_Nivel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(jBtn_DJ_Incluir)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jBtn_DJ_Alterar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jBtn_DJ_Excluir)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jBtn_DJ_Confirmar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jBtn_DJ_Cancelar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jBtn_DJ_Pesquisar))
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel4))
+                                .addGap(267, 267, 267)
+                                .addComponent(jLabel5)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -194,12 +193,12 @@ public class JDlg_DJ_Usuarios extends javax.swing.JDialog {
                         .addComponent(jCbo_DJ_Nivel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4)
-                    .addComponent(jButton5)
-                    .addComponent(jButton6))
+                    .addComponent(jBtn_DJ_Incluir)
+                    .addComponent(jBtn_DJ_Alterar)
+                    .addComponent(jBtn_DJ_Excluir)
+                    .addComponent(jBtn_DJ_Confirmar)
+                    .addComponent(jBtn_DJ_Cancelar)
+                    .addComponent(jBtn_DJ_Pesquisar))
                 .addContainerGap())
         );
 
@@ -261,12 +260,12 @@ public class JDlg_DJ_Usuarios extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jBtn_DJ_Alterar;
+    private javax.swing.JButton jBtn_DJ_Cancelar;
+    private javax.swing.JButton jBtn_DJ_Confirmar;
+    private javax.swing.JButton jBtn_DJ_Excluir;
+    private javax.swing.JButton jBtn_DJ_Incluir;
+    private javax.swing.JButton jBtn_DJ_Pesquisar;
     private javax.swing.JComboBox<String> jCbo_DJ_Nivel;
     private javax.swing.JCheckBox jChb_DJ_Ativo;
     private javax.swing.JFormattedTextField jFmt_DJ_Cpf;

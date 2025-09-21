@@ -39,6 +39,7 @@ public class JFrm_DJ_Principal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jMnu_DJ_Cadastros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-cadastro-24.png"))); // NOI18N
         jMnu_DJ_Cadastros.setText("Cadastros");
 
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_DOWN_MASK));
@@ -69,6 +70,7 @@ public class JFrm_DJ_Principal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMnu_DJ_Cadastros);
 
+        jMnu_DJ_Movimentos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-movimento-24.png"))); // NOI18N
         jMnu_DJ_Movimentos.setText("Movimentos");
 
         jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_DOWN_MASK));
@@ -88,7 +90,7 @@ public class JFrm_DJ_Principal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 277, Short.MAX_VALUE)
+            .addGap(0, 269, Short.MAX_VALUE)
         );
 
         pack();

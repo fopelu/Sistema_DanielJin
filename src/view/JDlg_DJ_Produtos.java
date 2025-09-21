@@ -27,50 +27,50 @@ public class JDlg_DJ_Produtos extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        jBtn_DJ_Cancelar = new javax.swing.JButton();
+        jBtn_DJ_Pesquisar = new javax.swing.JButton();
+        jBtn_DJ_Incluir = new javax.swing.JButton();
+        jBtn_DJ_Alterar = new javax.swing.JButton();
+        jBtn_DJ_Excluir = new javax.swing.JButton();
+        jBtn_DJ_Confirmar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        jFmt_Avaliacao = new javax.swing.JFormattedTextField();
-        jTxt_Preco = new javax.swing.JTextField();
+        jFmt_DJ_Avaliacao = new javax.swing.JFormattedTextField();
+        jTxt_DJ_Preco = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jTxt_Material = new javax.swing.JTextField();
-        jTxt_Codigo = new javax.swing.JTextField();
+        jTxt_DJ_Material = new javax.swing.JTextField();
+        jTxt_DJ_Codigo = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTxt_Nome = new javax.swing.JTextField();
-        jTxt_Descricao = new javax.swing.JTextField();
+        jTxt_DJ_Nome = new javax.swing.JTextField();
+        jTxt_DJ_Descricao = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTxt_NomeFlor = new javax.swing.JTextField();
+        jTxt_DJ_NomeFlor = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-cancelar-24.png"))); // NOI18N
-        jButton5.setText("Cancelar");
+        jBtn_DJ_Cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-cancelar-24.png"))); // NOI18N
+        jBtn_DJ_Cancelar.setText("Cancelar");
 
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-pesquisar-24.png"))); // NOI18N
-        jButton6.setText("Pesquisar");
+        jBtn_DJ_Pesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-pesquisar-24.png"))); // NOI18N
+        jBtn_DJ_Pesquisar.setText("Pesquisar");
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-mais-24.png"))); // NOI18N
-        jButton1.setText("Incluir");
+        jBtn_DJ_Incluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-mais-24.png"))); // NOI18N
+        jBtn_DJ_Incluir.setText("Incluir");
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-alter-24.png"))); // NOI18N
-        jButton2.setText("Alterar");
+        jBtn_DJ_Alterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-alter-24.png"))); // NOI18N
+        jBtn_DJ_Alterar.setText("Alterar");
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-entrada-proibida-24.png"))); // NOI18N
-        jButton3.setText("Excluir");
+        jBtn_DJ_Excluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-entrada-proibida-24.png"))); // NOI18N
+        jBtn_DJ_Excluir.setText("Excluir");
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-botão-de-opção-marcado-24.png"))); // NOI18N
-        jButton4.setText("Confirmar");
+        jBtn_DJ_Confirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-botão-de-opção-marcado-24.png"))); // NOI18N
+        jBtn_DJ_Confirmar.setText("Confirmar");
 
         jLabel5.setText("Avaliação");
 
-        jFmt_Avaliacao.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+        jFmt_DJ_Avaliacao.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
 
         jLabel3.setText("Preço");
 
@@ -93,38 +93,35 @@ public class JDlg_DJ_Produtos extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTxt_Codigo, javax.swing.GroupLayout.DEFAULT_SIZE, 631, Short.MAX_VALUE)
+                            .addComponent(jTxt_DJ_Codigo, javax.swing.GroupLayout.DEFAULT_SIZE, 631, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel4)
                                     .addComponent(jLabel7)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jButton1)
+                                        .addComponent(jBtn_DJ_Incluir)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jButton2)
+                                        .addComponent(jBtn_DJ_Alterar)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jButton3)
+                                        .addComponent(jBtn_DJ_Excluir)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jButton4)
+                                        .addComponent(jBtn_DJ_Confirmar)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jButton5)
+                                        .addComponent(jBtn_DJ_Cancelar)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jButton6))
-                                    .addComponent(jTxt_Material)
-                                    .addComponent(jTxt_Descricao))
+                                        .addComponent(jBtn_DJ_Pesquisar))
+                                    .addComponent(jTxt_DJ_Material)
+                                    .addComponent(jTxt_DJ_Descricao))
                                 .addGap(0, 2, Short.MAX_VALUE)))
                         .addContainerGap(9, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(209, 209, 209))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTxt_Preco, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
-                                    .addComponent(jTxt_Nome))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTxt_DJ_Preco, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
+                                .addComponent(jTxt_DJ_Nome))
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -133,8 +130,8 @@ public class JDlg_DJ_Produtos extends javax.swing.JDialog {
                                 .addGap(263, 263, 263))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jTxt_NomeFlor, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jFmt_Avaliacao))
+                                    .addComponent(jTxt_DJ_NomeFlor, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jFmt_DJ_Avaliacao))
                                 .addGap(11, 11, 11))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
@@ -146,7 +143,7 @@ public class JDlg_DJ_Produtos extends javax.swing.JDialog {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTxt_Codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTxt_DJ_Codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
@@ -154,32 +151,32 @@ public class JDlg_DJ_Produtos extends javax.swing.JDialog {
                             .addComponent(jLabel2)
                             .addComponent(jLabel6))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTxt_Nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jTxt_NomeFlor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTxt_DJ_Nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTxt_DJ_NomeFlor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jFmt_Avaliacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTxt_Preco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jFmt_DJ_Avaliacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTxt_DJ_Preco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTxt_Material, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTxt_DJ_Material, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTxt_Descricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTxt_DJ_Descricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4)
-                    .addComponent(jButton5)
-                    .addComponent(jButton6))
+                    .addComponent(jBtn_DJ_Incluir)
+                    .addComponent(jBtn_DJ_Alterar)
+                    .addComponent(jBtn_DJ_Excluir)
+                    .addComponent(jBtn_DJ_Confirmar)
+                    .addComponent(jBtn_DJ_Cancelar)
+                    .addComponent(jBtn_DJ_Pesquisar))
                 .addContainerGap())
         );
 
@@ -229,13 +226,13 @@ public class JDlg_DJ_Produtos extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JFormattedTextField jFmt_Avaliacao;
+    private javax.swing.JButton jBtn_DJ_Alterar;
+    private javax.swing.JButton jBtn_DJ_Cancelar;
+    private javax.swing.JButton jBtn_DJ_Confirmar;
+    private javax.swing.JButton jBtn_DJ_Excluir;
+    private javax.swing.JButton jBtn_DJ_Incluir;
+    private javax.swing.JButton jBtn_DJ_Pesquisar;
+    private javax.swing.JFormattedTextField jFmt_DJ_Avaliacao;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -243,11 +240,11 @@ public class JDlg_DJ_Produtos extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JTextField jTxt_Codigo;
-    private javax.swing.JTextField jTxt_Descricao;
-    private javax.swing.JTextField jTxt_Material;
-    private javax.swing.JTextField jTxt_Nome;
-    private javax.swing.JTextField jTxt_NomeFlor;
-    private javax.swing.JTextField jTxt_Preco;
+    private javax.swing.JTextField jTxt_DJ_Codigo;
+    private javax.swing.JTextField jTxt_DJ_Descricao;
+    private javax.swing.JTextField jTxt_DJ_Material;
+    private javax.swing.JTextField jTxt_DJ_Nome;
+    private javax.swing.JTextField jTxt_DJ_NomeFlor;
+    private javax.swing.JTextField jTxt_DJ_Preco;
     // End of variables declaration//GEN-END:variables
 }

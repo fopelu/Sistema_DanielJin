@@ -6,6 +6,9 @@
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="jMnu_DJ_Cadastros">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/img/icons8-cadastro-24.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Cadastros"/>
           </Properties>
           <SubComponents>
@@ -70,6 +73,9 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMnu_DJ_Movimentos">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/img/icons8-movimento-24.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Movimentos"/>
           </Properties>
           <SubComponents>
@@ -117,7 +123,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="277" max="32767" attributes="0"/>
+          <EmptySpace min="0" pref="269" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
