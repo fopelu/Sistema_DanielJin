@@ -264,6 +264,7 @@ public class JDlg_DJ_Usuarios extends javax.swing.JDialog {
                 jPwf_DJ_Senha, jCbo_DJ_Nivel, jChb_DJ_Ativo);
         
         jTxt_DJ_Codigo.grabFocus();
+        
     }//GEN-LAST:event_jBtn_DJ_IncluirActionPerformed
 
     private void jBtn_DJ_ConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_ConfirmarActionPerformed
@@ -307,6 +308,7 @@ public class JDlg_DJ_Usuarios extends javax.swing.JDialog {
         Util.habilitar(false, jBtn_DJ_Alterar, jBtn_DJ_Excluir, jBtn_DJ_Pesquisar, jBtn_DJ_Incluir, jTxt_DJ_Codigo);
         
         jTxt_DJ_Nome.grabFocus();
+        
     }//GEN-LAST:event_jBtn_DJ_AlterarActionPerformed
 
     private void jBtn_DJ_PesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_PesquisarActionPerformed
