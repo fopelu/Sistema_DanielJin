@@ -2,7 +2,6 @@ package bean;
 // Generated 11/10/2025 16:59:54 by Hibernate Tools 4.3.1
 
 
-import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
@@ -24,18 +23,17 @@ public class DjProdutos  implements java.io.Serializable {
 
      private int djIdProdutos;
      private String djNome;
-     private BigDecimal djPreco;
+     private double djPreco;
      private String djDescricao;
      private String djAvaliacao;
      private String djNomeDaFlor;
      private String djMaterial;
-     private Set djComprasProdutoses = new HashSet(0);
 
     public DjProdutos() {
     }
 
 	
-    public DjProdutos(int djIdProdutos, String djNome, BigDecimal djPreco, String djDescricao, String djAvaliacao, String djNomeDaFlor, String djMaterial) {
+    public DjProdutos(int djIdProdutos, String djNome, double djPreco, String djDescricao, String djAvaliacao, String djNomeDaFlor, String djMaterial) {
         this.djIdProdutos = djIdProdutos;
         this.djNome = djNome;
         this.djPreco = djPreco;
@@ -43,16 +41,6 @@ public class DjProdutos  implements java.io.Serializable {
         this.djAvaliacao = djAvaliacao;
         this.djNomeDaFlor = djNomeDaFlor;
         this.djMaterial = djMaterial;
-    }
-    public DjProdutos(int djIdProdutos, String djNome, BigDecimal djPreco, String djDescricao, String djAvaliacao, String djNomeDaFlor, String djMaterial, Set djComprasProdutoses) {
-       this.djIdProdutos = djIdProdutos;
-       this.djNome = djNome;
-       this.djPreco = djPreco;
-       this.djDescricao = djDescricao;
-       this.djAvaliacao = djAvaliacao;
-       this.djNomeDaFlor = djNomeDaFlor;
-       this.djMaterial = djMaterial;
-       this.djComprasProdutoses = djComprasProdutoses;
     }
    
      @Id 
@@ -79,11 +67,11 @@ public class DjProdutos  implements java.io.Serializable {
 
     
     @Column(name="dj_preco", nullable=false, precision=10)
-    public BigDecimal getDjPreco() {
+    public double getDjPreco() {
         return this.djPreco;
     }
     
-    public void setDjPreco(BigDecimal djPreco) {
+    public void setDjPreco(double djPreco) {
         this.djPreco = djPreco;
     }
 
@@ -126,16 +114,6 @@ public class DjProdutos  implements java.io.Serializable {
     public void setDjMaterial(String djMaterial) {
         this.djMaterial = djMaterial;
     }
-
-@OneToMany(fetch=FetchType.LAZY, mappedBy="djProdutos")
-    public Set getDjComprasProdutoses() {
-        return this.djComprasProdutoses;
-    }
-    
-    public void setDjComprasProdutoses(Set djComprasProdutoses) {
-        this.djComprasProdutoses = djComprasProdutoses;
-    }
-
 
 
 

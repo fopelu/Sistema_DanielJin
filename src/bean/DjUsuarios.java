@@ -32,7 +32,6 @@ public class DjUsuarios  implements java.io.Serializable {
      private String djSenha;
      private int djNivel;
      private String djAtivo;
-     private Set djComprases = new HashSet(0);
 
     public DjUsuarios() {
     }
@@ -47,7 +46,7 @@ public class DjUsuarios  implements java.io.Serializable {
         this.djNivel = djNivel;
         this.djAtivo = djAtivo;
     }
-    public DjUsuarios(int djIdUsuarios, String djNome, String djApelido, String djCpf, Date djDataNascimento, String djSenha, int djNivel, String djAtivo, Set djComprases) {
+    public DjUsuarios(int djIdUsuarios, String djNome, String djApelido, String djCpf, Date djDataNascimento, String djSenha, int djNivel, String djAtivo) {
        this.djIdUsuarios = djIdUsuarios;
        this.djNome = djNome;
        this.djApelido = djApelido;
@@ -56,7 +55,7 @@ public class DjUsuarios  implements java.io.Serializable {
        this.djSenha = djSenha;
        this.djNivel = djNivel;
        this.djAtivo = djAtivo;
-       this.djComprases = djComprases;
+
     }
    
      @Id 
@@ -140,17 +139,6 @@ public class DjUsuarios  implements java.io.Serializable {
     public void setDjAtivo(String djAtivo) {
         this.djAtivo = djAtivo;
     }
-
-@OneToMany(fetch=FetchType.LAZY, mappedBy="djUsuarios")
-    public Set getDjComprases() {
-        return this.djComprases;
-    }
-    
-    public void setDjComprases(Set djComprases) {
-        this.djComprases = djComprases;
-    }
-
-
 
 
 }

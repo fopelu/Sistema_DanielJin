@@ -2,7 +2,6 @@ package bean;
 // Generated 11/10/2025 16:59:54 by Hibernate Tools 4.3.1
 
 
-import java.math.BigDecimal;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -25,12 +24,12 @@ public class DjComprasProdutos  implements java.io.Serializable {
      private DjCompras djCompras;
      private DjProdutos djProdutos;
      private int djQuantidade;
-     private BigDecimal djValorUnitario;
+     private double djValorUnitario;
 
     public DjComprasProdutos() {
     }
 
-    public DjComprasProdutos(int djIdComprasProdutos, DjCompras djCompras, DjProdutos djProdutos, int djQuantidade, BigDecimal djValorUnitario) {
+    public DjComprasProdutos(int djIdComprasProdutos, DjCompras djCompras, DjProdutos djProdutos, int djQuantidade, double djValorUnitario) {
        this.djIdComprasProdutos = djIdComprasProdutos;
        this.djCompras = djCompras;
        this.djProdutos = djProdutos;
@@ -82,11 +81,11 @@ public class DjComprasProdutos  implements java.io.Serializable {
 
     
     @Column(name="dj_valor_unitario", nullable=false, precision=10)
-    public BigDecimal getDjValorUnitario() {
+    public double getDjValorUnitario() {
         return this.djValorUnitario;
     }
     
-    public void setDjValorUnitario(BigDecimal djValorUnitario) {
+    public void setDjValorUnitario(double djValorUnitario) {
         this.djValorUnitario = djValorUnitario;
     }
 

@@ -39,7 +39,7 @@ public class DjFornecedor  implements java.io.Serializable {
      private String djEstado;
      private String djNomeSite;
      private Date djDataCadastro;
-     private Set djComprases = new HashSet(0);
+
 
     public DjFornecedor() {
     }
@@ -58,7 +58,7 @@ public class DjFornecedor  implements java.io.Serializable {
         this.djPais = djPais;
         this.djEstado = djEstado;
     }
-    public DjFornecedor(int djIdFornecedor, String djNome, String djCnpj, String djRg, Date djDataNascimento, String djEmail, String djTelefone, String djEndereco, String djCidade, String djBairro, String djCep, String djPais, String djEstado, String djNomeSite, Date djDataCadastro, Set djComprases) {
+    public DjFornecedor(int djIdFornecedor, String djNome, String djCnpj, String djRg, Date djDataNascimento, String djEmail, String djTelefone, String djEndereco, String djCidade, String djBairro, String djCep, String djPais, String djEstado, String djNomeSite, Date djDataCadastro) {
        this.djIdFornecedor = djIdFornecedor;
        this.djNome = djNome;
        this.djCnpj = djCnpj;
@@ -74,7 +74,6 @@ public class DjFornecedor  implements java.io.Serializable {
        this.djEstado = djEstado;
        this.djNomeSite = djNomeSite;
        this.djDataCadastro = djDataCadastro;
-       this.djComprases = djComprases;
     }
    
      @Id 
@@ -228,18 +227,6 @@ public class DjFornecedor  implements java.io.Serializable {
     public void setDjDataCadastro(Date djDataCadastro) {
         this.djDataCadastro = djDataCadastro;
     }
-
-@OneToMany(fetch=FetchType.LAZY, mappedBy="djFornecedor")
-    public Set getDjComprases() {
-        return this.djComprases;
-    }
-    
-    public void setDjComprases(Set djComprases) {
-        this.djComprases = djComprases;
-    }
-
-
-
 
 }
 

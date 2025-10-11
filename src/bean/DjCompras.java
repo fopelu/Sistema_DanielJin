@@ -2,7 +2,7 @@ package bean;
 // Generated 11/10/2025 16:59:54 by Hibernate Tools 4.3.1
 
 
-import java.math.BigDecimal;
+
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -31,25 +31,23 @@ public class DjCompras  implements java.io.Serializable {
      private DjFornecedor djFornecedor;
      private DjUsuarios djUsuarios;
      private Date djDataCompras;
-     private BigDecimal djTotal;
-     private Set djComprasProdutoses = new HashSet(0);
+     private double djTotal;
 
     public DjCompras() {
     }
 
 	
-    public DjCompras(int djIdCompras, Date djDataCompras, BigDecimal djTotal) {
+    public DjCompras(int djIdCompras, Date djDataCompras, double djTotal) {
         this.djIdCompras = djIdCompras;
         this.djDataCompras = djDataCompras;
         this.djTotal = djTotal;
     }
-    public DjCompras(int djIdCompras, DjFornecedor djFornecedor, DjUsuarios djUsuarios, Date djDataCompras, BigDecimal djTotal, Set djComprasProdutoses) {
+    public DjCompras(int djIdCompras, DjFornecedor djFornecedor, DjUsuarios djUsuarios, Date djDataCompras, double djTotal) {
        this.djIdCompras = djIdCompras;
        this.djFornecedor = djFornecedor;
        this.djUsuarios = djUsuarios;
        this.djDataCompras = djDataCompras;
        this.djTotal = djTotal;
-       this.djComprasProdutoses = djComprasProdutoses;
     }
    
      @Id 
@@ -96,24 +94,13 @@ public class DjCompras  implements java.io.Serializable {
 
     
     @Column(name="dj_total", nullable=false, precision=10)
-    public BigDecimal getDjTotal() {
+    public double getDjTotal() {
         return this.djTotal;
     }
     
-    public void setDjTotal(BigDecimal djTotal) {
+    public void setDjTotal(double djTotal) {
         this.djTotal = djTotal;
     }
-
-@OneToMany(fetch=FetchType.LAZY, mappedBy="djCompras")
-    public Set getDjComprasProdutoses() {
-        return this.djComprasProdutoses;
-    }
-    
-    public void setDjComprasProdutoses(Set djComprasProdutoses) {
-        this.djComprasProdutoses = djComprasProdutoses;
-    }
-
-
 
 
 }
