@@ -77,6 +77,6 @@ public class Util {
     public static String datetoStr(Date data){
         if(data == null) return "";
         SimpleDateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy");
-        return formatoData.format(formatoData); 
+        return formatoData.format(data); 
     }
 }

@@ -3,11 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/danie/OneDrive/Documents/Daniel/Sistema_DanielJin/src/dao/DJ_FornecedorDAO.java</file>
-            <file>file:/C:/Users/danie/OneDrive/Documents/Daniel/Sistema_DanielJin/src/dao/DJ_UsuariosDAO.java</file>
-            <file>file:/C:/Users/danie/OneDrive/Documents/Daniel/Sistema_DanielJin/src/dao/DJ_AbstractDAO.java</file>
-            <file>file:/C:/Users/danie/OneDrive/Documents/Daniel/Sistema_DanielJin/src/dao/DJ_ProdutosDAO.java</file>
-            <file>file:/C:/Users/danie/OneDrive/Documents/Daniel/Sistema_DanielJin/src/dao/DJ_VendedorDAO.java</file>
+            <file>file:/C:/Users/danie/OneDrive/Documents/Daniel/Sistema_DanielJin/src/bean/DjComprasProdutos.java</file>
         </group>
     </open-files>
 </project-private>

@@ -4,6 +4,8 @@
  */
 package view;
 
+import bean.DjUsuarios;
+import dao.DJ_UsuariosDAO;
 import tools.Util;
 import view_Pesquisar.JDlg_DJ_UsuariosPesquisar;
 /**
@@ -12,6 +14,7 @@ import view_Pesquisar.JDlg_DJ_UsuariosPesquisar;
  */
 public class JDlg_DJ_Usuarios extends javax.swing.JDialog {
 
+    private boolean incluir;
     /**
      * Creates new form JDlg_DJ_Usuarios
      */
@@ -24,6 +27,34 @@ public class JDlg_DJ_Usuarios extends javax.swing.JDialog {
                 jPwf_DJ_Senha, jCbo_DJ_Nivel, jChb_DJ_Ativo, jBtn_DJ_Confirmar, jBtn_DJ_Cancelar);
     }
 
+    
+    public DjUsuarios viewBean(){
+        DjUsuarios djUsuarios = new DjUsuarios();
+        djUsuarios.setDjIdUsuarios(Util.strToInt(jTxt_DJ_Codigo.getText()));
+        djUsuarios.setDjNome((jTxt_DJ_Nome.getText()));
+        djUsuarios.setDjApelido((jTxt_DJ_Apelido.getText()));
+        djUsuarios.setDjCpf((jFmt_DJ_Cpf.getText()));
+        djUsuarios.setDjDataNascimento(Util.strToDate(jFmt_DJ_DataDeNascimento.getText()));
+        djUsuarios.setDjSenha((jPwf_DJ_Senha.getText()));
+        djUsuarios.setDjNivel((jCbo_DJ_Nivel.getSelectedIndex()));
+        if(jChb_DJ_Ativo.isSelected() == true){
+            djUsuarios.setDjAtivo("S");
+        }else{
+            djUsuarios.setDjAtivo("N");
+        }
+        return djUsuarios;
+    }
+    public void beanView(DjUsuarios djUsuarios){
+        jTxt_DJ_Codigo.setText(Util.intToStr(djUsuarios.getDjIdUsuarios()));
+        jTxt_DJ_Nome.setText((djUsuarios.getDjNome()));
+        jTxt_DJ_Apelido.setText((djUsuarios.getDjApelido()));
+        jFmt_DJ_Cpf.setText((djUsuarios.getDjCpf()));
+        jFmt_DJ_DataDeNascimento.setText(Util.datetoStr(djUsuarios.getDjDataNascimento()));
+        jPwf_DJ_Senha.setText((djUsuarios.getDjSenha()));
+        jCbo_DJ_Nivel.setSelectedIndex((djUsuarios.getDjNivel()));
+        jChb_DJ_Ativo.setSelected(djUsuarios.getDjAtivo().equals("S"));
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -265,10 +296,20 @@ public class JDlg_DJ_Usuarios extends javax.swing.JDialog {
         
         jTxt_DJ_Codigo.grabFocus();
         
+        incluir = true;
+        
     }//GEN-LAST:event_jBtn_DJ_IncluirActionPerformed
 
     private void jBtn_DJ_ConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_ConfirmarActionPerformed
         // TODO add your handling code here:
+        DJ_UsuariosDAO dJ_UsuariosDAO = new DJ_UsuariosDAO();
+        
+        if(incluir == true){
+        dJ_UsuariosDAO.insert(viewBean());
+        }else{
+        dJ_UsuariosDAO.update(viewBean());
+        }
+
         Util.habilitar(false, jTxt_DJ_Codigo, jTxt_DJ_Nome, jTxt_DJ_Apelido, jFmt_DJ_Cpf, jFmt_DJ_DataDeNascimento,
                 jPwf_DJ_Senha, jCbo_DJ_Nivel, jChb_DJ_Ativo, jBtn_DJ_Confirmar, jBtn_DJ_Cancelar);
         
@@ -292,12 +333,14 @@ public class JDlg_DJ_Usuarios extends javax.swing.JDialog {
     private void jBtn_DJ_ExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_ExcluirActionPerformed
         // TODO add your handling code here:
         if(Util.perguntar("Deseja Excluir?")){
-            Util.limpar(jTxt_DJ_Codigo, jTxt_DJ_Nome, jTxt_DJ_Apelido, jFmt_DJ_Cpf, jFmt_DJ_DataDeNascimento,
-                jPwf_DJ_Senha, jCbo_DJ_Nivel, jChb_DJ_Ativo);
+            DJ_UsuariosDAO usuariosDAO = new DJ_UsuariosDAO();
+            usuariosDAO.delete(viewBean());
             Util.mensagem("Exluido com sucesso!");
         } else {
             Util.mensagem("Exclusão cancelada!");
         }
+        Util.limpar(jTxt_DJ_Codigo, jTxt_DJ_Nome, jTxt_DJ_Apelido, jFmt_DJ_Cpf, jFmt_DJ_DataDeNascimento,
+                jPwf_DJ_Senha, jCbo_DJ_Nivel, jChb_DJ_Ativo);
     }//GEN-LAST:event_jBtn_DJ_ExcluirActionPerformed
 
     private void jBtn_DJ_AlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_AlterarActionPerformed
@@ -309,11 +352,14 @@ public class JDlg_DJ_Usuarios extends javax.swing.JDialog {
         
         jTxt_DJ_Nome.grabFocus();
         
+        incluir = false;
+        
     }//GEN-LAST:event_jBtn_DJ_AlterarActionPerformed
 
     private void jBtn_DJ_PesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_PesquisarActionPerformed
         // TODO add your handling code here:
         JDlg_DJ_UsuariosPesquisar jDlg_DJ_UsuariosPesquisar = new JDlg_DJ_UsuariosPesquisar(null, true);
+        jDlg_DJ_UsuariosPesquisar.setTelaPai(this);
         jDlg_DJ_UsuariosPesquisar.setVisible(true);
     }//GEN-LAST:event_jBtn_DJ_PesquisarActionPerformed
 
