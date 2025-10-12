@@ -4,14 +4,17 @@
  */
 package view;
 
+import bean.DjFornecedor;
 import tools.Util;
 import view_Pesquisar.JDlg_DJ_FornecedorPesquisar;
+import dao.DJ_FornecedorDAO;
 /**
  *
  * @author danie
  */
 public class JDlg_DJ_Fornecedor extends javax.swing.JDialog {
-
+    
+    private boolean incluir;
     /**
      * Creates new form JDlg_DJ_Fornecedor
      */
@@ -25,6 +28,44 @@ public class JDlg_DJ_Fornecedor extends javax.swing.JDialog {
                 jFmt_DJ_DataCadastro, jFmt_DJ_DataNascimento, jBtn_DJ_Cancelar, jBtn_DJ_Confirmar);
     }
 
+    public DjFornecedor viewBean(){
+        DjFornecedor djFornecedor = new DjFornecedor();
+        djFornecedor.setDjIdFornecedor(Util.strToInt(jTxt_DJ_Codigo.getText()));
+        djFornecedor.setDjNome((jTxt_DJ_Nome.getText()));
+        djFornecedor.setDjBairro((jTxt_DJ_Bairro.getText()));
+        djFornecedor.setDjCidade((jTxt_DJ_Cidade.getText()));
+        djFornecedor.setDjEmail((jTxt_DJ_Email.getText()));
+        djFornecedor.setDjEndereco((jTxt_DJ_Endereco.getText()));
+        djFornecedor.setDjEstado((jTxt_DJ_Estado.getText()));
+        djFornecedor.setDjNomeSite((jTxt_DJ_NomeSite.getText()));
+        djFornecedor.setDjPais((jTxt_DJ_Pais.getText()));
+        djFornecedor.setDjCep((jFmt_DJ_Cep.getText()));
+        djFornecedor.setDjCnpj((jFmt_DJ_Cnpj.getText()));
+        djFornecedor.setDjDataCadastro(Util.strToDate(jFmt_DJ_DataCadastro.getText()));
+        djFornecedor.setDjDataNascimento(Util.strToDate(jFmt_DJ_DataNascimento.getText()));
+        djFornecedor.setDjRg((jFmt_DJ_Rg.getText()));
+        djFornecedor.setDjTelefone((jFmt_DJ_Telefone.getText()));
+        
+        return djFornecedor;
+    }
+    
+    public void beanview(DjFornecedor djFornecedor){
+        jTxt_DJ_Codigo.setText(Util.intToStr(djFornecedor.getDjIdFornecedor()));
+        jTxt_DJ_Nome.setText((djFornecedor.getDjNome()));
+        jTxt_DJ_Bairro.setText((djFornecedor.getDjBairro()));
+        jTxt_DJ_Cidade.setText((djFornecedor.getDjCidade()));
+        jTxt_DJ_Email.setText((djFornecedor.getDjEmail()));
+        jTxt_DJ_Endereco.setText((djFornecedor.getDjEndereco()));
+        jTxt_DJ_Estado.setText((djFornecedor.getDjEstado()));
+        jTxt_DJ_NomeSite.setText((djFornecedor.getDjNomeSite()));
+        jTxt_DJ_Pais.setText((djFornecedor.getDjPais()));
+        jFmt_DJ_Cep.setText((djFornecedor.getDjCep()));
+        jFmt_DJ_Cnpj.setText((djFornecedor.getDjCnpj()));
+        jFmt_DJ_DataCadastro.setText(Util.datetoStr(djFornecedor.getDjDataCadastro()));
+        jFmt_DJ_DataNascimento.setText(Util.datetoStr(djFornecedor.getDjDataNascimento()));
+        jFmt_DJ_Rg.setText((djFornecedor.getDjRg()));
+        jFmt_DJ_Telefone.setText((djFornecedor.getDjTelefone()));
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -123,29 +164,54 @@ public class JDlg_DJ_Fornecedor extends javax.swing.JDialog {
 
         jLabel8.setText("CEP");
 
-        jFmt_DJ_Cep.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+        try {
+            jFmt_DJ_Cep.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
         jLabel19.setText("Telefone");
 
-        jFmt_DJ_Telefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+        try {
+            jFmt_DJ_Telefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) ####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
         jLabel20.setText("RG");
 
         jLabel22.setText("CNPJ");
 
-        jFmt_DJ_Cnpj.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+        try {
+            jFmt_DJ_Cnpj.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###/####-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
         jLabel1.setText("Data de nascimento");
 
+        try {
+            jFmt_DJ_Rg.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###-#")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         jFmt_DJ_Rg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jFmt_DJ_RgActionPerformed(evt);
             }
         });
 
-        jFmt_DJ_DataNascimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+        try {
+            jFmt_DJ_DataNascimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
-        jFmt_DJ_DataCadastro.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+        try {
+            jFmt_DJ_DataCadastro.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
         jLabel6.setText("Endereço");
 
@@ -221,12 +287,12 @@ public class JDlg_DJ_Fornecedor extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTxt_DJ_Cidade)
+                            .addComponent(jTxt_DJ_Estado)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel3)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jTxt_DJ_Estado)))
+                                    .addComponent(jLabel4))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jFmt_DJ_DataCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -245,12 +311,12 @@ public class JDlg_DJ_Fornecedor extends javax.swing.JDialog {
                                 .addComponent(jBtn_DJ_Cancelar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jBtn_DJ_Pesquisar))
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel7)
                                 .addGap(143, 143, 143)
                                 .addComponent(jLabel6))
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -356,6 +422,8 @@ public class JDlg_DJ_Fornecedor extends javax.swing.JDialog {
                 jFmt_DJ_DataCadastro, jFmt_DJ_DataNascimento);
         
         jTxt_DJ_Codigo.grabFocus();
+        
+        incluir = true;
     }//GEN-LAST:event_jBtn_DJ_IncluirActionPerformed
 
     private void jBtn_DJ_AlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_AlterarActionPerformed
@@ -367,10 +435,21 @@ public class JDlg_DJ_Fornecedor extends javax.swing.JDialog {
         Util.habilitar(false, jBtn_DJ_Alterar, jBtn_DJ_Pesquisar, jBtn_DJ_Incluir, jBtn_DJ_Excluir, jTxt_DJ_Codigo);
         
         jTxt_DJ_Nome.grabFocus();
+        
+        incluir = false;
     }//GEN-LAST:event_jBtn_DJ_AlterarActionPerformed
 
     private void jBtn_DJ_ConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_ConfirmarActionPerformed
         // TODO add your handling code here:
+        DJ_FornecedorDAO dJ_FornecedorDAO = new DJ_FornecedorDAO();
+        
+        if(incluir == true){
+            dJ_FornecedorDAO.insert(viewBean());
+        }else{
+            dJ_FornecedorDAO.update(viewBean());
+        }
+        
+        
         Util.habilitar(false, jTxt_DJ_Bairro, jTxt_DJ_Cidade, jTxt_DJ_Codigo, jTxt_DJ_Email, jTxt_DJ_Endereco, jTxt_DJ_Estado,
                 jTxt_DJ_Nome, jTxt_DJ_NomeSite, jTxt_DJ_Pais, jFmt_DJ_Rg, jFmt_DJ_Telefone, jFmt_DJ_Cep, jFmt_DJ_Cnpj,
                 jFmt_DJ_DataCadastro, jFmt_DJ_DataNascimento, jBtn_DJ_Cancelar, jBtn_DJ_Confirmar);
@@ -398,18 +477,21 @@ public class JDlg_DJ_Fornecedor extends javax.swing.JDialog {
     private void jBtn_DJ_ExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_ExcluirActionPerformed
         // TODO add your handling code here:
         if(Util.perguntar("Deseja Excluir?")){
-            Util.limpar(jTxt_DJ_Bairro, jTxt_DJ_Cidade, jTxt_DJ_Codigo, jTxt_DJ_Email, jTxt_DJ_Endereco, jTxt_DJ_Estado,
-                jTxt_DJ_Nome, jTxt_DJ_NomeSite, jTxt_DJ_Pais, jFmt_DJ_Rg, jFmt_DJ_Telefone, jFmt_DJ_Cep, jFmt_DJ_Cnpj,
-                jFmt_DJ_DataCadastro, jFmt_DJ_DataNascimento);
+            DJ_FornecedorDAO dJ_FornecedorDAO = new DJ_FornecedorDAO();
+            dJ_FornecedorDAO.delete(viewBean());
             Util.mensagem("Exluido com sucesso!");
         } else {
             Util.mensagem("Exclusão cancelada!");
         }
+            Util.limpar(jTxt_DJ_Bairro, jTxt_DJ_Cidade, jTxt_DJ_Codigo, jTxt_DJ_Email, jTxt_DJ_Endereco, jTxt_DJ_Estado,
+                jTxt_DJ_Nome, jTxt_DJ_NomeSite, jTxt_DJ_Pais, jFmt_DJ_Rg, jFmt_DJ_Telefone, jFmt_DJ_Cep, jFmt_DJ_Cnpj,
+                jFmt_DJ_DataCadastro, jFmt_DJ_DataNascimento);
     }//GEN-LAST:event_jBtn_DJ_ExcluirActionPerformed
 
     private void jBtn_DJ_PesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_PesquisarActionPerformed
         // TODO add your handling code here:
         JDlg_DJ_FornecedorPesquisar jDlg_DJ_FornecedorPesquisar = new JDlg_DJ_FornecedorPesquisar(null, true);
+        jDlg_DJ_FornecedorPesquisar.setTelaPai(this);
         jDlg_DJ_FornecedorPesquisar.setVisible(true);
     }//GEN-LAST:event_jBtn_DJ_PesquisarActionPerformed
 
