@@ -4,14 +4,17 @@
  */
 package view;
 
+import bean.DjProdutos;
 import tools.Util;
 import view_Pesquisar.JDlg_DJ_ProdutosPesquisar;
+import dao.DJ_ProdutosDAO;
 /**
  *
  * @author danie
  */
 public class JDlg_DJ_Produtos extends javax.swing.JDialog {
 
+    private boolean incluir;
     /**
      * Creates new form JDlg_DJ_Produtos
      */
@@ -23,7 +26,28 @@ public class JDlg_DJ_Produtos extends javax.swing.JDialog {
         Util.habilitar(false, jTxt_DJ_Nome, jTxt_DJ_Codigo, jTxt_DJ_Descricao, jTxt_DJ_Material,
                 jTxt_DJ_NomeFlor, jTxt_DJ_Preco, jFmt_DJ_Avaliacao, jBtn_DJ_Cancelar, jBtn_DJ_Confirmar);
     }
-
+    
+    public DjProdutos viewBean(){
+        DjProdutos djProdutos = new DjProdutos();
+        djProdutos.setDjIdProdutos(Util.strToInt(jTxt_DJ_Codigo.getText()));
+        djProdutos.setDjNome((jTxt_DJ_Nome.getText()));
+        djProdutos.setDjAvaliacao(Util.strToDouble(jFmt_DJ_Avaliacao.getText()));
+        djProdutos.setDjDescricao((jTxt_DJ_Descricao.getText()));
+        djProdutos.setDjMaterial((jTxt_DJ_Material.getText()));
+        djProdutos.setDjNomeDaFlor((jTxt_DJ_NomeFlor.getText()));
+        djProdutos.setDjPreco(Util.strToDouble(jTxt_DJ_Preco.getText()));
+        return djProdutos;
+    }
+    
+    public void beanView(DjProdutos djProdutos){
+        jTxt_DJ_Codigo.setText(Util.intToStr(djProdutos.getDjIdProdutos()));
+        jTxt_DJ_Descricao.setText((djProdutos.getDjDescricao()));
+        jTxt_DJ_Material.setText((djProdutos.getDjMaterial()));
+        jTxt_DJ_Nome.setText((djProdutos.getDjNome()));
+        jTxt_DJ_NomeFlor.setText((djProdutos.getDjNomeDaFlor()));
+        jTxt_DJ_Preco.setText(Util.DoubleToStr(djProdutos.getDjPreco()));
+        jFmt_DJ_Avaliacao.setText(Util.DoubleToStr(djProdutos.getDjAvaliacao()));
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -106,7 +130,11 @@ public class JDlg_DJ_Produtos extends javax.swing.JDialog {
 
         jLabel5.setText("Avaliação");
 
-        jFmt_DJ_Avaliacao.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+        try {
+            jFmt_DJ_Avaliacao.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#.#")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
         jLabel3.setText("Preço");
 
@@ -149,7 +177,7 @@ public class JDlg_DJ_Produtos extends javax.swing.JDialog {
                                     .addComponent(jTxt_DJ_Material)
                                     .addComponent(jTxt_DJ_Descricao))
                                 .addGap(0, 2, Short.MAX_VALUE)))
-                        .addContainerGap(9, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -230,6 +258,8 @@ public class JDlg_DJ_Produtos extends javax.swing.JDialog {
                 jTxt_DJ_NomeFlor, jTxt_DJ_Preco, jFmt_DJ_Avaliacao);
         
         jTxt_DJ_Codigo.grabFocus();
+        
+        incluir = true;
     }//GEN-LAST:event_jBtn_DJ_IncluirActionPerformed
 
     private void jBtn_DJ_AlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_AlterarActionPerformed
@@ -240,10 +270,20 @@ public class JDlg_DJ_Produtos extends javax.swing.JDialog {
         Util.habilitar(false, jBtn_DJ_Alterar, jBtn_DJ_Pesquisar, jBtn_DJ_Incluir, jBtn_DJ_Excluir, jTxt_DJ_Codigo);
         
         jTxt_DJ_Nome.grabFocus();
+        
+        incluir = false;
     }//GEN-LAST:event_jBtn_DJ_AlterarActionPerformed
 
     private void jBtn_DJ_ConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_ConfirmarActionPerformed
         // TODO add your handling code here:
+        DJ_ProdutosDAO dJ_ProdutosDAO = new DJ_ProdutosDAO();
+        
+        if(incluir == true){
+            dJ_ProdutosDAO.insert(viewBean());
+        }else{
+            dJ_ProdutosDAO.update(viewBean());
+        }
+        
         Util.habilitar(false, jTxt_DJ_Nome, jTxt_DJ_Descricao, jTxt_DJ_Material, jTxt_DJ_Codigo,
                 jTxt_DJ_NomeFlor, jTxt_DJ_Preco, jFmt_DJ_Avaliacao, jBtn_DJ_Cancelar, jBtn_DJ_Confirmar);
         
@@ -267,17 +307,20 @@ public class JDlg_DJ_Produtos extends javax.swing.JDialog {
     private void jBtn_DJ_ExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_ExcluirActionPerformed
         // TODO add your handling code here:
         if(Util.perguntar("Deseja Excluir?")){
-            Util.limpar(jTxt_DJ_Nome, jTxt_DJ_Codigo, jTxt_DJ_Descricao, jTxt_DJ_Material,
-                jTxt_DJ_NomeFlor, jTxt_DJ_Preco, jFmt_DJ_Avaliacao);
+            DJ_ProdutosDAO dJ_ProdutosDAO = new DJ_ProdutosDAO();
+            dJ_ProdutosDAO.delete(viewBean());
             Util.mensagem("Exluido com sucesso!");
         } else {
             Util.mensagem("Exclusão cancelada!");
         }
+            Util.limpar(jTxt_DJ_Nome, jTxt_DJ_Codigo, jTxt_DJ_Descricao, jTxt_DJ_Material,
+                jTxt_DJ_NomeFlor, jTxt_DJ_Preco, jFmt_DJ_Avaliacao);
     }//GEN-LAST:event_jBtn_DJ_ExcluirActionPerformed
 
     private void jBtn_DJ_PesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_PesquisarActionPerformed
         // TODO add your handling code here:
         JDlg_DJ_ProdutosPesquisar jDlg_DJ_ProdutosPesquisar = new JDlg_DJ_ProdutosPesquisar(null, true);
+        jDlg_DJ_ProdutosPesquisar.setTelaPai(this);
         jDlg_DJ_ProdutosPesquisar.setVisible(true);
     }//GEN-LAST:event_jBtn_DJ_PesquisarActionPerformed
 

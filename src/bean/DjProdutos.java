@@ -25,7 +25,7 @@ public class DjProdutos  implements java.io.Serializable {
      private String djNome;
      private double djPreco;
      private String djDescricao;
-     private String djAvaliacao;
+     private double djAvaliacao;
      private String djNomeDaFlor;
      private String djMaterial;
 
@@ -33,7 +33,7 @@ public class DjProdutos  implements java.io.Serializable {
     }
 
 	
-    public DjProdutos(int djIdProdutos, String djNome, double djPreco, String djDescricao, String djAvaliacao, String djNomeDaFlor, String djMaterial) {
+    public DjProdutos(int djIdProdutos, String djNome, double djPreco, String djDescricao, double djAvaliacao, String djNomeDaFlor, String djMaterial) {
         this.djIdProdutos = djIdProdutos;
         this.djNome = djNome;
         this.djPreco = djPreco;
@@ -87,11 +87,11 @@ public class DjProdutos  implements java.io.Serializable {
 
     
     @Column(name="dj_avaliacao", nullable=false, length=45)
-    public String getDjAvaliacao() {
+    public double getDjAvaliacao() {
         return this.djAvaliacao;
     }
     
-    public void setDjAvaliacao(String djAvaliacao) {
+    public void setDjAvaliacao(double djAvaliacao) {
         this.djAvaliacao = djAvaliacao;
     }
 

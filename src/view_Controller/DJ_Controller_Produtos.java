@@ -5,27 +5,27 @@
  */
 package view_Controller;
 
-import bean.DjUsuarios;
+import bean.DjProdutos;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 /**
  *
  * @author danie
  */
-public class DJ_Controller_Usuarios extends AbstractTableModel{
-    private List lstUsuarios;
+public class DJ_Controller_Produtos extends AbstractTableModel{
+    private List lstProdutos;
 
     public void setList(List lstUsuarios) {
-        this.lstUsuarios = lstUsuarios;
+        this.lstProdutos = lstUsuarios;
     }
     
-    public DjUsuarios getBean(int rowIndex) {
-        return (DjUsuarios) lstUsuarios.get(rowIndex);
+    public DjProdutos getBean(int rowIndex) {
+        return (DjProdutos) lstProdutos.get(rowIndex);
     }
 
     @Override
     public int getRowCount() {
-        return lstUsuarios.size();
+        return lstProdutos.size();
                 
     }
 
@@ -36,15 +36,15 @@ public class DJ_Controller_Usuarios extends AbstractTableModel{
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        DjUsuarios djusuarios = (DjUsuarios) lstUsuarios.get( rowIndex);
+        DjProdutos djProdutos = (DjProdutos) lstProdutos.get( rowIndex);
         if ( columnIndex == 0 ){
-            return djusuarios.getDjIdUsuarios();
+            return djProdutos.getDjIdProdutos();
         } else if (columnIndex ==1) {
-            return djusuarios.getDjNome();        
+            return djProdutos.getDjNome();        
         } else if (columnIndex ==2) {
-            return djusuarios.getDjApelido();
+            return djProdutos.getDjMaterial();
         } else if (columnIndex ==3) {
-            return djusuarios.getDjCpf();
+            return djProdutos.getDjPreco();
         }
         return "";
     }
@@ -56,9 +56,9 @@ public class DJ_Controller_Usuarios extends AbstractTableModel{
         } else if ( columnIndex == 1) {
             return "Nome";         
         } else if ( columnIndex == 2) {
-            return "Apelido";
+            return "Material";
         } else if ( columnIndex == 3) {
-            return "Cpf";
+            return "Preco";
         } 
         return "";
     }
