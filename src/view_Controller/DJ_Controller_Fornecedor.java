@@ -15,8 +15,8 @@ import javax.swing.table.AbstractTableModel;
 public class DJ_Controller_Fornecedor extends AbstractTableModel{
     private List lstFornecedor;
 
-    public void setList(List lstUsuarios) {
-        this.lstFornecedor = lstUsuarios;
+    public void setList(List lstFornecedor) {
+        this.lstFornecedor = lstFornecedor;
     }
     
     public DjFornecedor getBean(int rowIndex) {

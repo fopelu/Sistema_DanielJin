@@ -4,12 +4,19 @@
  */
 package view_Pesquisar;
 
+import bean.DjVendedor;
+import dao.DJ_VendedorDAO;
+import view.JDlg_DJ_Vendedor;
+import view_Controller.DJ_Controller_Vendedor;
+import java.util.List;
 /**
  *
  * @author danie
  */
 public class JDlg_DJ_VendedorPesquisar extends javax.swing.JDialog {
 
+    private JDlg_DJ_Vendedor jDlg_DJ_Vendedor;
+    DJ_Controller_Vendedor dJ_Controller_Vendedor;
     /**
      * Creates new form JDlg_DJ_VendedorPesquisar
      */
@@ -18,8 +25,16 @@ public class JDlg_DJ_VendedorPesquisar extends javax.swing.JDialog {
         initComponents();
         setTitle("Tabela de Vendedor");
         setLocationRelativeTo(null);
+        dJ_Controller_Vendedor = new DJ_Controller_Vendedor();
+        DJ_VendedorDAO dJ_VendedorDAO = new DJ_VendedorDAO();
+        List lista = (List) dJ_VendedorDAO.listAll();
+        dJ_Controller_Vendedor.setList(lista);
+        jTbl_DJ_Vendedor.setModel(dJ_Controller_Vendedor);
     }
-
+    
+    public void SetTelaPai(JDlg_DJ_Vendedor jDlg_DJ_Vendedor){
+        this.jDlg_DJ_Vendedor = jDlg_DJ_Vendedor;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -80,6 +95,8 @@ public class JDlg_DJ_VendedorPesquisar extends javax.swing.JDialog {
 
     private void jBtn_DJ_OKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_OKActionPerformed
         // TODO add your handling code here:
+        DjVendedor djVendedor = dJ_Controller_Vendedor.getBean(jTbl_DJ_Vendedor.getSelectedRow());
+        jDlg_DJ_Vendedor.beanView(djVendedor);
         setVisible(false);
     }//GEN-LAST:event_jBtn_DJ_OKActionPerformed
 

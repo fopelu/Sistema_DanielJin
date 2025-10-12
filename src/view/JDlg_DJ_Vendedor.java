@@ -6,6 +6,8 @@ package view;
 
 import tools.Util;
 import view_Pesquisar.JDlg_DJ_VendedorPesquisar;
+import dao.DJ_VendedorDAO;
+import bean.DjVendedor;
 
 /**
  *
@@ -13,6 +15,7 @@ import view_Pesquisar.JDlg_DJ_VendedorPesquisar;
  */
 public class JDlg_DJ_Vendedor extends javax.swing.JDialog {
 
+    private boolean incluir;
     /**
      * Creates new form JDlg_DJ_Vendedor
      */
@@ -24,7 +27,28 @@ public class JDlg_DJ_Vendedor extends javax.swing.JDialog {
         Util.habilitar(false, jTxt_DJ_Nome, jTxt_DJ_Endereco, jTxt_DJ_Email, jTxt_DJ_Codigo,
                 jFmt_DJ_CEP, jFmt_DJ_CPF, jFmt_DJ_Telefone, jBtn_DJ_Cancelar, jBtn_DJ_Confirmar);
     }
-
+    
+    public DjVendedor viewBean(){
+        DjVendedor djVendedor = new DjVendedor();
+        djVendedor.setDjIdVendedor(Util.strToInt(jTxt_DJ_Codigo.getText()));
+        djVendedor.setDjNome((jTxt_DJ_Nome.getText()));
+        djVendedor.setDjEmail((jTxt_DJ_Email.getText()));
+        djVendedor.setDjEndereco((jTxt_DJ_Endereco.getText()));
+        djVendedor.setDjCep((jFmt_DJ_CEP.getText()));
+        djVendedor.setDjCpf((jFmt_DJ_CPF.getText()));
+        djVendedor.setDjTelefone((jFmt_DJ_Telefone.getText()));
+        return djVendedor;
+    }
+    
+    public void beanView(DjVendedor djVendedor){
+        jTxt_DJ_Codigo.setText(Util.intToStr(djVendedor.getDjIdVendedor()));
+        jTxt_DJ_Nome.setText((djVendedor.getDjNome()));
+        jTxt_DJ_Email.setText((djVendedor.getDjEmail()));
+        jTxt_DJ_Endereco.setText((djVendedor.getDjEndereco()));
+        jFmt_DJ_CEP.setText((djVendedor.getDjCep()));
+        jFmt_DJ_CPF.setText((djVendedor.getDjCpf()));
+        jFmt_DJ_Telefone.setText((djVendedor.getDjTelefone()));
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -250,6 +274,8 @@ public class JDlg_DJ_Vendedor extends javax.swing.JDialog {
                 jFmt_DJ_CEP, jFmt_DJ_CPF, jFmt_DJ_Telefone);
         
         jTxt_DJ_Codigo.grabFocus();
+        
+        incluir = true;
     }//GEN-LAST:event_jBtn_DJ_IncluirActionPerformed
 
     private void jBtn_DJ_AlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_AlterarActionPerformed
@@ -260,6 +286,8 @@ public class JDlg_DJ_Vendedor extends javax.swing.JDialog {
         Util.habilitar(false, jBtn_DJ_Alterar, jBtn_DJ_Pesquisar, jBtn_DJ_Incluir, jBtn_DJ_Excluir, jTxt_DJ_Codigo);
         
         jTxt_DJ_Nome.grabFocus();
+        
+        incluir = false;
     }//GEN-LAST:event_jBtn_DJ_AlterarActionPerformed
 
     private void jBtn_DJ_CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_CancelarActionPerformed
@@ -275,6 +303,14 @@ public class JDlg_DJ_Vendedor extends javax.swing.JDialog {
 
     private void jBtn_DJ_ConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_ConfirmarActionPerformed
         // TODO add your handling code here:
+        DJ_VendedorDAO dJ_VendedorDAO = new DJ_VendedorDAO();
+        
+        if(incluir == true){
+            dJ_VendedorDAO.insert(viewBean());
+        }else{
+            dJ_VendedorDAO.update(viewBean());
+        }
+        
         Util.habilitar(false, jTxt_DJ_Nome, jTxt_DJ_Endereco, jTxt_DJ_Email, jTxt_DJ_Codigo,
                 jFmt_DJ_CEP, jFmt_DJ_CPF, jFmt_DJ_Telefone, jBtn_DJ_Cancelar, jBtn_DJ_Confirmar);
         
@@ -287,17 +323,20 @@ public class JDlg_DJ_Vendedor extends javax.swing.JDialog {
     private void jBtn_DJ_ExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_ExcluirActionPerformed
         // TODO add your handling code here:
         if(Util.perguntar("Deseja Excluir?")){
-            Util.limpar(jTxt_DJ_Nome, jTxt_DJ_Endereco, jTxt_DJ_Email, jTxt_DJ_Codigo,
-                jFmt_DJ_CEP, jFmt_DJ_CPF, jFmt_DJ_Telefone);
+            DJ_VendedorDAO dJ_VendedorDAO = new DJ_VendedorDAO();
+            dJ_VendedorDAO.delete(viewBean());
             Util.mensagem("Exluido com sucesso!");
         } else {
             Util.mensagem("Exclusão cancelada!");
         }
+            Util.limpar(jTxt_DJ_Nome, jTxt_DJ_Endereco, jTxt_DJ_Email, jTxt_DJ_Codigo,
+                jFmt_DJ_CEP, jFmt_DJ_CPF, jFmt_DJ_Telefone);
     }//GEN-LAST:event_jBtn_DJ_ExcluirActionPerformed
 
     private void jBtn_DJ_PesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_PesquisarActionPerformed
         // TODO add your handling code here:
         JDlg_DJ_VendedorPesquisar jDlg_DJ_VendedorPesquisar = new JDlg_DJ_VendedorPesquisar(null, true);
+        jDlg_DJ_VendedorPesquisar.SetTelaPai(this);
         jDlg_DJ_VendedorPesquisar.setVisible(true);
     }//GEN-LAST:event_jBtn_DJ_PesquisarActionPerformed
 
