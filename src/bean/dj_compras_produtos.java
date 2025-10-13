@@ -20,73 +20,73 @@ import javax.persistence.Table;
 public class dj_compras_produtos  implements java.io.Serializable {
 
 
-     private int djIdComprasProdutos;
-     private dj_compras djCompras;
-     private dj_produtos djProdutos;
-     private int djQuantidade;
-     private double djValorUnitario;
+     private int dj_id_compras_produtos;
+     private dj_compras dj_fkCompras;
+     private dj_produtos dj_fkProdutos;
+     private int dj_quantidade;
+     private double dj_valor_unitario;
 
     public dj_compras_produtos() {
     }
 
-    public dj_compras_produtos(int djIdComprasProdutos, dj_compras djCompras, dj_produtos djProdutos, int djQuantidade, double djValorUnitario) {
-       this.djIdComprasProdutos = djIdComprasProdutos;
-       this.djCompras = djCompras;
-       this.djProdutos = djProdutos;
-       this.djQuantidade = djQuantidade;
-       this.djValorUnitario = djValorUnitario;
+    public dj_compras_produtos(int djIdComprasProdutos, dj_compras dj_Compras, dj_produtos dj_Produtos, int dj_quantidade, double dj_valor_unitario) {
+       this.dj_id_compras_produtos = djIdComprasProdutos;
+       this.dj_fkCompras = dj_Compras;
+       this.dj_fkProdutos = dj_Produtos;
+       this.dj_quantidade = dj_quantidade;
+       this.dj_valor_unitario = dj_valor_unitario;
     }
    
      @Id 
 
     
     @Column(name="dj_id_compras_produtos", unique=true, nullable=false)
-    public int getDjIdComprasProdutos() {
-        return this.djIdComprasProdutos;
+    public int getDj_id_compras_produtos() {
+        return this.dj_id_compras_produtos;
     }
     
-    public void setDjIdComprasProdutos(int djIdComprasProdutos) {
-        this.djIdComprasProdutos = djIdComprasProdutos;
+    public void setDj_id_compras_produtos(int dj_id_compras_produtos) {
+        this.dj_id_compras_produtos = dj_id_compras_produtos;
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="dj_fkCompras", nullable=false)
-    public dj_compras getDjCompras() {
-        return this.djCompras;
+    public dj_compras getDj_fkCompras() {
+        return this.dj_fkCompras;
     }
     
-    public void setDjCompras(dj_compras djCompras) {
-        this.djCompras = djCompras;
+    public void setDj_fkCompras(dj_compras dj_fkCompras) {
+        this.dj_fkCompras = dj_fkCompras;
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="dj_fkProdutos", nullable=false)
-    public dj_produtos getDjProdutos() {
-        return this.djProdutos;
+    public dj_produtos getDj_fkProdutos() {
+        return this.dj_fkProdutos;
     }
     
-    public void setDjProdutos(dj_produtos djProdutos) {
-        this.djProdutos = djProdutos;
+    public void setDj_fkProdutos(dj_produtos dj_fkProdutos) {
+        this.dj_fkProdutos = dj_fkProdutos;
     }
 
     
     @Column(name="dj_quantidade", nullable=false)
-    public int getDjQuantidade() {
-        return this.djQuantidade;
+    public int getDj_quantidade() {
+        return this.dj_quantidade;
     }
     
-    public void setDjQuantidade(int djQuantidade) {
-        this.djQuantidade = djQuantidade;
+    public void setDj_quantidade(int dj_quantidade) {
+        this.dj_quantidade = dj_quantidade;
     }
 
     
     @Column(name="dj_valor_unitario", nullable=false, precision=10)
-    public double getDjValorUnitario() {
-        return this.djValorUnitario;
+    public double getDj_valor_unitario() {
+        return this.dj_valor_unitario;
     }
     
-    public void setDjValorUnitario(double djValorUnitario) {
-        this.djValorUnitario = djValorUnitario;
+    public void setDj_valor_unitario(double dj_valor_unitario) {
+        this.dj_valor_unitario = dj_valor_unitario;
     }
 
 

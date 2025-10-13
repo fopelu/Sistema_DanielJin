@@ -45,7 +45,7 @@ public class DJ_ClientesDAO extends DJ_AbstractDAO{
     public Object list(int codigo) {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(dj_clientes.class);
-        criteria.add(Restrictions.eq("djIdVendedor", codigo));
+        criteria.add(Restrictions.eq("dj_idClientes", codigo));
         List lista = criteria.list();
         session.getTransaction().commit();
         return lista;
@@ -62,6 +62,6 @@ public class DJ_ClientesDAO extends DJ_AbstractDAO{
         public static void main(String[] args) {
         DJ_ClientesDAO dJ_UsuariosDAO = new DJ_ClientesDAO();
         dJ_UsuariosDAO.listAll();
-        System.out.println("Deu certo DAO do Vendedor");
+        System.out.println("Deu certo DAO do Clientes");
     }
 }

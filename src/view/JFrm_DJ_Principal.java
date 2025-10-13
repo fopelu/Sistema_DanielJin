@@ -45,7 +45,7 @@ public class JFrm_DJ_Principal extends javax.swing.JFrame {
         jMnu_DJ_Cadastros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-cadastro-24.png"))); // NOI18N
         jMnu_DJ_Cadastros.setText("Cadastros");
 
-        jMni_DJ_Usuarios.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMni_DJ_Usuarios.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
         jMni_DJ_Usuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-usuário-24.png"))); // NOI18N
         jMni_DJ_Usuarios.setText("Usuários");
         jMni_DJ_Usuarios.addActionListener(new java.awt.event.ActionListener() {
@@ -55,7 +55,7 @@ public class JFrm_DJ_Principal extends javax.swing.JFrame {
         });
         jMnu_DJ_Cadastros.add(jMni_DJ_Usuarios);
 
-        jMni_DJ_Fornecedor.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMni_DJ_Fornecedor.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.CTRL_MASK));
         jMni_DJ_Fornecedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-fornecedor-24.png"))); // NOI18N
         jMni_DJ_Fornecedor.setText("Fornecedor");
         jMni_DJ_Fornecedor.addActionListener(new java.awt.event.ActionListener() {
@@ -65,9 +65,9 @@ public class JFrm_DJ_Principal extends javax.swing.JFrame {
         });
         jMnu_DJ_Cadastros.add(jMni_DJ_Fornecedor);
 
-        jMni_DJ_Vendedor.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Z, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMni_DJ_Vendedor.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Z, java.awt.event.InputEvent.CTRL_MASK));
         jMni_DJ_Vendedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-pessoa-24.png"))); // NOI18N
-        jMni_DJ_Vendedor.setText("Vendedor");
+        jMni_DJ_Vendedor.setText("Clientes");
         jMni_DJ_Vendedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMni_DJ_VendedorActionPerformed(evt);
@@ -75,7 +75,7 @@ public class JFrm_DJ_Principal extends javax.swing.JFrame {
         });
         jMnu_DJ_Cadastros.add(jMni_DJ_Vendedor);
 
-        jMni_DJ_Produtos.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMni_DJ_Produtos.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_MASK));
         jMni_DJ_Produtos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-flores-24.png"))); // NOI18N
         jMni_DJ_Produtos.setText("Produtos");
         jMni_DJ_Produtos.addActionListener(new java.awt.event.ActionListener() {
@@ -86,7 +86,7 @@ public class JFrm_DJ_Principal extends javax.swing.JFrame {
         jMnu_DJ_Cadastros.add(jMni_DJ_Produtos);
         jMnu_DJ_Cadastros.add(jSeparator1);
 
-        jMni_DJ_Sair.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ESCAPE, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        jMni_DJ_Sair.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ESCAPE, java.awt.event.InputEvent.SHIFT_MASK));
         jMni_DJ_Sair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-exportar-24.png"))); // NOI18N
         jMni_DJ_Sair.setText("Sair");
         jMni_DJ_Sair.addActionListener(new java.awt.event.ActionListener() {
@@ -101,7 +101,7 @@ public class JFrm_DJ_Principal extends javax.swing.JFrame {
         jMnu_DJ_Movimentos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-movimento-24.png"))); // NOI18N
         jMnu_DJ_Movimentos.setText("Movimentos");
 
-        jMni_DJ_Compras.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMni_DJ_Compras.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_MASK));
         jMni_DJ_Compras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-carrinho-de-compras-24.png"))); // NOI18N
         jMni_DJ_Compras.setText("Compras");
         jMnu_DJ_Movimentos.add(jMni_DJ_Compras);

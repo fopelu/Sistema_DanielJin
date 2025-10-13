@@ -21,98 +21,98 @@ import javax.persistence.Table;
 public class dj_produtos  implements java.io.Serializable {
 
 
-     private int djIdProdutos;
-     private String djNome;
-     private double djPreco;
-     private String djDescricao;
-     private double djAvaliacao;
-     private String djNomeDaFlor;
-     private String djMaterial;
+     private int dj_idProdutos;
+     private String dj_nome;
+     private double dj_preco;
+     private String dj_descricao;
+     private double dj_avaliacao;
+     private String dj_nome_da_flor;
+     private String dj_material;
 
     public dj_produtos() {
     }
 
 	
-    public dj_produtos(int djIdProdutos, String djNome, double djPreco, String djDescricao, double djAvaliacao, String djNomeDaFlor, String djMaterial) {
-        this.djIdProdutos = djIdProdutos;
-        this.djNome = djNome;
-        this.djPreco = djPreco;
-        this.djDescricao = djDescricao;
-        this.djAvaliacao = djAvaliacao;
-        this.djNomeDaFlor = djNomeDaFlor;
-        this.djMaterial = djMaterial;
+    public dj_produtos(int dj_idProdutos, String dj_nome, double dj_preco, String dj_descricao, double dj_avaliacao, String dj_nome_da_flor, String djMaterial) {
+        this.dj_idProdutos = dj_idProdutos;
+        this.dj_nome = dj_nome;
+        this.dj_preco = dj_preco;
+        this.dj_descricao = dj_descricao;
+        this.dj_avaliacao = dj_avaliacao;
+        this.dj_nome_da_flor = dj_nome_da_flor;
+        this.dj_material = djMaterial;
     }
    
      @Id 
 
     
     @Column(name="dj_idProdutos", unique=true, nullable=false)
-    public int getDjIdProdutos() {
-        return this.djIdProdutos;
+    public int getDj_idProdutos() {
+        return this.dj_idProdutos;
     }
     
-    public void setDjIdProdutos(int djIdProdutos) {
-        this.djIdProdutos = djIdProdutos;
+    public void setDj_idProdutos(int dj_idProdutos) {
+        this.dj_idProdutos = dj_idProdutos;
     }
 
     
     @Column(name="dj_nome", nullable=false, length=50)
-    public String getDjNome() {
-        return this.djNome;
+    public String getDj_nome() {
+        return this.dj_nome;
     }
     
-    public void setDjNome(String djNome) {
-        this.djNome = djNome;
+    public void setDj_nome(String dj_nome) {
+        this.dj_nome = dj_nome;
     }
 
     
     @Column(name="dj_preco", nullable=false, precision=10)
-    public double getDjPreco() {
-        return this.djPreco;
+    public double getDj_preco() {
+        return this.dj_preco;
     }
     
-    public void setDjPreco(double djPreco) {
-        this.djPreco = djPreco;
+    public void setDj_preco(double dj_preco) {
+        this.dj_preco = dj_preco;
     }
 
     
     @Column(name="dj_descricao", nullable=false)
-    public String getDjDescricao() {
-        return this.djDescricao;
+    public String getDj_descricao() {
+        return this.dj_descricao;
     }
     
-    public void setDjDescricao(String djDescricao) {
-        this.djDescricao = djDescricao;
+    public void setDj_descricao(String dj_descricao) {
+        this.dj_descricao = dj_descricao;
     }
 
     
     @Column(name="dj_avaliacao", nullable=false, length=45)
-    public double getDjAvaliacao() {
-        return this.djAvaliacao;
+    public double getDj_avaliacao() {
+        return this.dj_avaliacao;
     }
     
-    public void setDjAvaliacao(double djAvaliacao) {
-        this.djAvaliacao = djAvaliacao;
+    public void setDj_avaliacao(double dj_avaliacao) {
+        this.dj_avaliacao = dj_avaliacao;
     }
 
     
     @Column(name="dj_nome_da_flor", nullable=false, length=45)
-    public String getDjNomeDaFlor() {
-        return this.djNomeDaFlor;
+    public String getDj_nome_da_flor() {
+        return this.dj_nome_da_flor;
     }
     
-    public void setDjNomeDaFlor(String djNomeDaFlor) {
-        this.djNomeDaFlor = djNomeDaFlor;
+    public void setDj_nome_da_flor(String dj_nome_da_flor) {
+        this.dj_nome_da_flor = dj_nome_da_flor;
     }
 
     
     @Column(name="dj_material", nullable=false, length=45)
-    public String getDjMaterial() {
-        return this.djMaterial;
+    public String getDj_material() {
+        return this.dj_material;
     }
     
-    public void setDjMaterial(String djMaterial) {
-        this.djMaterial = djMaterial;
+    public void setDj_material(String dj_material) {
+        this.dj_material = dj_material;
     }
 
 

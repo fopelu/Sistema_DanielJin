@@ -17,106 +17,106 @@ import javax.persistence.Table;
 public class dj_clientes  implements java.io.Serializable {
 
 
-     private int djIdVendedor;
-     private String djNome;
-     private String djCpf;
-     private String djTelefone;
-     private String djEmail;
-     private String djEndereco;
-     private String djCep;
+     private int dj_idClientes;
+     private String dj_nome;
+     private String dj_cpf;
+     private String dj_telefone;
+     private String dj_email;
+     private String dj_endereco;
+     private String dj_cep;
 
     public dj_clientes() {
     }
 
 	
-    public dj_clientes(int djIdVendedor, String djNome, String djCpf, String djEmail, String djEndereco, String djCep) {
-        this.djIdVendedor = djIdVendedor;
-        this.djNome = djNome;
-        this.djCpf = djCpf;
-        this.djEmail = djEmail;
-        this.djEndereco = djEndereco;
-        this.djCep = djCep;
+    public dj_clientes(int dj_idClientes, String dj_nome, String dj_cpf, String dj_email, String dj_endereco, String dj_cep) {
+        this.dj_idClientes = dj_idClientes;
+        this.dj_nome = dj_nome;
+        this.dj_cpf = dj_cpf;
+        this.dj_email = dj_email;
+        this.dj_endereco = dj_endereco;
+        this.dj_cep = dj_cep;
     }
-    public dj_clientes(int djIdVendedor, String djNome, String djCpf, String djTelefone, String djEmail, String djEndereco, String djCep) {
-       this.djIdVendedor = djIdVendedor;
-       this.djNome = djNome;
-       this.djCpf = djCpf;
-       this.djTelefone = djTelefone;
-       this.djEmail = djEmail;
-       this.djEndereco = djEndereco;
-       this.djCep = djCep;
+    public dj_clientes(int dj_idClientes, String dj_nome, String dj_cpf, String dj_telefone, String dj_email, String dj_endereco, String dj_cep) {
+       this.dj_idClientes = dj_idClientes;
+       this.dj_nome = dj_nome;
+       this.dj_cpf = dj_cpf;
+       this.dj_telefone = dj_telefone;
+       this.dj_email = dj_email;
+       this.dj_endereco = dj_endereco;
+       this.dj_cep = dj_cep;
     }
    
      @Id 
 
     
-    @Column(name="dj_idVendedor", unique=true, nullable=false)
-    public int getDjIdVendedor() {
-        return this.djIdVendedor;
+    @Column(name="dj_idClientes", unique=true, nullable=false)
+    public int getDj_idClientes() {
+        return this.dj_idClientes;
     }
     
-    public void setDjIdVendedor(int djIdVendedor) {
-        this.djIdVendedor = djIdVendedor;
+    public void setDj_idClientes(int dj_idClientes) {
+        this.dj_idClientes = dj_idClientes;
     }
 
     
     @Column(name="dj_nome", nullable=false, length=50)
-    public String getDjNome() {
-        return this.djNome;
+    public String getDj_nome() {
+        return this.dj_nome;
     }
     
-    public void setDjNome(String djNome) {
-        this.djNome = djNome;
+    public void setDj_nome(String dj_nome) {
+        this.dj_nome = dj_nome;
     }
 
     
     @Column(name="dj_cpf", nullable=false, length=14)
-    public String getDjCpf() {
-        return this.djCpf;
+    public String getDj_cpf() {
+        return this.dj_cpf;
     }
     
-    public void setDjCpf(String djCpf) {
-        this.djCpf = djCpf;
+    public void setDj_cpf(String dj_cpf) {
+        this.dj_cpf = dj_cpf;
     }
 
     
     @Column(name="dj_telefone", length=14)
-    public String getDjTelefone() {
-        return this.djTelefone;
+    public String getDj_telefone() {
+        return this.dj_telefone;
     }
     
-    public void setDjTelefone(String djTelefone) {
-        this.djTelefone = djTelefone;
+    public void setDj_telefone(String dj_telefone) {
+        this.dj_telefone = dj_telefone;
     }
 
     
     @Column(name="dj_email", nullable=false, length=80)
-    public String getDjEmail() {
-        return this.djEmail;
+    public String getDj_email() {
+        return this.dj_email;
     }
     
-    public void setDjEmail(String djEmail) {
-        this.djEmail = djEmail;
+    public void setDj_email(String dj_email) {
+        this.dj_email = dj_email;
     }
 
     
     @Column(name="dj_endereco", nullable=false, length=50)
-    public String getDjEndereco() {
-        return this.djEndereco;
+    public String getDj_endereco() {
+        return this.dj_endereco;
     }
     
-    public void setDjEndereco(String djEndereco) {
-        this.djEndereco = djEndereco;
+    public void setDj_endereco(String dj_endereco) {
+        this.dj_endereco = dj_endereco;
     }
 
     
     @Column(name="dj_cep", nullable=false, length=9)
-    public String getDjCep() {
-        return this.djCep;
+    public String getDj_cep() {
+        return this.dj_cep;
     }
     
-    public void setDjCep(String djCep) {
-        this.djCep = djCep;
+    public void setDj_cep(String dj_cep) {
+        this.dj_cep = dj_cep;
     }
 
 

@@ -29,24 +29,24 @@ public class JDlg_DJ_Produtos extends javax.swing.JDialog {
     
     public dj_produtos viewBean(){
         dj_produtos djProdutos = new dj_produtos();
-        djProdutos.setDjIdProdutos(Util.strToInt(jTxt_DJ_Codigo.getText()));
-        djProdutos.setDjNome((jTxt_DJ_Nome.getText()));
-        djProdutos.setDjAvaliacao(Util.strToDouble(jFmt_DJ_Avaliacao.getText()));
-        djProdutos.setDjDescricao((jTxt_DJ_Descricao.getText()));
-        djProdutos.setDjMaterial((jTxt_DJ_Material.getText()));
-        djProdutos.setDjNomeDaFlor((jTxt_DJ_NomeFlor.getText()));
-        djProdutos.setDjPreco(Util.strToDouble(jTxt_DJ_Preco.getText()));
+        djProdutos.setDj_idProdutos(Util.strToInt(jTxt_DJ_Codigo.getText()));
+        djProdutos.setDj_nome((jTxt_DJ_Nome.getText()));
+        djProdutos.setDj_avaliacao(Util.strToDouble(jFmt_DJ_Avaliacao.getText()));
+        djProdutos.setDj_descricao((jTxt_DJ_Descricao.getText()));
+        djProdutos.setDj_material((jTxt_DJ_Material.getText()));
+        djProdutos.setDj_nome_da_flor((jTxt_DJ_NomeFlor.getText()));
+        djProdutos.setDj_preco(Util.strToDouble(jTxt_DJ_Preco.getText()));
         return djProdutos;
     }
     
     public void beanView(dj_produtos djProdutos){
-        jTxt_DJ_Codigo.setText(Util.intToStr(djProdutos.getDjIdProdutos()));
-        jTxt_DJ_Descricao.setText((djProdutos.getDjDescricao()));
-        jTxt_DJ_Material.setText((djProdutos.getDjMaterial()));
-        jTxt_DJ_Nome.setText((djProdutos.getDjNome()));
-        jTxt_DJ_NomeFlor.setText((djProdutos.getDjNomeDaFlor()));
-        jTxt_DJ_Preco.setText(Util.DoubleToStr(djProdutos.getDjPreco()));
-        jFmt_DJ_Avaliacao.setText(Util.DoubleToStr(djProdutos.getDjAvaliacao()));
+        jTxt_DJ_Codigo.setText(Util.intToStr(djProdutos.getDj_idProdutos()));
+        jTxt_DJ_Descricao.setText((djProdutos.getDj_descricao()));
+        jTxt_DJ_Material.setText((djProdutos.getDj_material()));
+        jTxt_DJ_Nome.setText((djProdutos.getDj_nome()));
+        jTxt_DJ_NomeFlor.setText((djProdutos.getDj_nome_da_flor()));
+        jTxt_DJ_Preco.setText(Util.DoubleToStr(djProdutos.getDj_preco()));
+        jFmt_DJ_Avaliacao.setText(Util.DoubleToStr(djProdutos.getDj_avaliacao()));
     }
     /**
      * This method is called from within the constructor to initialize the form.

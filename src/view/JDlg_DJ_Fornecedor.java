@@ -30,41 +30,41 @@ public class JDlg_DJ_Fornecedor extends javax.swing.JDialog {
 
     public dj_fornecedor viewBean(){
         dj_fornecedor djFornecedor = new dj_fornecedor();
-        djFornecedor.setDjIdFornecedor(Util.strToInt(jTxt_DJ_Codigo.getText()));
-        djFornecedor.setDjNome((jTxt_DJ_Nome.getText()));
-        djFornecedor.setDjBairro((jTxt_DJ_Bairro.getText()));
-        djFornecedor.setDjCidade((jTxt_DJ_Cidade.getText()));
-        djFornecedor.setDjEmail((jTxt_DJ_Email.getText()));
-        djFornecedor.setDjEndereco((jTxt_DJ_Endereco.getText()));
-        djFornecedor.setDjEstado((jTxt_DJ_Estado.getText()));
-        djFornecedor.setDjNomeSite((jTxt_DJ_NomeSite.getText()));
-        djFornecedor.setDjPais((jTxt_DJ_Pais.getText()));
-        djFornecedor.setDjCep((jFmt_DJ_Cep.getText()));
-        djFornecedor.setDjCnpj((jFmt_DJ_Cnpj.getText()));
-        djFornecedor.setDjDataCadastro(Util.strToDate(jFmt_DJ_DataCadastro.getText()));
-        djFornecedor.setDjDataNascimento(Util.strToDate(jFmt_DJ_DataNascimento.getText()));
-        djFornecedor.setDjRg((jFmt_DJ_Rg.getText()));
-        djFornecedor.setDjTelefone((jFmt_DJ_Telefone.getText()));
+        djFornecedor.setDj_idFornecedor(Util.strToInt(jTxt_DJ_Codigo.getText()));
+        djFornecedor.setDj_nome((jTxt_DJ_Nome.getText()));
+        djFornecedor.setDj_bairro((jTxt_DJ_Bairro.getText()));
+        djFornecedor.setDj_cidade((jTxt_DJ_Cidade.getText()));
+        djFornecedor.setDj_email((jTxt_DJ_Email.getText()));
+        djFornecedor.setDj_endereco((jTxt_DJ_Endereco.getText()));
+        djFornecedor.setDj_estado((jTxt_DJ_Estado.getText()));
+        djFornecedor.setDj_nomeSite((jTxt_DJ_NomeSite.getText()));
+        djFornecedor.setDj_pais((jTxt_DJ_Pais.getText()));
+        djFornecedor.setDj_cep((jFmt_DJ_Cep.getText()));
+        djFornecedor.setDj_cnpj((jFmt_DJ_Cnpj.getText()));
+        djFornecedor.setDj_dataCadastro(Util.strToDate(jFmt_DJ_DataCadastro.getText()));
+        djFornecedor.setDj_dataNascimento(Util.strToDate(jFmt_DJ_DataNascimento.getText()));
+        djFornecedor.setDj_inscricao_estadual((jFmt_DJ_Rg.getText()));
+        djFornecedor.setDj_telefone((jFmt_DJ_Telefone.getText()));
         
         return djFornecedor;
     }
     
     public void beanview(dj_fornecedor djFornecedor){
-        jTxt_DJ_Codigo.setText(Util.intToStr(djFornecedor.getDjIdFornecedor()));
-        jTxt_DJ_Nome.setText((djFornecedor.getDjNome()));
-        jTxt_DJ_Bairro.setText((djFornecedor.getDjBairro()));
-        jTxt_DJ_Cidade.setText((djFornecedor.getDjCidade()));
-        jTxt_DJ_Email.setText((djFornecedor.getDjEmail()));
-        jTxt_DJ_Endereco.setText((djFornecedor.getDjEndereco()));
-        jTxt_DJ_Estado.setText((djFornecedor.getDjEstado()));
-        jTxt_DJ_NomeSite.setText((djFornecedor.getDjNomeSite()));
-        jTxt_DJ_Pais.setText((djFornecedor.getDjPais()));
-        jFmt_DJ_Cep.setText((djFornecedor.getDjCep()));
-        jFmt_DJ_Cnpj.setText((djFornecedor.getDjCnpj()));
-        jFmt_DJ_DataCadastro.setText(Util.datetoStr(djFornecedor.getDjDataCadastro()));
-        jFmt_DJ_DataNascimento.setText(Util.datetoStr(djFornecedor.getDjDataNascimento()));
-        jFmt_DJ_Rg.setText((djFornecedor.getDjRg()));
-        jFmt_DJ_Telefone.setText((djFornecedor.getDjTelefone()));
+        jTxt_DJ_Codigo.setText(Util.intToStr(djFornecedor.getDj_idFornecedor()));
+        jTxt_DJ_Nome.setText((djFornecedor.getDj_nome()));
+        jTxt_DJ_Bairro.setText((djFornecedor.getDj_bairro()));
+        jTxt_DJ_Cidade.setText((djFornecedor.getDj_cidade()));
+        jTxt_DJ_Email.setText((djFornecedor.getDj_email()));
+        jTxt_DJ_Endereco.setText((djFornecedor.getDj_endereco()));
+        jTxt_DJ_Estado.setText((djFornecedor.getDj_estado()));
+        jTxt_DJ_NomeSite.setText((djFornecedor.getDj_nomeSite()));
+        jTxt_DJ_Pais.setText((djFornecedor.getDj_pais()));
+        jFmt_DJ_Cep.setText((djFornecedor.getDj_cep()));
+        jFmt_DJ_Cnpj.setText((djFornecedor.getDj_cnpj()));
+        jFmt_DJ_DataCadastro.setText(Util.datetoStr(djFornecedor.getDj_dataCadastro()));
+        jFmt_DJ_DataNascimento.setText(Util.datetoStr(djFornecedor.getDj_dataNascimento()));
+        jFmt_DJ_Rg.setText((djFornecedor.getDj_inscricao_estadual()));
+        jFmt_DJ_Telefone.setText((djFornecedor.getDj_telefone()));
     }
     /**
      * This method is called from within the constructor to initialize the form.

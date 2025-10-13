@@ -24,208 +24,208 @@ import javax.persistence.TemporalType;
 public class dj_fornecedor  implements java.io.Serializable {
 
 
-     private int djIdFornecedor;
-     private String djNome;
-     private String djCnpj;
-     private String djRg;
-     private Date djDataNascimento;
-     private String djEmail;
-     private String djTelefone;
-     private String djEndereco;
-     private String djCidade;
-     private String djBairro;
-     private String djCep;
-     private String djPais;
-     private String djEstado;
-     private String djNomeSite;
-     private Date djDataCadastro;
+     private int dj_idFornecedor;
+     private String dj_nome;
+     private String dj_cnpj;
+     private String dj_inscricao_estadual;
+     private Date dj_dataNascimento;
+     private String dj_email;
+     private String dj_telefone;
+     private String dj_endereco;
+     private String dj_cidade;
+     private String dj_bairro;
+     private String dj_cep;
+     private String dj_pais;
+     private String dj_estado;
+     private String dj_nomeSite;
+     private Date dj_dataCadastro;
 
 
     public dj_fornecedor() {
     }
 
 	
-    public dj_fornecedor(int djIdFornecedor, String djNome, String djCnpj, String djRg, String djEmail, String djEndereco, String djCidade, String djBairro, String djCep, String djPais, String djEstado) {
-        this.djIdFornecedor = djIdFornecedor;
-        this.djNome = djNome;
-        this.djCnpj = djCnpj;
-        this.djRg = djRg;
-        this.djEmail = djEmail;
-        this.djEndereco = djEndereco;
-        this.djCidade = djCidade;
-        this.djBairro = djBairro;
-        this.djCep = djCep;
-        this.djPais = djPais;
-        this.djEstado = djEstado;
+    public dj_fornecedor(int dj_idFornecedor, String dj_nome, String dj_cnpj, String dj_inscricao_estadual, String dj_email, String dj_endereco, String dj_cidade, String dj_bairro, String dj_cep, String dj_pais, String dj_estado) {
+        this.dj_idFornecedor = dj_idFornecedor;
+        this.dj_nome = dj_nome;
+        this.dj_cnpj = dj_cnpj;
+        this.dj_inscricao_estadual = dj_inscricao_estadual;
+        this.dj_email = dj_email;
+        this.dj_endereco = dj_endereco;
+        this.dj_cidade = dj_cidade;
+        this.dj_bairro = dj_bairro;
+        this.dj_cep = dj_cep;
+        this.dj_pais = dj_pais;
+        this.dj_estado = dj_estado;
     }
-    public dj_fornecedor(int djIdFornecedor, String djNome, String djCnpj, String djRg, Date djDataNascimento, String djEmail, String djTelefone, String djEndereco, String djCidade, String djBairro, String djCep, String djPais, String djEstado, String djNomeSite, Date djDataCadastro) {
-       this.djIdFornecedor = djIdFornecedor;
-       this.djNome = djNome;
-       this.djCnpj = djCnpj;
-       this.djRg = djRg;
-       this.djDataNascimento = djDataNascimento;
-       this.djEmail = djEmail;
-       this.djTelefone = djTelefone;
-       this.djEndereco = djEndereco;
-       this.djCidade = djCidade;
-       this.djBairro = djBairro;
-       this.djCep = djCep;
-       this.djPais = djPais;
-       this.djEstado = djEstado;
-       this.djNomeSite = djNomeSite;
-       this.djDataCadastro = djDataCadastro;
+    public dj_fornecedor(int dj_idFornecedor, String dj_nome, String dj_cnpj, String dj_inscricao_estadual, Date dj_dataNascimento, String dj_email, String dj_telefone, String dj_endereco, String dj_cidade, String dj_bairro, String dj_cep, String dj_pais, String dj_estado, String dj_nomeSite, Date dj_dataCadastro) {
+       this.dj_idFornecedor = dj_idFornecedor;
+       this.dj_nome = dj_nome;
+       this.dj_cnpj = dj_cnpj;
+       this.dj_inscricao_estadual = dj_inscricao_estadual;
+       this.dj_dataNascimento = dj_dataNascimento;
+       this.dj_email = dj_email;
+       this.dj_telefone = dj_telefone;
+       this.dj_endereco = dj_endereco;
+       this.dj_cidade = dj_cidade;
+       this.dj_bairro = dj_bairro;
+       this.dj_cep = dj_cep;
+       this.dj_pais = dj_pais;
+       this.dj_estado = dj_estado;
+       this.dj_nomeSite = dj_nomeSite;
+       this.dj_dataCadastro = dj_dataCadastro;
     }
    
      @Id 
 
     
     @Column(name="dj_idFornecedor", unique=true, nullable=false)
-    public int getDjIdFornecedor() {
-        return this.djIdFornecedor;
+    public int getDj_idFornecedor() {
+        return this.dj_idFornecedor;
     }
     
-    public void setDjIdFornecedor(int djIdFornecedor) {
-        this.djIdFornecedor = djIdFornecedor;
+    public void setDj_idFornecedor(int dj_idFornecedor) {
+        this.dj_idFornecedor = dj_idFornecedor;
     }
 
     
     @Column(name="dj_nome", nullable=false, length=50)
-    public String getDjNome() {
-        return this.djNome;
+    public String getDj_nome() {
+        return this.dj_nome;
     }
     
-    public void setDjNome(String djNome) {
-        this.djNome = djNome;
+    public void setDj_nome(String dj_nome) {
+        this.dj_nome = dj_nome;
     }
 
     
     @Column(name="dj_cnpj", nullable=false, length=18)
-    public String getDjCnpj() {
-        return this.djCnpj;
+    public String getDj_cnpj() {
+        return this.dj_cnpj;
     }
     
-    public void setDjCnpj(String djCnpj) {
-        this.djCnpj = djCnpj;
+    public void setDj_cnpj(String dj_cnpj) {
+        this.dj_cnpj = dj_cnpj;
     }
 
     
-    @Column(name="dj_rg", nullable=false, length=12)
-    public String getDjRg() {
-        return this.djRg;
+    @Column(name="dj_inscricao_estadual", nullable=false, length=12)
+    public String getDj_inscricao_estadual() {
+        return this.dj_inscricao_estadual;
     }
     
-    public void setDjRg(String djRg) {
-        this.djRg = djRg;
+    public void setDj_inscricao_estadual(String dj_inscricao_estadual) {
+        this.dj_inscricao_estadual = dj_inscricao_estadual;
     }
 
     @Temporal(TemporalType.DATE)
     @Column(name="dj_dataNascimento", length=10)
-    public Date getDjDataNascimento() {
-        return this.djDataNascimento;
+    public Date getDj_dataNascimento() {
+        return this.dj_dataNascimento;
     }
     
-    public void setDjDataNascimento(Date djDataNascimento) {
-        this.djDataNascimento = djDataNascimento;
+    public void setDj_dataNascimento(Date dj_dataNascimento) {
+        this.dj_dataNascimento = dj_dataNascimento;
     }
 
     
     @Column(name="dj_email", nullable=false, length=80)
-    public String getDjEmail() {
-        return this.djEmail;
+    public String getDj_email() {
+        return this.dj_email;
     }
     
-    public void setDjEmail(String djEmail) {
-        this.djEmail = djEmail;
+    public void setDj_email(String dj_email) {
+        this.dj_email = dj_email;
     }
 
     
     @Column(name="dj_telefone", length=14)
-    public String getDjTelefone() {
-        return this.djTelefone;
+    public String getDj_telefone() {
+        return this.dj_telefone;
     }
     
-    public void setDjTelefone(String djTelefone) {
-        this.djTelefone = djTelefone;
+    public void setDj_telefone(String dj_telefone) {
+        this.dj_telefone = dj_telefone;
     }
 
     
     @Column(name="dj_endereco", nullable=false, length=50)
-    public String getDjEndereco() {
-        return this.djEndereco;
+    public String getDj_endereco() {
+        return this.dj_endereco;
     }
     
-    public void setDjEndereco(String djEndereco) {
-        this.djEndereco = djEndereco;
+    public void setDj_endereco(String dj_endereco) {
+        this.dj_endereco = dj_endereco;
     }
 
     
     @Column(name="dj_cidade", nullable=false, length=50)
-    public String getDjCidade() {
-        return this.djCidade;
+    public String getDj_cidade() {
+        return this.dj_cidade;
     }
     
-    public void setDjCidade(String djCidade) {
-        this.djCidade = djCidade;
+    public void setDj_cidade(String dj_cidade) {
+        this.dj_cidade = dj_cidade;
     }
 
     
     @Column(name="dj_bairro", nullable=false, length=30)
-    public String getDjBairro() {
-        return this.djBairro;
+    public String getDj_bairro() {
+        return this.dj_bairro;
     }
     
-    public void setDjBairro(String djBairro) {
-        this.djBairro = djBairro;
+    public void setDj_bairro(String dj_bairro) {
+        this.dj_bairro = dj_bairro;
     }
 
     
     @Column(name="dj_cep", nullable=false, length=9)
-    public String getDjCep() {
-        return this.djCep;
+    public String getDj_cep() {
+        return this.dj_cep;
     }
     
-    public void setDjCep(String djCep) {
-        this.djCep = djCep;
+    public void setDj_cep(String dj_cep) {
+        this.dj_cep = dj_cep;
     }
 
     
     @Column(name="dj_pais", nullable=false, length=20)
-    public String getDjPais() {
-        return this.djPais;
+    public String getDj_pais() {
+        return this.dj_pais;
     }
     
-    public void setDjPais(String djPais) {
-        this.djPais = djPais;
+    public void setDj_pais(String dj_pais) {
+        this.dj_pais = dj_pais;
     }
 
     
     @Column(name="dj_estado", nullable=false, length=50)
-    public String getDjEstado() {
-        return this.djEstado;
+    public String getDj_estado() {
+        return this.dj_estado;
     }
     
-    public void setDjEstado(String djEstado) {
-        this.djEstado = djEstado;
+    public void setDj_estado(String dj_estado) {
+        this.dj_estado = dj_estado;
     }
 
     
     @Column(name="dj_nomeSite", length=50)
-    public String getDjNomeSite() {
-        return this.djNomeSite;
+    public String getDj_nomeSite() {
+        return this.dj_nomeSite;
     }
     
-    public void setDjNomeSite(String djNomeSite) {
-        this.djNomeSite = djNomeSite;
+    public void setDj_nomeSite(String dj_nomeSite) {
+        this.dj_nomeSite = dj_nomeSite;
     }
 
     @Temporal(TemporalType.DATE)
     @Column(name="dj_dataCadastro", length=10)
-    public Date getDjDataCadastro() {
-        return this.djDataCadastro;
+    public Date getDj_dataCadastro() {
+        return this.dj_dataCadastro;
     }
     
-    public void setDjDataCadastro(Date djDataCadastro) {
-        this.djDataCadastro = djDataCadastro;
+    public void setDj_dataCadastro(Date dj_dataCadastro) {
+        this.dj_dataCadastro = dj_dataCadastro;
     }
 
 }

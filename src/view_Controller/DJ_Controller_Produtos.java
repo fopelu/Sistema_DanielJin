@@ -38,13 +38,13 @@ public class DJ_Controller_Produtos extends AbstractTableModel{
     public Object getValueAt(int rowIndex, int columnIndex) {
         dj_produtos djProdutos = (dj_produtos) lstProdutos.get( rowIndex);
         if ( columnIndex == 0 ){
-            return djProdutos.getDjIdProdutos();
+            return djProdutos.getDj_idProdutos();
         } else if (columnIndex ==1) {
-            return djProdutos.getDjNome();        
+            return djProdutos.getDj_nome();        
         } else if (columnIndex ==2) {
-            return djProdutos.getDjMaterial();
+            return djProdutos.getDj_material();
         } else if (columnIndex ==3) {
-            return djProdutos.getDjPreco();
+            return djProdutos.getDj_preco();
         }
         return "";
     }

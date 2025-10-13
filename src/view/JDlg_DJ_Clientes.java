@@ -22,7 +22,7 @@ public class JDlg_DJ_Clientes extends javax.swing.JDialog {
     public JDlg_DJ_Clientes(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        setTitle("Cadastro de Vendedor");
+        setTitle("Cadastro de Clientes");
         setLocationRelativeTo(null);
         Util.habilitar(false, jTxt_DJ_Nome, jTxt_DJ_Endereco, jTxt_DJ_Email, jTxt_DJ_Codigo,
                 jFmt_DJ_CEP, jFmt_DJ_CPF, jFmt_DJ_Telefone, jBtn_DJ_Cancelar, jBtn_DJ_Confirmar);
@@ -30,24 +30,24 @@ public class JDlg_DJ_Clientes extends javax.swing.JDialog {
     
     public dj_clientes viewBean(){
         dj_clientes djVendedor = new dj_clientes();
-        djVendedor.setDjIdVendedor(Util.strToInt(jTxt_DJ_Codigo.getText()));
-        djVendedor.setDjNome((jTxt_DJ_Nome.getText()));
-        djVendedor.setDjEmail((jTxt_DJ_Email.getText()));
-        djVendedor.setDjEndereco((jTxt_DJ_Endereco.getText()));
-        djVendedor.setDjCep((jFmt_DJ_CEP.getText()));
-        djVendedor.setDjCpf((jFmt_DJ_CPF.getText()));
-        djVendedor.setDjTelefone((jFmt_DJ_Telefone.getText()));
+        djVendedor.setDj_idClientes(Util.strToInt(jTxt_DJ_Codigo.getText()));
+        djVendedor.setDj_nome((jTxt_DJ_Nome.getText()));
+        djVendedor.setDj_email((jTxt_DJ_Email.getText()));
+        djVendedor.setDj_endereco((jTxt_DJ_Endereco.getText()));
+        djVendedor.setDj_cep((jFmt_DJ_CEP.getText()));
+        djVendedor.setDj_cpf((jFmt_DJ_CPF.getText()));
+        djVendedor.setDj_telefone((jFmt_DJ_Telefone.getText()));
         return djVendedor;
     }
     
     public void beanView(dj_clientes djVendedor){
-        jTxt_DJ_Codigo.setText(Util.intToStr(djVendedor.getDjIdVendedor()));
-        jTxt_DJ_Nome.setText((djVendedor.getDjNome()));
-        jTxt_DJ_Email.setText((djVendedor.getDjEmail()));
-        jTxt_DJ_Endereco.setText((djVendedor.getDjEndereco()));
-        jFmt_DJ_CEP.setText((djVendedor.getDjCep()));
-        jFmt_DJ_CPF.setText((djVendedor.getDjCpf()));
-        jFmt_DJ_Telefone.setText((djVendedor.getDjTelefone()));
+        jTxt_DJ_Codigo.setText(Util.intToStr(djVendedor.getDj_idClientes()));
+        jTxt_DJ_Nome.setText((djVendedor.getDj_nome()));
+        jTxt_DJ_Email.setText((djVendedor.getDj_email()));
+        jTxt_DJ_Endereco.setText((djVendedor.getDj_endereco()));
+        jFmt_DJ_CEP.setText((djVendedor.getDj_cep()));
+        jFmt_DJ_CPF.setText((djVendedor.getDj_cpf()));
+        jFmt_DJ_Telefone.setText((djVendedor.getDj_telefone()));
     }
     /**
      * This method is called from within the constructor to initialize the form.

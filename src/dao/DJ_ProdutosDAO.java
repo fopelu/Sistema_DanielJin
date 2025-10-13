@@ -45,7 +45,7 @@ public class DJ_ProdutosDAO extends DJ_AbstractDAO{
     public Object list(int codigo) {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(dj_produtos.class);
-        criteria.add(Restrictions.eq("djIdProdutos", codigo));
+        criteria.add(Restrictions.eq("dj_idProdutos", codigo));
         List lista = criteria.list();
         session.getTransaction().commit();
         return lista;

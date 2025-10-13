@@ -37,17 +37,17 @@ public class dj_compras  implements java.io.Serializable {
     }
 
 	
-    public dj_compras(int dj_idCompras, Date djDataCompras, double djTotal) {
+    public dj_compras(int dj_idCompras, Date dj_dataCompras, double dj_total) {
         this.dj_idCompras = dj_idCompras;
-        this.dj_dataCompras = djDataCompras;
-        this.dj_total = djTotal;
+        this.dj_dataCompras = dj_dataCompras;
+        this.dj_total = dj_total;
     }
-    public dj_compras(int djIdCompras, dj_fornecedor djFornecedor, dj_usuarios djUsuarios, Date djDataCompras, double djTotal) {
-       this.dj_idCompras = djIdCompras;
-       this.dj_fkFornecedor = djFornecedor;
-       this.dj_fkUsuarios = djUsuarios;
-       this.dj_dataCompras = djDataCompras;
-       this.dj_total = djTotal;
+    public dj_compras(int dj_idCompras, dj_fornecedor dj_Fornecedor, dj_usuarios dj_Usuarios, Date dj_dataCompras, double dj_total) {
+       this.dj_idCompras = dj_idCompras;
+       this.dj_fkFornecedor = dj_Fornecedor;
+       this.dj_fkUsuarios = dj_Usuarios;
+       this.dj_dataCompras = dj_dataCompras;
+       this.dj_total = dj_total;
     }
    
      @Id 

@@ -38,13 +38,13 @@ public class DJ_Controller_Fornecedor extends AbstractTableModel{
     public Object getValueAt(int rowIndex, int columnIndex) {
         dj_fornecedor djFornecedor = (dj_fornecedor) lstFornecedor.get( rowIndex);
         if ( columnIndex == 0 ){
-            return djFornecedor.getDjIdFornecedor();
+            return djFornecedor.getDj_idFornecedor();
         } else if (columnIndex ==1) {
-            return djFornecedor.getDjNome();        
+            return djFornecedor.getDj_nome();        
         } else if (columnIndex ==2) {
-            return djFornecedor.getDjTelefone();
+            return djFornecedor.getDj_telefone();
         } else if (columnIndex ==3) {
-            return djFornecedor.getDjCnpj();
+            return djFornecedor.getDj_cnpj();
         }
         return "";
     }
