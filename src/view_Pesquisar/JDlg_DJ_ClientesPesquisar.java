@@ -4,35 +4,35 @@
  */
 package view_Pesquisar;
 
-import bean.DjVendedor;
-import dao.DJ_VendedorDAO;
-import view.JDlg_DJ_Vendedor;
-import view_Controller.DJ_Controller_Vendedor;
+import bean.dj_clientes;
+import dao.DJ_ClientesDAO;
+import view.JDlg_DJ_Clientes;
+import view_Controller.DJ_Controller_Clientes;
 import java.util.List;
 /**
  *
  * @author danie
  */
-public class JDlg_DJ_VendedorPesquisar extends javax.swing.JDialog {
+public class JDlg_DJ_ClientesPesquisar extends javax.swing.JDialog {
 
-    private JDlg_DJ_Vendedor jDlg_DJ_Vendedor;
-    DJ_Controller_Vendedor dJ_Controller_Vendedor;
+    private JDlg_DJ_Clientes jDlg_DJ_Vendedor;
+    DJ_Controller_Clientes dJ_Controller_Vendedor;
     /**
      * Creates new form JDlg_DJ_VendedorPesquisar
      */
-    public JDlg_DJ_VendedorPesquisar(java.awt.Frame parent, boolean modal) {
+    public JDlg_DJ_ClientesPesquisar(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         setTitle("Tabela de Vendedor");
         setLocationRelativeTo(null);
-        dJ_Controller_Vendedor = new DJ_Controller_Vendedor();
-        DJ_VendedorDAO dJ_VendedorDAO = new DJ_VendedorDAO();
+        dJ_Controller_Vendedor = new DJ_Controller_Clientes();
+        DJ_ClientesDAO dJ_VendedorDAO = new DJ_ClientesDAO();
         List lista = (List) dJ_VendedorDAO.listAll();
         dJ_Controller_Vendedor.setList(lista);
         jTbl_DJ_Vendedor.setModel(dJ_Controller_Vendedor);
     }
     
-    public void SetTelaPai(JDlg_DJ_Vendedor jDlg_DJ_Vendedor){
+    public void SetTelaPai(JDlg_DJ_Clientes jDlg_DJ_Vendedor){
         this.jDlg_DJ_Vendedor = jDlg_DJ_Vendedor;
     }
     /**
@@ -95,7 +95,7 @@ public class JDlg_DJ_VendedorPesquisar extends javax.swing.JDialog {
 
     private void jBtn_DJ_OKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_OKActionPerformed
         // TODO add your handling code here:
-        DjVendedor djVendedor = dJ_Controller_Vendedor.getBean(jTbl_DJ_Vendedor.getSelectedRow());
+        dj_clientes djVendedor = dJ_Controller_Vendedor.getBean(jTbl_DJ_Vendedor.getSelectedRow());
         jDlg_DJ_Vendedor.beanView(djVendedor);
         setVisible(false);
     }//GEN-LAST:event_jBtn_DJ_OKActionPerformed
@@ -117,20 +117,21 @@ public class JDlg_DJ_VendedorPesquisar extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JDlg_DJ_VendedorPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JDlg_DJ_ClientesPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JDlg_DJ_VendedorPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JDlg_DJ_ClientesPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JDlg_DJ_VendedorPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JDlg_DJ_ClientesPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JDlg_DJ_VendedorPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JDlg_DJ_ClientesPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                JDlg_DJ_VendedorPesquisar dialog = new JDlg_DJ_VendedorPesquisar(new javax.swing.JFrame(), true);
+                JDlg_DJ_ClientesPesquisar dialog = new JDlg_DJ_ClientesPesquisar(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

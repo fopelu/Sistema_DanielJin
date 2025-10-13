@@ -4,7 +4,7 @@
  */
 package view;
 
-import bean.DjUsuarios;
+import bean.dj_usuarios;
 import dao.DJ_UsuariosDAO;
 import tools.Util;
 import view_Pesquisar.JDlg_DJ_UsuariosPesquisar;
@@ -28,31 +28,31 @@ public class JDlg_DJ_Usuarios extends javax.swing.JDialog {
     }
 
     
-    public DjUsuarios viewBean(){
-        DjUsuarios djUsuarios = new DjUsuarios();
-        djUsuarios.setDjIdUsuarios(Util.strToInt(jTxt_DJ_Codigo.getText()));
-        djUsuarios.setDjNome((jTxt_DJ_Nome.getText()));
-        djUsuarios.setDjApelido((jTxt_DJ_Apelido.getText()));
-        djUsuarios.setDjCpf((jFmt_DJ_Cpf.getText()));
-        djUsuarios.setDjDataNascimento(Util.strToDate(jFmt_DJ_DataDeNascimento.getText()));
-        djUsuarios.setDjSenha((jPwf_DJ_Senha.getText()));
-        djUsuarios.setDjNivel((jCbo_DJ_Nivel.getSelectedIndex()));
+    public dj_usuarios viewBean(){
+        dj_usuarios djUsuarios = new dj_usuarios();
+        djUsuarios.setDj_idUsuarios(Util.strToInt(jTxt_DJ_Codigo.getText()));
+        djUsuarios.setDj_nome((jTxt_DJ_Nome.getText()));
+        djUsuarios.setDj_apelido((jTxt_DJ_Apelido.getText()));
+        djUsuarios.setDj_cpf((jFmt_DJ_Cpf.getText()));
+        djUsuarios.setDj_dataNascimento(Util.strToDate(jFmt_DJ_DataDeNascimento.getText()));
+        djUsuarios.setDj_senha((jPwf_DJ_Senha.getText()));
+        djUsuarios.setDj_nivel((jCbo_DJ_Nivel.getSelectedIndex()));
         if(jChb_DJ_Ativo.isSelected() == true){
-            djUsuarios.setDjAtivo("S");
+            djUsuarios.setDj_ativo("S");
         }else{
-            djUsuarios.setDjAtivo("N");
+            djUsuarios.setDj_ativo("N");
         }
         return djUsuarios;
     }
-    public void beanView(DjUsuarios djUsuarios){
-        jTxt_DJ_Codigo.setText(Util.intToStr(djUsuarios.getDjIdUsuarios()));
-        jTxt_DJ_Nome.setText((djUsuarios.getDjNome()));
-        jTxt_DJ_Apelido.setText((djUsuarios.getDjApelido()));
-        jFmt_DJ_Cpf.setText((djUsuarios.getDjCpf()));
-        jFmt_DJ_DataDeNascimento.setText(Util.datetoStr(djUsuarios.getDjDataNascimento()));
-        jPwf_DJ_Senha.setText((djUsuarios.getDjSenha()));
-        jCbo_DJ_Nivel.setSelectedIndex((djUsuarios.getDjNivel()));
-        jChb_DJ_Ativo.setSelected(djUsuarios.getDjAtivo().equals("S"));
+    public void beanView(dj_usuarios djUsuarios){
+        jTxt_DJ_Codigo.setText(Util.intToStr(djUsuarios.getDj_idUsuarios()));
+        jTxt_DJ_Nome.setText((djUsuarios.getDj_nome()));
+        jTxt_DJ_Apelido.setText((djUsuarios.getDj_apelido()));
+        jFmt_DJ_Cpf.setText((djUsuarios.getDj_cpf()));
+        jFmt_DJ_DataDeNascimento.setText(Util.datetoStr(djUsuarios.getDj_dataNascimento()));
+        jPwf_DJ_Senha.setText((djUsuarios.getDj_senha()));
+        jCbo_DJ_Nivel.setSelectedIndex((djUsuarios.getDj_nivel()));
+        jChb_DJ_Ativo.setSelected(djUsuarios.getDj_ativo().equals("S"));
     }
     
     /**
@@ -137,6 +137,12 @@ public class JDlg_DJ_Usuarios extends javax.swing.JDialog {
             }
         });
 
+        try {
+            jFmt_DJ_DataDeNascimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         jLabel6.setText("Senha");
 
         jLabel1.setText("Código");
@@ -169,6 +175,12 @@ public class JDlg_DJ_Usuarios extends javax.swing.JDialog {
         jLabel8.setText("Ativo");
 
         jLabel4.setText("CPF");
+
+        try {
+            jFmt_DJ_Cpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
         jLabel5.setText("Data de Nascimento");
 

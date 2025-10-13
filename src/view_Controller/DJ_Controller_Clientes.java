@@ -5,22 +5,22 @@
  */
 package view_Controller;
 
-import bean.DjVendedor;
+import bean.dj_clientes;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 /**
  *
  * @author danie
  */
-public class DJ_Controller_Vendedor extends AbstractTableModel{
+public class DJ_Controller_Clientes extends AbstractTableModel{
     private List lstVendedor;
 
     public void setList(List lstVendedor) {
         this.lstVendedor = lstVendedor;
     }
     
-    public DjVendedor getBean(int rowIndex) {
-        return (DjVendedor) lstVendedor.get(rowIndex);
+    public dj_clientes getBean(int rowIndex) {
+        return (dj_clientes) lstVendedor.get(rowIndex);
     }
 
     @Override
@@ -36,7 +36,7 @@ public class DJ_Controller_Vendedor extends AbstractTableModel{
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        DjVendedor djVendedor = (DjVendedor) lstVendedor.get( rowIndex);
+        dj_clientes djVendedor = (dj_clientes) lstVendedor.get( rowIndex);
         if ( columnIndex == 0 ){
             return djVendedor.getDjIdVendedor();
         } else if (columnIndex ==1) {

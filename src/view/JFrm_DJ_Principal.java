@@ -132,13 +132,13 @@ public class JFrm_DJ_Principal extends javax.swing.JFrame {
 
     private void jMni_DJ_VendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMni_DJ_VendedorActionPerformed
         // TODO add your handling code here:
-        JDlg_DJ_Vendedor jDlg_DJ_Vendedor = new JDlg_DJ_Vendedor(null, true);
+        JDlg_DJ_Clientes jDlg_DJ_Vendedor = new JDlg_DJ_Clientes(null, true);
         jDlg_DJ_Vendedor.setVisible(true);
     }//GEN-LAST:event_jMni_DJ_VendedorActionPerformed
 
     private void jMni_DJ_FornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMni_DJ_FornecedorActionPerformed
         // TODO add your handling code here:
-        JDlg_DJ_Vendedor jDlg_DJ_Vendedor = new JDlg_DJ_Vendedor(null, true);
+        JDlg_DJ_Clientes jDlg_DJ_Vendedor = new JDlg_DJ_Clientes(null, true);
         jDlg_DJ_Vendedor.setVisible(true);
     }//GEN-LAST:event_jMni_DJ_FornecedorActionPerformed
 

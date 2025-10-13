@@ -43,14 +43,14 @@ Contributor(s):
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://127.0.0.1:3306/dj_sistemadevendasperfume_daniel?serverTimezone=America/Sao_Paulo</property>
-    <property name="hibernate.connection.username">root</property>
-    <property name="hibernate.connection.password">yb253286</property>
-    <mapping class="bean.DjCompras"/>
-    <mapping class="bean.DjUsuarios"/>
-    <mapping class="bean.DjVendedor"/>
-    <mapping class="bean.DjComprasProdutos"/>
-    <mapping class="bean.DjFornecedor"/>
-    <mapping class="bean.DjProdutos"/>
+    <property name="hibernate.connection.url">jdbc:mysql://10.7.0.51:33062/db_daniel_jin?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">daniel_jin</property>
+    <property name="hibernate.connection.password">daniel_jin</property>
+    <mapping class="bean.dj_compras"/>
+    <mapping class="bean.dj_usuarios"/>
+    <mapping class="bean.dj_clientes"/>
+    <mapping class="bean.dj_compras_produtos"/>
+    <mapping class="bean.dj_fornecedor"/>
+    <mapping class="bean.dj_produtos"/>
   </session-factory>
 </hibernate-configuration>

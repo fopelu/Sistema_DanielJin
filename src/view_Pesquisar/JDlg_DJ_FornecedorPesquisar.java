@@ -4,7 +4,7 @@
  */
 package view_Pesquisar;
 
-import bean.DjFornecedor;
+import bean.dj_fornecedor;
 import view.JDlg_DJ_Fornecedor;
 import view_Controller.DJ_Controller_Fornecedor;
 import dao.DJ_FornecedorDAO;
@@ -96,7 +96,7 @@ public class JDlg_DJ_FornecedorPesquisar extends javax.swing.JDialog {
 
     private void JBtn_DJ_OKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtn_DJ_OKActionPerformed
         // TODO add your handling code here:
-        DjFornecedor djFornecedor = dJ_Controller_Fornecedor.getBean(jTbl_DJ_Fornecedor.getSelectedRow());
+        dj_fornecedor djFornecedor = dJ_Controller_Fornecedor.getBean(jTbl_DJ_Fornecedor.getSelectedRow());
         jDlg_DJ_Fornecedor.beanview(djFornecedor);
         setVisible(false);
     }//GEN-LAST:event_JBtn_DJ_OKActionPerformed

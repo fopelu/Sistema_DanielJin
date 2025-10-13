@@ -40,11 +40,11 @@ made subject to such option by the copyright holder.
 Contributor(s):
 -->
 <hibernate-reverse-engineering>
-  <schema-selection match-catalog="dj_sistemadevendasperfume_daniel"/>
+  <schema-selection match-catalog="db_daniel_jin"/>
   <table-filter match-name="dj_usuarios"/>
   <table-filter match-name="dj_fornecedor"/>
   <table-filter match-name="dj_compras_produtos"/>
   <table-filter match-name="dj_compras"/>
   <table-filter match-name="dj_produtos"/>
-  <table-filter match-name="dj_vendedor"/>
+  <table-filter match-name="dj_clientes"/>
 </hibernate-reverse-engineering>

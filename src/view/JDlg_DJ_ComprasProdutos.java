@@ -5,8 +5,8 @@
  */
 package view;
 
-import bean.DjCompras;
-import bean.DjProdutos;
+import bean.dj_compras;
+import bean.dj_produtos;
 
 /**
  *
@@ -40,9 +40,9 @@ public class JDlg_DJ_ComprasProdutos extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<DjCompras>();
+        jComboBox1 = new javax.swing.JComboBox<dj_compras>();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<DjProdutos>();
+        jComboBox2 = new javax.swing.JComboBox<dj_produtos>();
         jLabel4 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -192,8 +192,8 @@ public class JDlg_DJ_ComprasProdutos extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBtn_DJ_OK;
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<DjCompras> jComboBox1;
-    private javax.swing.JComboBox<DjProdutos> jComboBox2;
+    private javax.swing.JComboBox<dj_compras> jComboBox1;
+    private javax.swing.JComboBox<dj_produtos> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

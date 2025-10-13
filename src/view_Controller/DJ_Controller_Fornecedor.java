@@ -5,7 +5,7 @@
  */
 package view_Controller;
 
-import bean.DjFornecedor;
+import bean.dj_fornecedor;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 /**
@@ -19,8 +19,8 @@ public class DJ_Controller_Fornecedor extends AbstractTableModel{
         this.lstFornecedor = lstFornecedor;
     }
     
-    public DjFornecedor getBean(int rowIndex) {
-        return (DjFornecedor) lstFornecedor.get(rowIndex);
+    public dj_fornecedor getBean(int rowIndex) {
+        return (dj_fornecedor) lstFornecedor.get(rowIndex);
     }
 
     @Override
@@ -36,7 +36,7 @@ public class DJ_Controller_Fornecedor extends AbstractTableModel{
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        DjFornecedor djFornecedor = (DjFornecedor) lstFornecedor.get( rowIndex);
+        dj_fornecedor djFornecedor = (dj_fornecedor) lstFornecedor.get( rowIndex);
         if ( columnIndex == 0 ){
             return djFornecedor.getDjIdFornecedor();
         } else if (columnIndex ==1) {

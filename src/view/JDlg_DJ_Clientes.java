@@ -5,21 +5,21 @@
 package view;
 
 import tools.Util;
-import view_Pesquisar.JDlg_DJ_VendedorPesquisar;
-import dao.DJ_VendedorDAO;
-import bean.DjVendedor;
+import view_Pesquisar.JDlg_DJ_ClientesPesquisar;
+import dao.DJ_ClientesDAO;
+import bean.dj_clientes;
 
 /**
  *
  * @author danie
  */
-public class JDlg_DJ_Vendedor extends javax.swing.JDialog {
+public class JDlg_DJ_Clientes extends javax.swing.JDialog {
 
     private boolean incluir;
     /**
      * Creates new form JDlg_DJ_Vendedor
      */
-    public JDlg_DJ_Vendedor(java.awt.Frame parent, boolean modal) {
+    public JDlg_DJ_Clientes(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         setTitle("Cadastro de Vendedor");
@@ -28,8 +28,8 @@ public class JDlg_DJ_Vendedor extends javax.swing.JDialog {
                 jFmt_DJ_CEP, jFmt_DJ_CPF, jFmt_DJ_Telefone, jBtn_DJ_Cancelar, jBtn_DJ_Confirmar);
     }
     
-    public DjVendedor viewBean(){
-        DjVendedor djVendedor = new DjVendedor();
+    public dj_clientes viewBean(){
+        dj_clientes djVendedor = new dj_clientes();
         djVendedor.setDjIdVendedor(Util.strToInt(jTxt_DJ_Codigo.getText()));
         djVendedor.setDjNome((jTxt_DJ_Nome.getText()));
         djVendedor.setDjEmail((jTxt_DJ_Email.getText()));
@@ -40,7 +40,7 @@ public class JDlg_DJ_Vendedor extends javax.swing.JDialog {
         return djVendedor;
     }
     
-    public void beanView(DjVendedor djVendedor){
+    public void beanView(dj_clientes djVendedor){
         jTxt_DJ_Codigo.setText(Util.intToStr(djVendedor.getDjIdVendedor()));
         jTxt_DJ_Nome.setText((djVendedor.getDjNome()));
         jTxt_DJ_Email.setText((djVendedor.getDjEmail()));
@@ -303,7 +303,7 @@ public class JDlg_DJ_Vendedor extends javax.swing.JDialog {
 
     private void jBtn_DJ_ConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_ConfirmarActionPerformed
         // TODO add your handling code here:
-        DJ_VendedorDAO dJ_VendedorDAO = new DJ_VendedorDAO();
+        DJ_ClientesDAO dJ_VendedorDAO = new DJ_ClientesDAO();
         
         if(incluir == true){
             dJ_VendedorDAO.insert(viewBean());
@@ -323,7 +323,7 @@ public class JDlg_DJ_Vendedor extends javax.swing.JDialog {
     private void jBtn_DJ_ExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_ExcluirActionPerformed
         // TODO add your handling code here:
         if(Util.perguntar("Deseja Excluir?")){
-            DJ_VendedorDAO dJ_VendedorDAO = new DJ_VendedorDAO();
+            DJ_ClientesDAO dJ_VendedorDAO = new DJ_ClientesDAO();
             dJ_VendedorDAO.delete(viewBean());
             Util.mensagem("Exluido com sucesso!");
         } else {
@@ -335,7 +335,7 @@ public class JDlg_DJ_Vendedor extends javax.swing.JDialog {
 
     private void jBtn_DJ_PesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_PesquisarActionPerformed
         // TODO add your handling code here:
-        JDlg_DJ_VendedorPesquisar jDlg_DJ_VendedorPesquisar = new JDlg_DJ_VendedorPesquisar(null, true);
+        JDlg_DJ_ClientesPesquisar jDlg_DJ_VendedorPesquisar = new JDlg_DJ_ClientesPesquisar(null, true);
         jDlg_DJ_VendedorPesquisar.SetTelaPai(this);
         jDlg_DJ_VendedorPesquisar.setVisible(true);
     }//GEN-LAST:event_jBtn_DJ_PesquisarActionPerformed
@@ -357,20 +357,21 @@ public class JDlg_DJ_Vendedor extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JDlg_DJ_Vendedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JDlg_DJ_Clientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JDlg_DJ_Vendedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JDlg_DJ_Clientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JDlg_DJ_Vendedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JDlg_DJ_Clientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JDlg_DJ_Vendedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JDlg_DJ_Clientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                JDlg_DJ_Vendedor dialog = new JDlg_DJ_Vendedor(new javax.swing.JFrame(), true);
+                JDlg_DJ_Clientes dialog = new JDlg_DJ_Clientes(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

@@ -4,7 +4,7 @@
  */
 package view;
 
-import bean.DjFornecedor;
+import bean.dj_fornecedor;
 import tools.Util;
 import view_Pesquisar.JDlg_DJ_FornecedorPesquisar;
 import dao.DJ_FornecedorDAO;
@@ -28,8 +28,8 @@ public class JDlg_DJ_Fornecedor extends javax.swing.JDialog {
                 jFmt_DJ_DataCadastro, jFmt_DJ_DataNascimento, jBtn_DJ_Cancelar, jBtn_DJ_Confirmar);
     }
 
-    public DjFornecedor viewBean(){
-        DjFornecedor djFornecedor = new DjFornecedor();
+    public dj_fornecedor viewBean(){
+        dj_fornecedor djFornecedor = new dj_fornecedor();
         djFornecedor.setDjIdFornecedor(Util.strToInt(jTxt_DJ_Codigo.getText()));
         djFornecedor.setDjNome((jTxt_DJ_Nome.getText()));
         djFornecedor.setDjBairro((jTxt_DJ_Bairro.getText()));
@@ -49,7 +49,7 @@ public class JDlg_DJ_Fornecedor extends javax.swing.JDialog {
         return djFornecedor;
     }
     
-    public void beanview(DjFornecedor djFornecedor){
+    public void beanview(dj_fornecedor djFornecedor){
         jTxt_DJ_Codigo.setText(Util.intToStr(djFornecedor.getDjIdFornecedor()));
         jTxt_DJ_Nome.setText((djFornecedor.getDjNome()));
         jTxt_DJ_Bairro.setText((djFornecedor.getDjBairro()));

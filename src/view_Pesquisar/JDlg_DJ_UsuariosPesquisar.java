@@ -8,7 +8,7 @@ import view_Controller.DJ_Controller_Usuarios;
 import dao.DJ_UsuariosDAO;
 import java.util.List;
 import view.JDlg_DJ_Usuarios;
-import bean.DjUsuarios;
+import bean.dj_usuarios;
 
 
 /**
@@ -97,7 +97,7 @@ public class JDlg_DJ_UsuariosPesquisar extends javax.swing.JDialog {
 
     private void jBtn_DJ_OKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_OKActionPerformed
         // TODO add your handling code here:
-        DjUsuarios djUsuarios =  dJ_Controller_Usuarios.getBean( jTbl_DJ_TabelaUsuarios.getSelectedRow() );
+        dj_usuarios djUsuarios =  dJ_Controller_Usuarios.getBean( jTbl_DJ_TabelaUsuarios.getSelectedRow() );
         jDlg_DJ_Usuarios.beanView(djUsuarios);
         setVisible(false);
     }//GEN-LAST:event_jBtn_DJ_OKActionPerformed
