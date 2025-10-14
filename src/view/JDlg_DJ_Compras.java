@@ -11,6 +11,7 @@ import bean.Dj_usuarios;
 import java.util.List;
 import tools.Util;
 import dao.DJ_UsuariosDAO;
+import dao.DJ_FornecedorDAO;
 /**
  *
  * @author u11200121120
@@ -26,9 +27,16 @@ public class JDlg_DJ_Compras extends javax.swing.JDialog {
         setTitle("Tela de Movimento de Compras");
         setLocationRelativeTo(null);
         DJ_UsuariosDAO dJ_UsuariosDAO = new DJ_UsuariosDAO();
+        DJ_FornecedorDAO dJ_FornecedorDAO = new DJ_FornecedorDAO();
+     
         List usuarios = (List) dJ_UsuariosDAO.listAll();
+        List fornecedor = (List) dJ_FornecedorDAO.listAll();
         for (int i = 0; i < usuarios.size(); i++) {
             jCbo_DJ_Usuarios.addItem((Dj_usuarios) usuarios.get(i));
+            
+        }
+        for (int i = 0; i < fornecedor.size(); i++) {
+            jCbo_DJ_Fornecedor.addItem((Dj_fornecedor) fornecedor.get(i));
             
         }
     }

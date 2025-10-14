@@ -46,11 +46,11 @@ Contributor(s):
     <property name="hibernate.connection.url">jdbc:mysql://10.7.0.51:33062/db_daniel_jin?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">daniel_jin</property>
     <property name="hibernate.connection.password">daniel_jin</property>
+    <mapping class="bean.Dj_clientes"/>
     <mapping class="bean.Dj_compras"/>
-    <mapping class="bean.dj_usuarios"/>
-    <mapping class="bean.dj_clientes"/>
-    <mapping class="bean.dj_compras_produtos"/>
-    <mapping class="bean.dj_fornecedor"/>
-    <mapping class="bean.dj_produtos"/>
+    <mapping class="bean.Dj_compras_produtos"/>
+    <mapping class="bean.Dj_fornecedor"/>
+    <mapping class="bean.Dj_produtos"/>
+    <mapping class="bean.Dj_usuarios"/>
   </session-factory>
 </hibernate-configuration>
