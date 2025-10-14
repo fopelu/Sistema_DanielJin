@@ -30,6 +30,7 @@ public class JDlg_DJ_Graficos_Compras extends javax.swing.JDialog {
         this.jPnl_Grafico.setLayout(new BorderLayout());
         DJ_ComprasDAO dJ_ComprasDAO = new DJ_ComprasDAO();
         List lista = (List) dJ_ComprasDAO.listAll();
+        //tentei não consigui fazer a funcionalidade extra
     }
 
 
