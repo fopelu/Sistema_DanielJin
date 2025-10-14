@@ -5,7 +5,7 @@
  */
 package dao;
 
-import bean.dj_clientes;
+import bean.Dj_clientes;
 import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
@@ -44,7 +44,7 @@ public class DJ_ClientesDAO extends DJ_AbstractDAO{
     @Override
     public Object list(int codigo) {
         session.beginTransaction();
-        Criteria criteria = session.createCriteria(dj_clientes.class);
+        Criteria criteria = session.createCriteria(Dj_clientes.class);
         criteria.add(Restrictions.eq("dj_idClientes", codigo));
         List lista = criteria.list();
         session.getTransaction().commit();
@@ -54,7 +54,7 @@ public class DJ_ClientesDAO extends DJ_AbstractDAO{
     @Override
     public Object listAll() {
         session.beginTransaction();
-        Criteria criteria = session.createCriteria(dj_clientes.class);
+        Criteria criteria = session.createCriteria(Dj_clientes.class);
         List lista = criteria.list();
         session.getTransaction().commit();
         return lista;

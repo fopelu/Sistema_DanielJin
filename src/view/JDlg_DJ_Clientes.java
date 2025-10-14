@@ -7,7 +7,7 @@ package view;
 import tools.Util;
 import view_Pesquisar.JDlg_DJ_ClientesPesquisar;
 import dao.DJ_ClientesDAO;
-import bean.dj_clientes;
+import bean.Dj_clientes;
 
 /**
  *
@@ -28,8 +28,8 @@ public class JDlg_DJ_Clientes extends javax.swing.JDialog {
                 jFmt_DJ_CEP, jFmt_DJ_CPF, jFmt_DJ_Telefone, jBtn_DJ_Cancelar, jBtn_DJ_Confirmar);
     }
     
-    public dj_clientes viewBean(){
-        dj_clientes djVendedor = new dj_clientes();
+    public Dj_clientes viewBean(){
+        Dj_clientes djVendedor = new Dj_clientes();
         djVendedor.setDj_idClientes(Util.strToInt(jTxt_DJ_Codigo.getText()));
         djVendedor.setDj_nome((jTxt_DJ_Nome.getText()));
         djVendedor.setDj_email((jTxt_DJ_Email.getText()));
@@ -40,7 +40,7 @@ public class JDlg_DJ_Clientes extends javax.swing.JDialog {
         return djVendedor;
     }
     
-    public void beanView(dj_clientes djVendedor){
+    public void beanView(Dj_clientes djVendedor){
         jTxt_DJ_Codigo.setText(Util.intToStr(djVendedor.getDj_idClientes()));
         jTxt_DJ_Nome.setText((djVendedor.getDj_nome()));
         jTxt_DJ_Email.setText((djVendedor.getDj_email()));

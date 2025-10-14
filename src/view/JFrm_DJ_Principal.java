@@ -104,6 +104,11 @@ public class JFrm_DJ_Principal extends javax.swing.JFrame {
         jMni_DJ_Compras.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_MASK));
         jMni_DJ_Compras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-carrinho-de-compras-24.png"))); // NOI18N
         jMni_DJ_Compras.setText("Compras");
+        jMni_DJ_Compras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMni_DJ_ComprasActionPerformed(evt);
+            }
+        });
         jMnu_DJ_Movimentos.add(jMni_DJ_Compras);
 
         jMenuBar1.add(jMnu_DJ_Movimentos);
@@ -152,6 +157,12 @@ public class JFrm_DJ_Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_jMni_DJ_SairActionPerformed
+
+    private void jMni_DJ_ComprasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMni_DJ_ComprasActionPerformed
+        // TODO add your handling code here:
+        JDlg_DJ_Compras jDlg_DJ_Compras = new JDlg_DJ_Compras(null, true);
+        jDlg_DJ_Compras.setVisible(true);
+    }//GEN-LAST:event_jMni_DJ_ComprasActionPerformed
 
     /**
      * @param args the command line arguments

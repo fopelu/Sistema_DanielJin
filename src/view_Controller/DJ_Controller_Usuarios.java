@@ -5,7 +5,7 @@
  */
 package view_Controller;
 
-import bean.dj_usuarios;
+import bean.Dj_usuarios;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 /**
@@ -19,8 +19,8 @@ public class DJ_Controller_Usuarios extends AbstractTableModel{
         this.lstUsuarios = lstUsuarios;
     }
     
-    public dj_usuarios getBean(int rowIndex) {
-        return (dj_usuarios) lstUsuarios.get(rowIndex);
+    public Dj_usuarios getBean(int rowIndex) {
+        return (Dj_usuarios) lstUsuarios.get(rowIndex);
     }
 
     @Override
@@ -36,7 +36,7 @@ public class DJ_Controller_Usuarios extends AbstractTableModel{
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        dj_usuarios djusuarios = (dj_usuarios) lstUsuarios.get( rowIndex);
+        Dj_usuarios djusuarios = (Dj_usuarios) lstUsuarios.get( rowIndex);
         if ( columnIndex == 0 ){
             return djusuarios.getDj_idUsuarios();
         } else if (columnIndex ==1) {

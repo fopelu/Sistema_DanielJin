@@ -4,7 +4,7 @@
  */
 package view;
 
-import bean.dj_produtos;
+import bean.Dj_produtos;
 import tools.Util;
 import view_Pesquisar.JDlg_DJ_ProdutosPesquisar;
 import dao.DJ_ProdutosDAO;
@@ -27,8 +27,8 @@ public class JDlg_DJ_Produtos extends javax.swing.JDialog {
                 jTxt_DJ_NomeFlor, jTxt_DJ_Preco, jFmt_DJ_Avaliacao, jBtn_DJ_Cancelar, jBtn_DJ_Confirmar);
     }
     
-    public dj_produtos viewBean(){
-        dj_produtos djProdutos = new dj_produtos();
+    public Dj_produtos viewBean(){
+        Dj_produtos djProdutos = new Dj_produtos();
         djProdutos.setDj_idProdutos(Util.strToInt(jTxt_DJ_Codigo.getText()));
         djProdutos.setDj_nome((jTxt_DJ_Nome.getText()));
         djProdutos.setDj_avaliacao(Util.strToDouble(jFmt_DJ_Avaliacao.getText()));
@@ -39,7 +39,7 @@ public class JDlg_DJ_Produtos extends javax.swing.JDialog {
         return djProdutos;
     }
     
-    public void beanView(dj_produtos djProdutos){
+    public void beanView(Dj_produtos djProdutos){
         jTxt_DJ_Codigo.setText(Util.intToStr(djProdutos.getDj_idProdutos()));
         jTxt_DJ_Descricao.setText((djProdutos.getDj_descricao()));
         jTxt_DJ_Material.setText((djProdutos.getDj_material()));

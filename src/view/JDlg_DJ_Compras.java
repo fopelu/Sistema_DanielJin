@@ -5,6 +5,12 @@
  */
 package view;
 
+import bean.Dj_compras;
+import bean.Dj_fornecedor;
+import bean.Dj_usuarios;
+import java.util.List;
+import tools.Util;
+import dao.DJ_UsuariosDAO;
 /**
  *
  * @author u11200121120
@@ -17,6 +23,32 @@ public class JDlg_DJ_Compras extends javax.swing.JDialog {
     public JDlg_DJ_Compras(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setTitle("Tela de Movimento de Compras");
+        setLocationRelativeTo(null);
+        DJ_UsuariosDAO dJ_UsuariosDAO = new DJ_UsuariosDAO();
+        List usuarios = (List) dJ_UsuariosDAO.listAll();
+        for (int i = 0; i < usuarios.size(); i++) {
+            jCbo_DJ_Usuarios.addItem((Dj_usuarios) usuarios.get(i));
+            
+        }
+    }
+    
+    
+    public Dj_compras viewBean(){
+        Dj_compras dj_compras = new Dj_compras();
+        dj_compras.setDj_idCompras(Util.strToInt(jTxt_DJ_Codigo.getText()));
+        dj_compras.setDj_dataCompras(Util.strToDate(jFmt_DJ_DataCompras.getText()));
+        dj_compras.setDj_fkUsuarios ((Dj_usuarios) jCbo_DJ_Usuarios.getSelectedItem());
+        dj_compras.setDj_fkFornecedor((Dj_fornecedor) jCbo_DJ_Fornecedor.getSelectedItem());
+        dj_compras.setDj_total(Util.strToDouble(jTxt_DJ_Total.getText())); 
+        return dj_compras;
+    }
+    public void beanView(Dj_compras dj_compras){
+        jTxt_DJ_Codigo.setText(Util.intToStr(dj_compras.getDj_idCompras()));
+        jFmt_DJ_DataCompras.setText(Util.datetoStr(dj_compras.getDj_dataCompras()));
+        jCbo_DJ_Usuarios.setSelectedItem((dj_compras.getDj_fkUsuarios()));
+        jCbo_DJ_Fornecedor.setSelectedItem((dj_compras.getDj_fkFornecedor()));
+        jTxt_DJ_Total.setText(Util.DoubleToStr(dj_compras.getDj_total()));
     }
 
     /**
@@ -29,15 +61,15 @@ public class JDlg_DJ_Compras extends javax.swing.JDialog {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jTxt_DJ_Codigo = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        jCbo_DJ_Usuarios = new javax.swing.JComboBox<Dj_usuarios>();
+        jCbo_DJ_Fornecedor = new javax.swing.JComboBox<Dj_fornecedor>();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        jTxt_DJ_Total = new javax.swing.JTextField();
+        jFmt_DJ_DataCompras = new javax.swing.JFormattedTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jBtn_DJ_Alterar = new javax.swing.JButton();
@@ -46,14 +78,17 @@ public class JDlg_DJ_Compras extends javax.swing.JDialog {
         jBtn_DJ_Cancelar = new javax.swing.JButton();
         jBtn_DJ_Pesquisar = new javax.swing.JButton();
         jBtn_DJ_Incluir = new javax.swing.JButton();
+        jBtn_DJ_IncluirProd = new javax.swing.JButton();
+        jBtn_DJ_AlterarProd = new javax.swing.JButton();
+        jBtn_DJ_ExcluirProd = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Código");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jTxt_DJ_Codigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                jTxt_DJ_CodigoActionPerformed(evt);
             }
         });
 
@@ -61,16 +96,18 @@ public class JDlg_DJ_Compras extends javax.swing.JDialog {
 
         jLabel3.setText("Fornecedor");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jLabel4.setText("Usuários");
 
         jLabel5.setText("Total");
 
+        jTxt_DJ_Total.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTxt_DJ_TotalActionPerformed(evt);
+            }
+        });
+
         try {
-            jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+            jFmt_DJ_DataCompras.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -136,6 +173,27 @@ public class JDlg_DJ_Compras extends javax.swing.JDialog {
             }
         });
 
+        jBtn_DJ_IncluirProd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-mais-24.png"))); // NOI18N
+        jBtn_DJ_IncluirProd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn_DJ_IncluirProdActionPerformed(evt);
+            }
+        });
+
+        jBtn_DJ_AlterarProd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-alter-24.png"))); // NOI18N
+        jBtn_DJ_AlterarProd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn_DJ_AlterarProdActionPerformed(evt);
+            }
+        });
+
+        jBtn_DJ_ExcluirProd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-entrada-proibida-24.png"))); // NOI18N
+        jBtn_DJ_ExcluirProd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn_DJ_ExcluirProdActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -144,39 +202,51 @@ public class JDlg_DJ_Compras extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jBtn_DJ_Incluir)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jBtn_DJ_Alterar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jBtn_DJ_Excluir)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jBtn_DJ_Confirmar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jBtn_DJ_Cancelar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jBtn_DJ_Pesquisar))
-                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jFormattedTextField1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jBtn_DJ_Incluir)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jBtn_DJ_Alterar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jBtn_DJ_Excluir)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jBtn_DJ_Confirmar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jBtn_DJ_Cancelar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jBtn_DJ_Pesquisar))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTxt_DJ_Codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel1))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jFmt_DJ_DataCompras, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel2))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jCbo_DJ_Usuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jCbo_DJ_Fornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(302, 302, 302)
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jTxt_DJ_Total, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))
-                        .addGap(10, 10, 10)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jBtn_DJ_AlterarProd, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jBtn_DJ_ExcluirProd, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jBtn_DJ_IncluirProd, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(19, 19, 19))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -185,120 +255,152 @@ public class JDlg_DJ_Compras extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5))
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jCbo_DJ_Fornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTxt_DJ_Total, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
                             .addComponent(jLabel2)
-                            .addComponent(jLabel3))
+                            .addComponent(jLabel4))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jTxt_DJ_Codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jFmt_DJ_DataCompras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jCbo_DJ_Usuarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBtn_DJ_Incluir)
-                    .addComponent(jBtn_DJ_Alterar)
-                    .addComponent(jBtn_DJ_Excluir)
-                    .addComponent(jBtn_DJ_Confirmar)
-                    .addComponent(jBtn_DJ_Cancelar)
-                    .addComponent(jBtn_DJ_Pesquisar))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jBtn_DJ_Incluir)
+                            .addComponent(jBtn_DJ_Alterar)
+                            .addComponent(jBtn_DJ_Excluir)
+                            .addComponent(jBtn_DJ_Confirmar)
+                            .addComponent(jBtn_DJ_Cancelar)
+                            .addComponent(jBtn_DJ_Pesquisar)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jBtn_DJ_IncluirProd)
+                        .addGap(18, 18, 18)
+                        .addComponent(jBtn_DJ_AlterarProd)
+                        .addGap(18, 18, 18)
+                        .addComponent(jBtn_DJ_ExcluirProd)
+                        .addGap(0, 174, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void jTxt_DJ_CodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxt_DJ_CodigoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_jTxt_DJ_CodigoActionPerformed
 
     private void jBtn_DJ_AlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_AlterarActionPerformed
         // TODO add your handling code here:
-        Util.habilitar(true, jTxt_DJ_Nome, jTxt_DJ_Apelido, jFmt_DJ_Cpf, jFmt_DJ_DataDeNascimento,
-            jPwf_DJ_Senha, jCbo_DJ_Nivel, jChb_DJ_Ativo, jBtn_DJ_Confirmar, jBtn_DJ_Cancelar);
-
-        Util.habilitar(false, jBtn_DJ_Alterar, jBtn_DJ_Excluir, jBtn_DJ_Pesquisar, jBtn_DJ_Incluir, jTxt_DJ_Codigo);
-
-        jTxt_DJ_Nome.grabFocus();
-
-        incluir = false;
+//        Util.habilitar(true, jTxt_DJ_Nome, jTxt_DJ_Apelido, jFmt_DJ_Cpf, jFmt_DJ_DataDeNascimento,
+//            jPwf_DJ_Senha, jCbo_DJ_Nivel, jChb_DJ_Ativo, jBtn_DJ_Confirmar, jBtn_DJ_Cancelar);
+//
+//        Util.habilitar(false, jBtn_DJ_Alterar, jBtn_DJ_Excluir, jBtn_DJ_Pesquisar, jBtn_DJ_Incluir, jTxt_DJ_Codigo);
+//
+//        jTxt_DJ_Nome.grabFocus();
+//
+//        incluir = false;
 
     }//GEN-LAST:event_jBtn_DJ_AlterarActionPerformed
 
     private void jBtn_DJ_ExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_ExcluirActionPerformed
         // TODO add your handling code here:
-        if(Util.perguntar("Deseja Excluir?")){
-            DJ_UsuariosDAO usuariosDAO = new DJ_UsuariosDAO();
-            usuariosDAO.delete(viewBean());
-            Util.mensagem("Exluido com sucesso!");
-        } else {
-            Util.mensagem("Exclusão cancelada!");
-        }
-        Util.limpar(jTxt_DJ_Codigo, jTxt_DJ_Nome, jTxt_DJ_Apelido, jFmt_DJ_Cpf, jFmt_DJ_DataDeNascimento,
-            jPwf_DJ_Senha, jCbo_DJ_Nivel, jChb_DJ_Ativo);
+//        if(Util.perguntar("Deseja Excluir?")){
+//            DJ_UsuariosDAO usuariosDAO = new DJ_UsuariosDAO();
+//            usuariosDAO.delete(viewBean());
+//            Util.mensagem("Exluido com sucesso!");
+//        } else {
+//            Util.mensagem("Exclusão cancelada!");
+//        }
+//        Util.limpar(jTxt_DJ_Codigo, jTxt_DJ_Nome, jTxt_DJ_Apelido, jFmt_DJ_Cpf, jFmt_DJ_DataDeNascimento,
+//            jPwf_DJ_Senha, jCbo_DJ_Nivel, jChb_DJ_Ativo);
     }//GEN-LAST:event_jBtn_DJ_ExcluirActionPerformed
 
     private void jBtn_DJ_ConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_ConfirmarActionPerformed
         // TODO add your handling code here:
-        DJ_UsuariosDAO dJ_UsuariosDAO = new DJ_UsuariosDAO();
-
-        if(incluir == true){
-            dJ_UsuariosDAO.insert(viewBean());
-        }else{
-            dJ_UsuariosDAO.update(viewBean());
-        }
-
-        Util.habilitar(false, jTxt_DJ_Codigo, jTxt_DJ_Nome, jTxt_DJ_Apelido, jFmt_DJ_Cpf, jFmt_DJ_DataDeNascimento,
-            jPwf_DJ_Senha, jCbo_DJ_Nivel, jChb_DJ_Ativo, jBtn_DJ_Confirmar, jBtn_DJ_Cancelar);
-
-        Util.habilitar(true, jBtn_DJ_Alterar, jBtn_DJ_Excluir, jBtn_DJ_Pesquisar, jBtn_DJ_Incluir);
-
-        Util.limpar(jTxt_DJ_Codigo, jTxt_DJ_Nome, jTxt_DJ_Apelido, jFmt_DJ_Cpf, jFmt_DJ_DataDeNascimento,
-            jPwf_DJ_Senha, jCbo_DJ_Nivel, jChb_DJ_Ativo);
+//        DJ_UsuariosDAO dJ_UsuariosDAO = new DJ_UsuariosDAO();
+//
+//        if(incluir == true){
+//            dJ_UsuariosDAO.insert(viewBean());
+//        }else{
+//            dJ_UsuariosDAO.update(viewBean());
+//        }
+//
+//        Util.habilitar(false, jTxt_DJ_Codigo, jTxt_DJ_Nome, jTxt_DJ_Apelido, jFmt_DJ_Cpf, jFmt_DJ_DataDeNascimento,
+//            jPwf_DJ_Senha, jCbo_DJ_Nivel, jChb_DJ_Ativo, jBtn_DJ_Confirmar, jBtn_DJ_Cancelar);
+//
+//        Util.habilitar(true, jBtn_DJ_Alterar, jBtn_DJ_Excluir, jBtn_DJ_Pesquisar, jBtn_DJ_Incluir);
+//
+//        Util.limpar(jTxt_DJ_Codigo, jTxt_DJ_Nome, jTxt_DJ_Apelido, jFmt_DJ_Cpf, jFmt_DJ_DataDeNascimento,
+//            jPwf_DJ_Senha, jCbo_DJ_Nivel, jChb_DJ_Ativo);
     }//GEN-LAST:event_jBtn_DJ_ConfirmarActionPerformed
 
     private void jBtn_DJ_CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_CancelarActionPerformed
         // TODO add your handling code here:
-        Util.habilitar(false, jTxt_DJ_Codigo, jTxt_DJ_Nome, jTxt_DJ_Apelido, jFmt_DJ_Cpf, jFmt_DJ_DataDeNascimento,
-            jPwf_DJ_Senha, jCbo_DJ_Nivel, jChb_DJ_Ativo, jBtn_DJ_Confirmar, jBtn_DJ_Cancelar);
-
-        Util.habilitar(true, jBtn_DJ_Alterar, jBtn_DJ_Excluir, jBtn_DJ_Pesquisar, jBtn_DJ_Incluir);
-
-        Util.limpar(jTxt_DJ_Codigo, jTxt_DJ_Nome, jTxt_DJ_Apelido, jFmt_DJ_Cpf, jFmt_DJ_DataDeNascimento,
-            jPwf_DJ_Senha, jCbo_DJ_Nivel, jChb_DJ_Ativo);
+//        Util.habilitar(false, jTxt_DJ_Codigo, jTxt_DJ_Nome, jTxt_DJ_Apelido, jFmt_DJ_Cpf, jFmt_DJ_DataDeNascimento,
+//            jPwf_DJ_Senha, jCbo_DJ_Nivel, jChb_DJ_Ativo, jBtn_DJ_Confirmar, jBtn_DJ_Cancelar);
+//
+//        Util.habilitar(true, jBtn_DJ_Alterar, jBtn_DJ_Excluir, jBtn_DJ_Pesquisar, jBtn_DJ_Incluir);
+//
+//        Util.limpar(jTxt_DJ_Codigo, jTxt_DJ_Nome, jTxt_DJ_Apelido, jFmt_DJ_Cpf, jFmt_DJ_DataDeNascimento,
+//            jPwf_DJ_Senha, jCbo_DJ_Nivel, jChb_DJ_Ativo);
     }//GEN-LAST:event_jBtn_DJ_CancelarActionPerformed
 
     private void jBtn_DJ_PesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_PesquisarActionPerformed
         // TODO add your handling code here:
-        JDlg_DJ_UsuariosPesquisar jDlg_DJ_UsuariosPesquisar = new JDlg_DJ_UsuariosPesquisar(null, true);
-        jDlg_DJ_UsuariosPesquisar.setTelaPai(this);
-        jDlg_DJ_UsuariosPesquisar.setVisible(true);
+//        JDlg_DJ_UsuariosPesquisar jDlg_DJ_UsuariosPesquisar = new JDlg_DJ_UsuariosPesquisar(null, true);
+//        jDlg_DJ_UsuariosPesquisar.setTelaPai(this);
+//        jDlg_DJ_UsuariosPesquisar.setVisible(true);
     }//GEN-LAST:event_jBtn_DJ_PesquisarActionPerformed
 
     private void jBtn_DJ_IncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_IncluirActionPerformed
         // TODO add your handling code here:
-        Util.habilitar(true, jTxt_DJ_Codigo, jTxt_DJ_Nome, jTxt_DJ_Apelido, jFmt_DJ_Cpf, jFmt_DJ_DataDeNascimento,
-            jPwf_DJ_Senha, jCbo_DJ_Nivel, jChb_DJ_Ativo, jBtn_DJ_Confirmar, jBtn_DJ_Cancelar);
-
-        Util.habilitar(false, jBtn_DJ_Alterar, jBtn_DJ_Excluir, jBtn_DJ_Pesquisar, jBtn_DJ_Incluir);
-
-        Util.limpar(jTxt_DJ_Codigo, jTxt_DJ_Nome, jTxt_DJ_Apelido, jFmt_DJ_Cpf, jFmt_DJ_DataDeNascimento,
-            jPwf_DJ_Senha, jCbo_DJ_Nivel, jChb_DJ_Ativo);
-
-        jTxt_DJ_Codigo.grabFocus();
-
-        incluir = true;
+//        Util.habilitar(true, jTxt_DJ_Codigo, jTxt_DJ_Nome, jTxt_DJ_Apelido, jFmt_DJ_Cpf, jFmt_DJ_DataDeNascimento,
+//            jPwf_DJ_Senha, jCbo_DJ_Nivel, jChb_DJ_Ativo, jBtn_DJ_Confirmar, jBtn_DJ_Cancelar);
+//
+//        Util.habilitar(false, jBtn_DJ_Alterar, jBtn_DJ_Excluir, jBtn_DJ_Pesquisar, jBtn_DJ_Incluir);
+//
+//        Util.limpar(jTxt_DJ_Codigo, jTxt_DJ_Nome, jTxt_DJ_Apelido, jFmt_DJ_Cpf, jFmt_DJ_DataDeNascimento,
+//            jPwf_DJ_Senha, jCbo_DJ_Nivel, jChb_DJ_Ativo);
+//
+//        jTxt_DJ_Codigo.grabFocus();
+//
+//        incluir = true;
 
     }//GEN-LAST:event_jBtn_DJ_IncluirActionPerformed
+
+    private void jBtn_DJ_IncluirProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_IncluirProdActionPerformed
+        // TODO add your handling code here:
+        JDlg_DJ_ComprasProdutos jDlg_DJ_ComprasProdutos = new JDlg_DJ_ComprasProdutos(null, true);
+        jDlg_DJ_ComprasProdutos.setVisible(true);
+    }//GEN-LAST:event_jBtn_DJ_IncluirProdActionPerformed
+
+    private void jBtn_DJ_AlterarProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_AlterarProdActionPerformed
+        // TODO add your handling code here:
+        JDlg_DJ_ComprasProdutos jDlg_DJ_ComprasProdutos = new JDlg_DJ_ComprasProdutos(null, true);
+        jDlg_DJ_ComprasProdutos.setVisible(true);
+    }//GEN-LAST:event_jBtn_DJ_AlterarProdActionPerformed
+
+    private void jBtn_DJ_ExcluirProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_ExcluirProdActionPerformed
+        // TODO add your handling code here:
+        JDlg_DJ_ComprasProdutos jDlg_DJ_ComprasProdutos = new JDlg_DJ_ComprasProdutos(null, true);
+        jDlg_DJ_ComprasProdutos.setVisible(true);
+    }//GEN-LAST:event_jBtn_DJ_ExcluirProdActionPerformed
+
+    private void jTxt_DJ_TotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxt_DJ_TotalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTxt_DJ_TotalActionPerformed
 
     /**
      * @param args the command line arguments
@@ -344,14 +446,17 @@ public class JDlg_DJ_Compras extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBtn_DJ_Alterar;
+    private javax.swing.JButton jBtn_DJ_AlterarProd;
     private javax.swing.JButton jBtn_DJ_Cancelar;
     private javax.swing.JButton jBtn_DJ_Confirmar;
     private javax.swing.JButton jBtn_DJ_Excluir;
+    private javax.swing.JButton jBtn_DJ_ExcluirProd;
     private javax.swing.JButton jBtn_DJ_Incluir;
+    private javax.swing.JButton jBtn_DJ_IncluirProd;
     private javax.swing.JButton jBtn_DJ_Pesquisar;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
+    private javax.swing.JComboBox<Dj_fornecedor> jCbo_DJ_Fornecedor;
+    private javax.swing.JComboBox<Dj_usuarios> jCbo_DJ_Usuarios;
+    private javax.swing.JFormattedTextField jFmt_DJ_DataCompras;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -359,7 +464,7 @@ public class JDlg_DJ_Compras extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTxt_DJ_Codigo;
+    private javax.swing.JTextField jTxt_DJ_Total;
     // End of variables declaration//GEN-END:variables
 }

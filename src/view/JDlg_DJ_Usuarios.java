@@ -4,7 +4,7 @@
  */
 package view;
 
-import bean.dj_usuarios;
+import bean.Dj_usuarios;
 import dao.DJ_UsuariosDAO;
 import tools.Util;
 import view_Pesquisar.JDlg_DJ_UsuariosPesquisar;
@@ -28,8 +28,8 @@ public class JDlg_DJ_Usuarios extends javax.swing.JDialog {
     }
 
     
-    public dj_usuarios viewBean(){
-        dj_usuarios djUsuarios = new dj_usuarios();
+    public Dj_usuarios viewBean(){
+        Dj_usuarios djUsuarios = new Dj_usuarios();
         djUsuarios.setDj_idUsuarios(Util.strToInt(jTxt_DJ_Codigo.getText()));
         djUsuarios.setDj_nome((jTxt_DJ_Nome.getText()));
         djUsuarios.setDj_apelido((jTxt_DJ_Apelido.getText()));
@@ -44,7 +44,7 @@ public class JDlg_DJ_Usuarios extends javax.swing.JDialog {
         }
         return djUsuarios;
     }
-    public void beanView(dj_usuarios djUsuarios){
+    public void beanView(Dj_usuarios djUsuarios){
         jTxt_DJ_Codigo.setText(Util.intToStr(djUsuarios.getDj_idUsuarios()));
         jTxt_DJ_Nome.setText((djUsuarios.getDj_nome()));
         jTxt_DJ_Apelido.setText((djUsuarios.getDj_apelido()));

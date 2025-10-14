@@ -5,7 +5,7 @@
 package view_Pesquisar;
 
 
-import bean.dj_produtos;
+import bean.Dj_produtos;
 import view.JDlg_DJ_Produtos;
 import dao.DJ_ProdutosDAO;
 import view_Controller.DJ_Controller_Produtos;
@@ -95,7 +95,7 @@ public class JDlg_DJ_ProdutosPesquisar extends javax.swing.JDialog {
 
     private void JBtn_DJ_OKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtn_DJ_OKActionPerformed
         // TODO add your handling code here:
-        dj_produtos djProdutos = dJ_Controller_Produtos.getBean(jTbl_DJ_Produtos.getSelectedRow());
+        Dj_produtos djProdutos = dJ_Controller_Produtos.getBean(jTbl_DJ_Produtos.getSelectedRow());
         jDlg_DJ_Produtos.beanView(djProdutos);
         setVisible(false);
     }//GEN-LAST:event_JBtn_DJ_OKActionPerformed

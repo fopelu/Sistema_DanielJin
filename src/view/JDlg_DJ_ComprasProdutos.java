@@ -5,8 +5,8 @@
  */
 package view;
 
-import bean.dj_compras;
-import bean.dj_produtos;
+import bean.Dj_compras;
+import bean.Dj_produtos;
 
 /**
  *
@@ -36,17 +36,17 @@ public class JDlg_DJ_ComprasProdutos extends javax.swing.JDialog {
     private void initComponents() {
 
         JBtn_DJ_OK = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        jBtn_DJ_Cancelar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jTxt_DJ_Codigo = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<dj_compras>();
+        jCbo_DJ_Compras = new javax.swing.JComboBox<bean.Dj_compras>();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<dj_produtos>();
+        jCbo_DJ_Produtos = new javax.swing.JComboBox<bean.Dj_produtos>();
         jLabel4 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        jTxt_DJ_Quantidade = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        jTxt_DJ_ValorUnitario = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -58,8 +58,13 @@ public class JDlg_DJ_ComprasProdutos extends javax.swing.JDialog {
             }
         });
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-cancelar-24.png"))); // NOI18N
-        jButton1.setText("Cancelar");
+        jBtn_DJ_Cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-cancelar-24.png"))); // NOI18N
+        jBtn_DJ_Cancelar.setText("Cancelar");
+        jBtn_DJ_Cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn_DJ_CancelarActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Código");
 
@@ -79,20 +84,20 @@ public class JDlg_DJ_ComprasProdutos extends javax.swing.JDialog {
                 .addContainerGap(79, Short.MAX_VALUE)
                 .addComponent(JBtn_DJ_OK)
                 .addGap(75, 75, 75)
-                .addComponent(jButton1)
+                .addComponent(jBtn_DJ_Cancelar)
                 .addGap(58, 58, 58))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField2)
-                    .addComponent(jTextField1)
+                    .addComponent(jTxt_DJ_Quantidade)
+                    .addComponent(jTxt_DJ_Codigo)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jCbo_DJ_Compras, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jCbo_DJ_Produtos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addGap(0, 0, Short.MAX_VALUE))))
@@ -102,7 +107,7 @@ public class JDlg_DJ_ComprasProdutos extends javax.swing.JDialog {
                             .addComponent(jLabel4)
                             .addComponent(jLabel5))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jTextField3))
+                    .addComponent(jTxt_DJ_ValorUnitario))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -111,29 +116,29 @@ public class JDlg_DJ_ComprasProdutos extends javax.swing.JDialog {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTxt_DJ_Codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
                             .addComponent(jLabel3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jCbo_DJ_Compras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel4))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(23, 23, 23)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jCbo_DJ_Produtos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTxt_DJ_Quantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTxt_DJ_ValorUnitario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JBtn_DJ_OK)
-                    .addComponent(jButton1))
+                    .addComponent(jBtn_DJ_Cancelar))
                 .addContainerGap())
         );
 
@@ -142,10 +147,13 @@ public class JDlg_DJ_ComprasProdutos extends javax.swing.JDialog {
 
     private void JBtn_DJ_OKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtn_DJ_OKActionPerformed
         // TODO add your handling code here:
-//        DjFornecedor djFornecedor = dJ_Controller_Fornecedor.getBean(jTbl_DJ_Fornecedor.getSelectedRow());
-//        jDlg_DJ_Fornecedor.beanview(djFornecedor);
-//        setVisible(false);
+        setVisible(false);
     }//GEN-LAST:event_JBtn_DJ_OKActionPerformed
+
+    private void jBtn_DJ_CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_CancelarActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+    }//GEN-LAST:event_jBtn_DJ_CancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -191,16 +199,16 @@ public class JDlg_DJ_ComprasProdutos extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBtn_DJ_OK;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<dj_compras> jComboBox1;
-    private javax.swing.JComboBox<dj_produtos> jComboBox2;
+    private javax.swing.JButton jBtn_DJ_Cancelar;
+    private javax.swing.JComboBox<bean.Dj_compras> jCbo_DJ_Compras;
+    private javax.swing.JComboBox<bean.Dj_produtos> jCbo_DJ_Produtos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTxt_DJ_Codigo;
+    private javax.swing.JTextField jTxt_DJ_Quantidade;
+    private javax.swing.JTextField jTxt_DJ_ValorUnitario;
     // End of variables declaration//GEN-END:variables
 }

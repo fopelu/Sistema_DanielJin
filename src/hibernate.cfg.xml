@@ -46,7 +46,7 @@ Contributor(s):
     <property name="hibernate.connection.url">jdbc:mysql://10.7.0.51:33062/db_daniel_jin?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">daniel_jin</property>
     <property name="hibernate.connection.password">daniel_jin</property>
-    <mapping class="bean.dj_compras"/>
+    <mapping class="bean.Dj_compras"/>
     <mapping class="bean.dj_usuarios"/>
     <mapping class="bean.dj_clientes"/>
     <mapping class="bean.dj_compras_produtos"/>
