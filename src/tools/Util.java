@@ -4,6 +4,8 @@
  */
 package tools;
 
+import bean.Dj_compras;
+import java.awt.Dimension;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -14,6 +16,13 @@ import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import org.jfree.data.category.CategoryDataset;
+import java.util.ArrayList;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.chart.ChartPanel;
 
 /**
  *
@@ -74,6 +83,40 @@ public class Util {
         }
         return null;
     }
+    
+    public CategoryDataset PegarDado(ArrayList<Dj_compras> listaDeCompras){
+    DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+
+        for (Dj_compras compras : listaDeCompras) {
+            dataset.addValue(compras.getDj_total(),"Compra " + compras.getDj_idCompras() , "Total");
+        }
+        return dataset;
+    }
+    
+    public JFreeChart CriarBarra(CategoryDataset dataset){
+        JFreeChart graficoBarra = ChartFactory.createBarChart("Gráfico de vendas",
+                "ID",
+                "Total",
+                dataset,
+                PlotOrientation.VERTICAL,
+                true,
+                false,
+                false
+        );
+        return graficoBarra;
+    }
+    
+    public ChartPanel criarGrafico(ArrayList<Dj_compras> listaDeCompras){
+        
+        CategoryDataset dataset = this.PegarDado(listaDeCompras);
+        JFreeChart grafico = this.CriarBarra(dataset);
+        
+        ChartPanel painelGrafico = new ChartPanel(grafico);
+        painelGrafico.setPreferredSize(new Dimension(400, 400));
+        
+        return painelGrafico;
+    }
+    
     public static String datetoStr(Date data){
         if(data == null) return "";
         SimpleDateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy");

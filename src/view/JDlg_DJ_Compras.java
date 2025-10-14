@@ -94,6 +94,7 @@ public class JDlg_DJ_Compras extends javax.swing.JDialog {
         jBtn_DJ_IncluirProd = new javax.swing.JButton();
         jBtn_DJ_AlterarProd = new javax.swing.JButton();
         jBtn_DJ_ExcluirProd = new javax.swing.JButton();
+        jBtn_DJ_Gráficos_Produtos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -207,6 +208,14 @@ public class JDlg_DJ_Compras extends javax.swing.JDialog {
             }
         });
 
+        jBtn_DJ_Gráficos_Produtos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-gráfico-24.png"))); // NOI18N
+        jBtn_DJ_Gráficos_Produtos.setText("Gráfico de Compras");
+        jBtn_DJ_Gráficos_Produtos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn_DJ_Gráficos_ProdutosActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -260,6 +269,10 @@ public class JDlg_DJ_Compras extends javax.swing.JDialog {
                             .addComponent(jBtn_DJ_ExcluirProd, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jBtn_DJ_IncluirProd, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGap(19, 19, 19))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(238, 238, 238)
+                .addComponent(jBtn_DJ_Gráficos_Produtos)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -286,25 +299,25 @@ public class JDlg_DJ_Compras extends javax.swing.JDialog {
                             .addComponent(jCbo_DJ_Usuarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jBtn_DJ_Incluir)
-                            .addComponent(jBtn_DJ_Alterar)
-                            .addComponent(jBtn_DJ_Excluir)
-                            .addComponent(jBtn_DJ_Confirmar)
-                            .addComponent(jBtn_DJ_Cancelar)
-                            .addComponent(jBtn_DJ_Pesquisar)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(30, 30, 30)
                         .addComponent(jBtn_DJ_IncluirProd)
                         .addGap(18, 18, 18)
                         .addComponent(jBtn_DJ_AlterarProd)
                         .addGap(18, 18, 18)
-                        .addComponent(jBtn_DJ_ExcluirProd)
-                        .addGap(0, 174, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(jBtn_DJ_ExcluirProd)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBtn_DJ_Incluir)
+                    .addComponent(jBtn_DJ_Alterar)
+                    .addComponent(jBtn_DJ_Excluir)
+                    .addComponent(jBtn_DJ_Confirmar)
+                    .addComponent(jBtn_DJ_Cancelar)
+                    .addComponent(jBtn_DJ_Pesquisar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jBtn_DJ_Gráficos_Produtos)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -415,6 +428,12 @@ public class JDlg_DJ_Compras extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTxt_DJ_TotalActionPerformed
 
+    private void jBtn_DJ_Gráficos_ProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_Gráficos_ProdutosActionPerformed
+        // TODO add your handling code here:
+        JDlg_DJ_Graficos_Compras jDlg_DJ_Graficos_Compras = new JDlg_DJ_Graficos_Compras(null, true);
+        jDlg_DJ_Graficos_Compras.setVisible(true);
+    }//GEN-LAST:event_jBtn_DJ_Gráficos_ProdutosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -464,6 +483,7 @@ public class JDlg_DJ_Compras extends javax.swing.JDialog {
     private javax.swing.JButton jBtn_DJ_Confirmar;
     private javax.swing.JButton jBtn_DJ_Excluir;
     private javax.swing.JButton jBtn_DJ_ExcluirProd;
+    private javax.swing.JButton jBtn_DJ_Gráficos_Produtos;
     private javax.swing.JButton jBtn_DJ_Incluir;
     private javax.swing.JButton jBtn_DJ_IncluirProd;
     private javax.swing.JButton jBtn_DJ_Pesquisar;

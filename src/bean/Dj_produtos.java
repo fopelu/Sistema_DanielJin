@@ -115,8 +115,6 @@ public class Dj_produtos  implements java.io.Serializable {
         this.dj_material = dj_material;
     }
 
-
-
 }
 
 
