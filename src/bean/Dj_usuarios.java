@@ -145,6 +145,10 @@ public class Dj_usuarios  implements java.io.Serializable {
     }
 
 
+     @Override
+    public String toString(){
+        return this.getDj_nome();
+    }
 }
 
 

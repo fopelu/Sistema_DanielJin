@@ -12,12 +12,14 @@ import java.util.List;
 import tools.Util;
 import dao.DJ_UsuariosDAO;
 import dao.DJ_FornecedorDAO;
+import dao.DJ_ComprasDAO;
+import view_Pesquisar.JDlg_DJ_ComprasPesquisar;
 /**
  *
  * @author u11200121120
  */
 public class JDlg_DJ_Compras extends javax.swing.JDialog {
-
+    private boolean incluir;
     /**
      * Creates new form JDlg_DJ_Compras
      */
@@ -26,6 +28,9 @@ public class JDlg_DJ_Compras extends javax.swing.JDialog {
         initComponents();
         setTitle("Tela de Movimento de Compras");
         setLocationRelativeTo(null);
+        Util.habilitar(false, jTxt_DJ_Codigo, jTxt_DJ_Total, jFmt_DJ_DataCompras, jCbo_DJ_Fornecedor, jCbo_DJ_Usuarios,
+                jBtn_DJ_Cancelar, jBtn_DJ_Confirmar, jBtn_DJ_AlterarProd, jBtn_DJ_ExcluirProd, jBtn_DJ_IncluirProd, 
+                jTbl_DJ_Compras);
         DJ_UsuariosDAO dJ_UsuariosDAO = new DJ_UsuariosDAO();
         DJ_FornecedorDAO dJ_FornecedorDAO = new DJ_FornecedorDAO();
      
@@ -79,7 +84,7 @@ public class JDlg_DJ_Compras extends javax.swing.JDialog {
         jTxt_DJ_Total = new javax.swing.JTextField();
         jFmt_DJ_DataCompras = new javax.swing.JFormattedTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTbl_DJ_Compras = new javax.swing.JTable();
         jBtn_DJ_Alterar = new javax.swing.JButton();
         jBtn_DJ_Excluir = new javax.swing.JButton();
         jBtn_DJ_Confirmar = new javax.swing.JButton();
@@ -120,7 +125,7 @@ public class JDlg_DJ_Compras extends javax.swing.JDialog {
             ex.printStackTrace();
         }
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTbl_DJ_Compras.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -131,7 +136,7 @@ public class JDlg_DJ_Compras extends javax.swing.JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTbl_DJ_Compras);
 
         jBtn_DJ_Alterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-alter-24.png"))); // NOI18N
         jBtn_DJ_Alterar.setText("Alterar");
@@ -268,7 +273,7 @@ public class JDlg_DJ_Compras extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jCbo_DJ_Fornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTxt_DJ_Total, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jTxt_DJ_Total, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
@@ -311,80 +316,80 @@ public class JDlg_DJ_Compras extends javax.swing.JDialog {
 
     private void jBtn_DJ_AlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_AlterarActionPerformed
         // TODO add your handling code here:
-//        Util.habilitar(true, jTxt_DJ_Nome, jTxt_DJ_Apelido, jFmt_DJ_Cpf, jFmt_DJ_DataDeNascimento,
-//            jPwf_DJ_Senha, jCbo_DJ_Nivel, jChb_DJ_Ativo, jBtn_DJ_Confirmar, jBtn_DJ_Cancelar);
-//
-//        Util.habilitar(false, jBtn_DJ_Alterar, jBtn_DJ_Excluir, jBtn_DJ_Pesquisar, jBtn_DJ_Incluir, jTxt_DJ_Codigo);
-//
-//        jTxt_DJ_Nome.grabFocus();
-//
-//        incluir = false;
+        Util.habilitar(true, jTxt_DJ_Codigo, jTxt_DJ_Total, jFmt_DJ_DataCompras, jCbo_DJ_Fornecedor, jCbo_DJ_Usuarios,
+                jBtn_DJ_Cancelar, jBtn_DJ_Confirmar, jBtn_DJ_AlterarProd, jBtn_DJ_ExcluirProd, jBtn_DJ_IncluirProd, 
+                jTbl_DJ_Compras);
+
+        Util.habilitar(false, jBtn_DJ_Alterar, jBtn_DJ_Excluir, jBtn_DJ_Pesquisar, jBtn_DJ_Incluir, jTxt_DJ_Codigo);
+
+        jFmt_DJ_DataCompras.grabFocus();
+
+        incluir = false;
 
     }//GEN-LAST:event_jBtn_DJ_AlterarActionPerformed
 
     private void jBtn_DJ_ExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_ExcluirActionPerformed
         // TODO add your handling code here:
-//        if(Util.perguntar("Deseja Excluir?")){
-//            DJ_UsuariosDAO usuariosDAO = new DJ_UsuariosDAO();
-//            usuariosDAO.delete(viewBean());
-//            Util.mensagem("Exluido com sucesso!");
-//        } else {
-//            Util.mensagem("Exclusão cancelada!");
-//        }
-//        Util.limpar(jTxt_DJ_Codigo, jTxt_DJ_Nome, jTxt_DJ_Apelido, jFmt_DJ_Cpf, jFmt_DJ_DataDeNascimento,
-//            jPwf_DJ_Senha, jCbo_DJ_Nivel, jChb_DJ_Ativo);
+        if(Util.perguntar("Deseja Excluir?")){
+            DJ_ComprasDAO dJ_ComprasDAO = new DJ_ComprasDAO();
+            dJ_ComprasDAO.delete(viewBean());
+            Util.mensagem("Exluido com sucesso!");
+        } else {
+            Util.mensagem("Exclusão cancelada!");
+        }
+        Util.limpar( jTxt_DJ_Codigo, jTxt_DJ_Total, jFmt_DJ_DataCompras, jCbo_DJ_Fornecedor, jCbo_DJ_Usuarios);
     }//GEN-LAST:event_jBtn_DJ_ExcluirActionPerformed
 
     private void jBtn_DJ_ConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_ConfirmarActionPerformed
         // TODO add your handling code here:
-//        DJ_UsuariosDAO dJ_UsuariosDAO = new DJ_UsuariosDAO();
-//
-//        if(incluir == true){
-//            dJ_UsuariosDAO.insert(viewBean());
-//        }else{
-//            dJ_UsuariosDAO.update(viewBean());
-//        }
-//
-//        Util.habilitar(false, jTxt_DJ_Codigo, jTxt_DJ_Nome, jTxt_DJ_Apelido, jFmt_DJ_Cpf, jFmt_DJ_DataDeNascimento,
-//            jPwf_DJ_Senha, jCbo_DJ_Nivel, jChb_DJ_Ativo, jBtn_DJ_Confirmar, jBtn_DJ_Cancelar);
-//
-//        Util.habilitar(true, jBtn_DJ_Alterar, jBtn_DJ_Excluir, jBtn_DJ_Pesquisar, jBtn_DJ_Incluir);
-//
-//        Util.limpar(jTxt_DJ_Codigo, jTxt_DJ_Nome, jTxt_DJ_Apelido, jFmt_DJ_Cpf, jFmt_DJ_DataDeNascimento,
-//            jPwf_DJ_Senha, jCbo_DJ_Nivel, jChb_DJ_Ativo);
+        DJ_ComprasDAO dJ_ComprasDAO = new DJ_ComprasDAO();
+
+        if(incluir == true){
+            dJ_ComprasDAO.insert(viewBean());
+        }else{
+            dJ_ComprasDAO.update(viewBean());
+        }
+
+        Util.habilitar(false, jTxt_DJ_Codigo, jTxt_DJ_Total, jFmt_DJ_DataCompras, jCbo_DJ_Fornecedor, jCbo_DJ_Usuarios,
+                jBtn_DJ_Cancelar, jBtn_DJ_Confirmar, jBtn_DJ_AlterarProd, jBtn_DJ_ExcluirProd, jBtn_DJ_IncluirProd, 
+                jTbl_DJ_Compras);
+        
+        Util.habilitar(true, jBtn_DJ_Alterar, jBtn_DJ_Excluir, jBtn_DJ_Pesquisar, jBtn_DJ_Incluir);
+
+        Util.limpar( jTxt_DJ_Codigo, jTxt_DJ_Total, jFmt_DJ_DataCompras, jCbo_DJ_Fornecedor, jCbo_DJ_Usuarios);
     }//GEN-LAST:event_jBtn_DJ_ConfirmarActionPerformed
 
     private void jBtn_DJ_CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_CancelarActionPerformed
         // TODO add your handling code here:
-//        Util.habilitar(false, jTxt_DJ_Codigo, jTxt_DJ_Nome, jTxt_DJ_Apelido, jFmt_DJ_Cpf, jFmt_DJ_DataDeNascimento,
-//            jPwf_DJ_Senha, jCbo_DJ_Nivel, jChb_DJ_Ativo, jBtn_DJ_Confirmar, jBtn_DJ_Cancelar);
-//
-//        Util.habilitar(true, jBtn_DJ_Alterar, jBtn_DJ_Excluir, jBtn_DJ_Pesquisar, jBtn_DJ_Incluir);
-//
-//        Util.limpar(jTxt_DJ_Codigo, jTxt_DJ_Nome, jTxt_DJ_Apelido, jFmt_DJ_Cpf, jFmt_DJ_DataDeNascimento,
-//            jPwf_DJ_Senha, jCbo_DJ_Nivel, jChb_DJ_Ativo);
+        Util.habilitar(false, jTxt_DJ_Codigo, jTxt_DJ_Total, jFmt_DJ_DataCompras, jCbo_DJ_Fornecedor, jCbo_DJ_Usuarios,
+                jBtn_DJ_Cancelar, jBtn_DJ_Confirmar, jBtn_DJ_AlterarProd, jBtn_DJ_ExcluirProd, jBtn_DJ_IncluirProd, 
+                jTbl_DJ_Compras);
+
+        Util.habilitar(true, jBtn_DJ_Alterar, jBtn_DJ_Excluir, jBtn_DJ_Pesquisar, jBtn_DJ_Incluir);
+
+        Util.limpar( jTxt_DJ_Codigo, jTxt_DJ_Total, jFmt_DJ_DataCompras, jCbo_DJ_Fornecedor, jCbo_DJ_Usuarios);
     }//GEN-LAST:event_jBtn_DJ_CancelarActionPerformed
 
     private void jBtn_DJ_PesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_PesquisarActionPerformed
         // TODO add your handling code here:
-//        JDlg_DJ_UsuariosPesquisar jDlg_DJ_UsuariosPesquisar = new JDlg_DJ_UsuariosPesquisar(null, true);
-//        jDlg_DJ_UsuariosPesquisar.setTelaPai(this);
-//        jDlg_DJ_UsuariosPesquisar.setVisible(true);
+        JDlg_DJ_ComprasPesquisar jDlg_DJ_ComprasPesquisar = new JDlg_DJ_ComprasPesquisar(null, true);
+        jDlg_DJ_ComprasPesquisar.SetTelaPai(this);
+        jDlg_DJ_ComprasPesquisar.setVisible(true);
     }//GEN-LAST:event_jBtn_DJ_PesquisarActionPerformed
 
     private void jBtn_DJ_IncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_IncluirActionPerformed
         // TODO add your handling code here:
-//        Util.habilitar(true, jTxt_DJ_Codigo, jTxt_DJ_Nome, jTxt_DJ_Apelido, jFmt_DJ_Cpf, jFmt_DJ_DataDeNascimento,
-//            jPwf_DJ_Senha, jCbo_DJ_Nivel, jChb_DJ_Ativo, jBtn_DJ_Confirmar, jBtn_DJ_Cancelar);
+        Util.habilitar(true, jTxt_DJ_Codigo, jTxt_DJ_Total, jFmt_DJ_DataCompras, jCbo_DJ_Fornecedor, jCbo_DJ_Usuarios,
+                jBtn_DJ_Cancelar, jBtn_DJ_Confirmar, jBtn_DJ_AlterarProd, jBtn_DJ_ExcluirProd, jBtn_DJ_IncluirProd, 
+                jTbl_DJ_Compras);
 //
-//        Util.habilitar(false, jBtn_DJ_Alterar, jBtn_DJ_Excluir, jBtn_DJ_Pesquisar, jBtn_DJ_Incluir);
-//
-//        Util.limpar(jTxt_DJ_Codigo, jTxt_DJ_Nome, jTxt_DJ_Apelido, jFmt_DJ_Cpf, jFmt_DJ_DataDeNascimento,
-//            jPwf_DJ_Senha, jCbo_DJ_Nivel, jChb_DJ_Ativo);
-//
-//        jTxt_DJ_Codigo.grabFocus();
-//
-//        incluir = true;
+        Util.habilitar(false, jBtn_DJ_Alterar, jBtn_DJ_Excluir, jBtn_DJ_Pesquisar, jBtn_DJ_Incluir);
+
+        Util.limpar( jTxt_DJ_Codigo, jTxt_DJ_Total, jFmt_DJ_DataCompras, jCbo_DJ_Fornecedor, jCbo_DJ_Usuarios);
+
+        jTxt_DJ_Codigo.grabFocus();
+
+        incluir = true;
 
     }//GEN-LAST:event_jBtn_DJ_IncluirActionPerformed
 
@@ -471,7 +476,7 @@ public class JDlg_DJ_Compras extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTbl_DJ_Compras;
     private javax.swing.JTextField jTxt_DJ_Codigo;
     private javax.swing.JTextField jTxt_DJ_Total;
     // End of variables declaration//GEN-END:variables

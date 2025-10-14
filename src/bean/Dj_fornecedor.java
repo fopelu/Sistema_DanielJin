@@ -227,6 +227,11 @@ public class Dj_fornecedor  implements java.io.Serializable {
     public void setDj_dataCadastro(Date dj_dataCadastro) {
         this.dj_dataCadastro = dj_dataCadastro;
     }
+    
+    @Override
+    public String toString(){
+        return this.getDj_nome();
+    }
 
 }
 

@@ -4,36 +4,37 @@
  */
 package view_Pesquisar;
 
-import bean.Dj_clientes;
+import bean.Dj_compras;
 import dao.DJ_ClientesDAO;
-import view.JDlg_DJ_Clientes;
-import view_Controller.DJ_Controller_Clientes;
+import dao.DJ_ComprasDAO;
+import view.JDlg_DJ_Compras;
+import view_Controller.DJ_Controller_Compras;
 import java.util.List;
 /**
  *
  * @author danie
  */
-public class JDlg_DJ_ClientesPesquisar extends javax.swing.JDialog {
+public class JDlg_DJ_ComprasPesquisar extends javax.swing.JDialog {
 
-    private JDlg_DJ_Clientes jDlg_DJ_Clientes;
-    DJ_Controller_Clientes dJ_Controller_Clientes;
+    private JDlg_DJ_Compras jDlg_DJ_Compras;
+    DJ_Controller_Compras dJ_Controller_Compras;
     /**
      * Creates new form JDlg_DJ_VendedorPesquisar
      */
-    public JDlg_DJ_ClientesPesquisar(java.awt.Frame parent, boolean modal) {
+    public JDlg_DJ_ComprasPesquisar(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         setTitle("Tabela de Vendedor");
         setLocationRelativeTo(null);
-        dJ_Controller_Clientes = new DJ_Controller_Clientes();
-        DJ_ClientesDAO dJ_ClientesDAO = new DJ_ClientesDAO();
-        List lista = (List) dJ_ClientesDAO.listAll();
-        dJ_Controller_Clientes.setList(lista);
-        jTbl_DJ_Clientes.setModel(dJ_Controller_Clientes);
+        dJ_Controller_Compras = new DJ_Controller_Compras();
+        DJ_ComprasDAO dJ_ComprasDAO = new DJ_ComprasDAO();
+        List lista = (List) dJ_ComprasDAO.listAll();
+        dJ_Controller_Compras.setList(lista);
+        jTbl_DJ_Compras.setModel(dJ_Controller_Compras);
     }
     
-    public void SetTelaPai(JDlg_DJ_Clientes jDlg_DJ_Clientes){
-        this.jDlg_DJ_Clientes = jDlg_DJ_Clientes;
+    public void SetTelaPai(JDlg_DJ_Compras jDlg_DJ_Compras){
+        this.jDlg_DJ_Compras = jDlg_DJ_Compras;
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -45,12 +46,12 @@ public class JDlg_DJ_ClientesPesquisar extends javax.swing.JDialog {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTbl_DJ_Clientes = new javax.swing.JTable();
+        jTbl_DJ_Compras = new javax.swing.JTable();
         jBtn_DJ_OK = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jTbl_DJ_Clientes.setModel(new javax.swing.table.DefaultTableModel(
+        jTbl_DJ_Compras.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -61,7 +62,7 @@ public class JDlg_DJ_ClientesPesquisar extends javax.swing.JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTbl_DJ_Clientes);
+        jScrollPane1.setViewportView(jTbl_DJ_Compras);
 
         jBtn_DJ_OK.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-ok-24.png"))); // NOI18N
         jBtn_DJ_OK.setText("OK");
@@ -95,8 +96,8 @@ public class JDlg_DJ_ClientesPesquisar extends javax.swing.JDialog {
 
     private void jBtn_DJ_OKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_OKActionPerformed
         // TODO add your handling code here:
-        Dj_clientes dj_clientes = dJ_Controller_Clientes.getBean(jTbl_DJ_Clientes.getSelectedRow());
-        jDlg_DJ_Clientes.beanView(dj_clientes);
+        Dj_compras dj_compras = dJ_Controller_Compras.getBean(jTbl_DJ_Compras.getSelectedRow());
+        jDlg_DJ_Compras.beanView(dj_compras);
         setVisible(false);
     }//GEN-LAST:event_jBtn_DJ_OKActionPerformed
 
@@ -117,21 +118,23 @@ public class JDlg_DJ_ClientesPesquisar extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JDlg_DJ_ClientesPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JDlg_DJ_ComprasPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JDlg_DJ_ClientesPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JDlg_DJ_ComprasPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JDlg_DJ_ClientesPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JDlg_DJ_ComprasPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JDlg_DJ_ClientesPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JDlg_DJ_ComprasPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                JDlg_DJ_ClientesPesquisar dialog = new JDlg_DJ_ClientesPesquisar(new javax.swing.JFrame(), true);
+                JDlg_DJ_ComprasPesquisar dialog = new JDlg_DJ_ComprasPesquisar(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -146,6 +149,6 @@ public class JDlg_DJ_ClientesPesquisar extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBtn_DJ_OK;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTbl_DJ_Clientes;
+    private javax.swing.JTable jTbl_DJ_Compras;
     // End of variables declaration//GEN-END:variables
 }
