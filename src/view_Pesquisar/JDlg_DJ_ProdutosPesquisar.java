@@ -10,6 +10,7 @@ import view.JDlg_DJ_Produtos;
 import dao.DJ_ProdutosDAO;
 import view_Controller.DJ_Controller_Produtos;
 import java.util.List;
+import tools.Util;
 /**
  *
  * @author danie
@@ -64,6 +65,11 @@ public class JDlg_DJ_ProdutosPesquisar extends javax.swing.JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTbl_DJ_Produtos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTbl_DJ_ProdutosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTbl_DJ_Produtos);
 
         JBtn_DJ_OK.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-ok-24.png"))); // NOI18N
@@ -95,10 +101,23 @@ public class JDlg_DJ_ProdutosPesquisar extends javax.swing.JDialog {
 
     private void JBtn_DJ_OKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtn_DJ_OKActionPerformed
         // TODO add your handling code here:
-        Dj_produtos djProdutos = dJ_Controller_Produtos.getBean(jTbl_DJ_Produtos.getSelectedRow());
-        jDlg_DJ_Produtos.beanView(djProdutos);
-        setVisible(false);
+        if(jTbl_DJ_Produtos.getSelectedRow() == -1){
+            Util.mensagem("Cabeçudão, tu não selecionou nadie");
+        }else {
+            
+        Dj_produtos dj_produtos =  dJ_Controller_Produtos.getBean( jTbl_DJ_Produtos.getSelectedRow() );
+        jDlg_DJ_Produtos.beanView(dj_produtos);
+        this.setVisible(false);
+        }
     }//GEN-LAST:event_JBtn_DJ_OKActionPerformed
+
+    private void jTbl_DJ_ProdutosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTbl_DJ_ProdutosMouseClicked
+        // TODO add your handling code here:
+        if(evt.getClickCount() == 2){
+            
+        JBtn_DJ_OKActionPerformed(null);
+        }
+    }//GEN-LAST:event_jTbl_DJ_ProdutosMouseClicked
 
     /**
      * @param args the command line arguments

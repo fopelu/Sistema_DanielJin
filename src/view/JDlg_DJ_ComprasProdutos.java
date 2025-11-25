@@ -37,16 +37,14 @@ public class JDlg_DJ_ComprasProdutos extends javax.swing.JDialog {
 
         JBtn_DJ_OK = new javax.swing.JButton();
         jBtn_DJ_Cancelar = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jTxt_DJ_Codigo = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jCbo_DJ_Compras = new javax.swing.JComboBox<bean.Dj_compras>();
         jLabel3 = new javax.swing.JLabel();
         jCbo_DJ_Produtos = new javax.swing.JComboBox<bean.Dj_produtos>();
         jLabel4 = new javax.swing.JLabel();
         jTxt_DJ_Quantidade = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jTxt_DJ_ValorUnitario = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jTxt_DJ_Total = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -66,80 +64,72 @@ public class JDlg_DJ_ComprasProdutos extends javax.swing.JDialog {
             }
         });
 
-        jLabel1.setText("Código");
-
-        jLabel2.setText("Compras");
-
         jLabel3.setText("Produtos");
 
         jLabel4.setText("Quantidade");
 
         jLabel5.setText("Valor Unitário");
 
+        jLabel6.setText("Total");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(79, Short.MAX_VALUE)
-                .addComponent(JBtn_DJ_OK)
-                .addGap(75, 75, 75)
-                .addComponent(jBtn_DJ_Cancelar)
-                .addGap(58, 58, 58))
-            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTxt_DJ_Quantidade)
-                    .addComponent(jTxt_DJ_Codigo)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jCbo_DJ_Compras, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCbo_DJ_Produtos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                        .addComponent(jLabel6)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jTxt_DJ_ValorUnitario))
-                .addContainerGap())
+                        .addGap(55, 55, 55)
+                        .addComponent(JBtn_DJ_OK)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
+                        .addComponent(jBtn_DJ_Cancelar)
+                        .addGap(52, 52, 52))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jTxt_DJ_Total, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jCbo_DJ_Produtos, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jTxt_DJ_Quantidade, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTxt_DJ_ValorUnitario, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTxt_DJ_Codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCbo_DJ_Compras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel4))
+                        .addComponent(jLabel3)
+                        .addGap(29, 29, 29))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(23, 23, 23)
                         .addComponent(jCbo_DJ_Produtos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel4)
+                .addGap(6, 6, 6)
                 .addComponent(jTxt_DJ_Quantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTxt_DJ_ValorUnitario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTxt_DJ_Total, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JBtn_DJ_OK)
                     .addComponent(jBtn_DJ_Cancelar))
-                .addContainerGap())
+                .addGap(0, 11, Short.MAX_VALUE))
         );
 
         pack();
@@ -200,15 +190,13 @@ public class JDlg_DJ_ComprasProdutos extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBtn_DJ_OK;
     private javax.swing.JButton jBtn_DJ_Cancelar;
-    private javax.swing.JComboBox<bean.Dj_compras> jCbo_DJ_Compras;
     private javax.swing.JComboBox<bean.Dj_produtos> jCbo_DJ_Produtos;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JTextField jTxt_DJ_Codigo;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JTextField jTxt_DJ_Quantidade;
+    private javax.swing.JTextField jTxt_DJ_Total;
     private javax.swing.JTextField jTxt_DJ_ValorUnitario;
     // End of variables declaration//GEN-END:variables
 }

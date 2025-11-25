@@ -49,7 +49,7 @@ public class JDlg_DJ_Fornecedor extends javax.swing.JDialog {
         return djFornecedor;
     }
     
-    public void beanview(Dj_fornecedor djFornecedor){
+    public void beanView(Dj_fornecedor djFornecedor){
         jTxt_DJ_Codigo.setText(Util.intToStr(djFornecedor.getDj_idFornecedor()));
         jTxt_DJ_Nome.setText((djFornecedor.getDj_nome()));
         jTxt_DJ_Bairro.setText((djFornecedor.getDj_bairro()));

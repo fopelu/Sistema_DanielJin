@@ -9,6 +9,7 @@ import view.JDlg_DJ_Fornecedor;
 import view_Controller.DJ_Controller_Fornecedor;
 import dao.DJ_FornecedorDAO;
 import java.util.List;
+import tools.Util;
 
 /**
  *
@@ -62,6 +63,11 @@ public class JDlg_DJ_FornecedorPesquisar extends javax.swing.JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTbl_DJ_Fornecedor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTbl_DJ_FornecedorMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTbl_DJ_Fornecedor);
 
         JBtn_DJ_OK.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-ok-24.png"))); // NOI18N
@@ -96,10 +102,22 @@ public class JDlg_DJ_FornecedorPesquisar extends javax.swing.JDialog {
 
     private void JBtn_DJ_OKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtn_DJ_OKActionPerformed
         // TODO add your handling code here:
-        Dj_fornecedor djFornecedor = dJ_Controller_Fornecedor.getBean(jTbl_DJ_Fornecedor.getSelectedRow());
-        jDlg_DJ_Fornecedor.beanview(djFornecedor);
-        setVisible(false);
+        if(jTbl_DJ_Fornecedor.getSelectedRow() == -1){
+            Util.mensagem("Não esttá selecionado nadie");
+        }else {
+        Dj_fornecedor dj_fornecedor = dJ_Controller_Fornecedor.getBean( jTbl_DJ_Fornecedor.getSelectedRow() );
+        jDlg_DJ_Fornecedor.beanView(dj_fornecedor);
+        this.setVisible(false);
+        }
     }//GEN-LAST:event_JBtn_DJ_OKActionPerformed
+
+    private void jTbl_DJ_FornecedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTbl_DJ_FornecedorMouseClicked
+        // TODO add your handling code here:
+        if(evt.getClickCount() == 2){
+            
+        JBtn_DJ_OKActionPerformed(null);
+        }
+    }//GEN-LAST:event_jTbl_DJ_FornecedorMouseClicked
 
     /**
      * @param args the command line arguments

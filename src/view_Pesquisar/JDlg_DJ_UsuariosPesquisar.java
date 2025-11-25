@@ -9,6 +9,7 @@ import dao.DJ_UsuariosDAO;
 import java.util.List;
 import view.JDlg_DJ_Usuarios;
 import bean.Dj_usuarios;
+import tools.Util;
 
 
 /**
@@ -63,6 +64,11 @@ public class JDlg_DJ_UsuariosPesquisar extends javax.swing.JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTbl_DJ_TabelaUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTbl_DJ_TabelaUsuariosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTbl_DJ_TabelaUsuarios);
 
         jBtn_DJ_OK.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-ok-24.png"))); // NOI18N
@@ -97,10 +103,22 @@ public class JDlg_DJ_UsuariosPesquisar extends javax.swing.JDialog {
 
     private void jBtn_DJ_OKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_OKActionPerformed
         // TODO add your handling code here:
-        Dj_usuarios djUsuarios =  dJ_Controller_Usuarios.getBean( jTbl_DJ_TabelaUsuarios.getSelectedRow() );
-        jDlg_DJ_Usuarios.beanView(djUsuarios);
-        setVisible(false);
+        if(jTbl_DJ_TabelaUsuarios.getSelectedRow() == -1){
+            Util.mensagem("Não esttá selecionado nadie");
+        }else {
+        Dj_usuarios dj_usuarios =  dJ_Controller_Usuarios.getBean( jTbl_DJ_TabelaUsuarios.getSelectedRow() );
+        jDlg_DJ_Usuarios.beanView(dj_usuarios);
+        this.setVisible(false);
+        }
     }//GEN-LAST:event_jBtn_DJ_OKActionPerformed
+
+    private void jTbl_DJ_TabelaUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTbl_DJ_TabelaUsuariosMouseClicked
+        // TODO add your handling code here:
+        if(evt.getClickCount() == 2){
+            
+        jBtn_DJ_OKActionPerformed(null);
+        }
+    }//GEN-LAST:event_jTbl_DJ_TabelaUsuariosMouseClicked
 
     /**
      * @param args the command line arguments

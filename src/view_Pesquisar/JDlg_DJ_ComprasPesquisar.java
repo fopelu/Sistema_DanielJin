@@ -10,6 +10,7 @@ import dao.DJ_ComprasDAO;
 import view.JDlg_DJ_Compras;
 import view_Controller.DJ_Controller_Compras;
 import java.util.List;
+import tools.Util;
 /**
  *
  * @author danie
@@ -62,6 +63,11 @@ public class JDlg_DJ_ComprasPesquisar extends javax.swing.JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTbl_DJ_Compras.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTbl_DJ_ComprasMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTbl_DJ_Compras);
 
         jBtn_DJ_OK.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-ok-24.png"))); // NOI18N
@@ -96,10 +102,22 @@ public class JDlg_DJ_ComprasPesquisar extends javax.swing.JDialog {
 
     private void jBtn_DJ_OKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_OKActionPerformed
         // TODO add your handling code here:
-        Dj_compras dj_compras = dJ_Controller_Compras.getBean(jTbl_DJ_Compras.getSelectedRow());
+        if(jTbl_DJ_Compras.getSelectedRow() == -1){
+            Util.mensagem("Não esttá selecionado nadie");
+        }else {
+        Dj_compras dj_compras = dJ_Controller_Compras.getBean( jTbl_DJ_Compras.getSelectedRow() );
         jDlg_DJ_Compras.beanView(dj_compras);
-        setVisible(false);
+        this.setVisible(false);
+        }
     }//GEN-LAST:event_jBtn_DJ_OKActionPerformed
+
+    private void jTbl_DJ_ComprasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTbl_DJ_ComprasMouseClicked
+        // TODO add your handling code here:
+        if(evt.getClickCount() == 2){
+            
+        jBtn_DJ_OKActionPerformed(null);
+        }
+    }//GEN-LAST:event_jTbl_DJ_ComprasMouseClicked
 
     /**
      * @param args the command line arguments
