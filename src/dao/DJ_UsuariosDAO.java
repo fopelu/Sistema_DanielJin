@@ -59,6 +59,21 @@ public class DJ_UsuariosDAO extends DJ_AbstractDAO{
         session.getTransaction().commit();
         return lista;
     }
+    
+    public Dj_usuarios autenticar(String nome, String senha) {
+        session.beginTransaction();
+
+        Criteria criteria = session.createCriteria(Dj_usuarios.class);
+        criteria.add(Restrictions.eq("dj_nome", nome));
+        criteria.add(Restrictions.eq("dj_senha", senha));
+
+        Dj_usuarios dj_usuarios = (Dj_usuarios) criteria.uniqueResult();
+
+        session.getTransaction().commit();
+
+        return dj_usuarios;
+    }
+    
         public static void main(String[] args) {
         DJ_UsuariosDAO dJ_UsuariosDAO = new DJ_UsuariosDAO();
         dJ_UsuariosDAO.listAll();
