@@ -6,6 +6,7 @@
 package dao;
 
 import bean.Dj_compras_produtos;
+import bean.Dj_compras;
 import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
@@ -46,6 +47,14 @@ public class DJ_ComprasProdutosDAO extends DJ_AbstractDAO{
         session.beginTransaction();
         Criteria criteria = session.createCriteria(Dj_compras_produtos.class);
         criteria.add(Restrictions.eq("dj_id_compras_produtos", codigo));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+    }
+    public Object listProdutos(Dj_compras dj_compras) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(Dj_compras_produtos.class);
+        criteria.add(Restrictions.eq("dj_idCompras", dj_compras));
         List lista = criteria.list();
         session.getTransaction().commit();
         return lista;

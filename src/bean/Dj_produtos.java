@@ -115,6 +115,22 @@ public class Dj_produtos  implements java.io.Serializable {
         this.dj_material = dj_material;
     }
 
+    @Override
+    public String toString(){
+        return this.dj_nome;
+    }
+    
+    
+     @Override
+    public boolean equals(Object object){
+        if (object instanceof Dj_produtos){
+            Dj_produtos dj_produtos = (Dj_produtos)object;
+            if (this.getDj_idProdutos()== dj_produtos.getDj_idProdutos()){
+                return true;
+            }
+        }
+         return false;
+    }
 }
 
 

@@ -232,7 +232,17 @@ public class Dj_fornecedor  implements java.io.Serializable {
     public String toString(){
         return this.getDj_nome();
     }
-
+    
+        @Override
+    public boolean equals(Object object){
+        if (object instanceof Dj_fornecedor){
+            Dj_fornecedor dj_fornecedor = (Dj_fornecedor) object;
+            if (this.getDj_idFornecedor()== dj_fornecedor.getDj_idFornecedor()){
+                return true;
+            }
+        }
+         return false;
+    }
 }
 
 

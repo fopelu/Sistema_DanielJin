@@ -149,6 +149,17 @@ public class Dj_usuarios  implements java.io.Serializable {
     public String toString(){
         return this.getDj_nome();
     }
+    
+    @Override
+    public boolean equals(Object object){
+        if (object instanceof Dj_usuarios){
+            Dj_usuarios dj_usuarios = (Dj_usuarios)object;
+            if (this.getDj_idUsuarios()== dj_usuarios.getDj_idUsuarios()){
+                return true;
+            }
+        }
+         return false;
+    }
 }
 
 

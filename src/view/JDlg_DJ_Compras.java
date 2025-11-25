@@ -13,6 +13,9 @@ import tools.Util;
 import dao.DJ_UsuariosDAO;
 import dao.DJ_FornecedorDAO;
 import dao.DJ_ComprasDAO;
+import dao.DJ_ComprasProdutosDAO;
+import java.util.ArrayList;
+import view_Controller.DJ_Controller_ComprasProdutos;
 import view_Pesquisar.JDlg_DJ_ComprasPesquisar;
 /**
  *
@@ -20,6 +23,7 @@ import view_Pesquisar.JDlg_DJ_ComprasPesquisar;
  */
 public class JDlg_DJ_Compras extends javax.swing.JDialog {
     private boolean incluir;
+    DJ_Controller_ComprasProdutos dJ_Controller_ComprasProdutos;
     /**
      * Creates new form JDlg_DJ_Compras
      */
@@ -44,6 +48,9 @@ public class JDlg_DJ_Compras extends javax.swing.JDialog {
             jCbo_DJ_Fornecedor.addItem((Dj_fornecedor) fornecedor.get(i));
             
         }
+        dJ_Controller_ComprasProdutos = new DJ_Controller_ComprasProdutos();
+        dJ_Controller_ComprasProdutos.setList(new ArrayList());
+        jTbl_DJ_Compras.setModel(dJ_Controller_ComprasProdutos);
     }
     
     
@@ -62,6 +69,9 @@ public class JDlg_DJ_Compras extends javax.swing.JDialog {
         jCbo_DJ_Usuarios.setSelectedItem((dj_compras.getDj_fkUsuarios()));
         jCbo_DJ_Fornecedor.setSelectedItem((dj_compras.getDj_fkFornecedor()));
         jTxt_DJ_Total.setText(Util.DoubleToStr(dj_compras.getDj_total()));
+        DJ_ComprasProdutosDAO dJ_ComprasProdutosDAO = new DJ_ComprasProdutosDAO();
+        List lista = (List) dJ_ComprasProdutosDAO.listProdutos(dj_compras);
+        dJ_Controller_ComprasProdutos.setList(lista);
     }
 
     /**

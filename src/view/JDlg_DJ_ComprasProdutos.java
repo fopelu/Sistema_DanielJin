@@ -6,7 +6,12 @@
 package view;
 
 import bean.Dj_compras;
+import bean.Dj_compras_produtos;
 import bean.Dj_produtos;
+import dao.DJ_ProdutosDAO;
+import view_Controller.DJ_Controller_ComprasProdutos;
+import java.util.List;
+import tools.Util;
 
 /**
  *
@@ -14,6 +19,7 @@ import bean.Dj_produtos;
  */
 public class JDlg_DJ_ComprasProdutos extends javax.swing.JDialog {
 
+    JDlg_DJ_Compras jDlg_DJ_Compras;
     /**
      * Creates new form JDlg_DJ_ComprasProdutos
      */
@@ -22,9 +28,18 @@ public class JDlg_DJ_ComprasProdutos extends javax.swing.JDialog {
         initComponents();
         setLocationRelativeTo(null);
         setTitle("Tela de Movimento de Compras de Produtos");
-
+        Util.habilitar(false, jTxt_DJ_ValorUnitario, jTxt_DJ_Total);
+        jTxt_DJ_Quantidade.setText("1");
+        DJ_ProdutosDAO produtosDAO = new DJ_ProdutosDAO();
+        List lista = (List) produtosDAO.listAll();
+        for (Object object : lista) {
+            jCbo_DJ_Produtos.addItem((Dj_produtos) object);
+        }
 
     }
+        public void setTelaAnterior(JDlg_DJ_Compras jDlg_DJ_Compras){
+            this.jDlg_DJ_Compras = jDlg_DJ_Compras;
+        }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -66,7 +81,19 @@ public class JDlg_DJ_ComprasProdutos extends javax.swing.JDialog {
 
         jLabel3.setText("Produtos");
 
+        jCbo_DJ_Produtos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCbo_DJ_ProdutosActionPerformed(evt);
+            }
+        });
+
         jLabel4.setText("Quantidade");
+
+        jTxt_DJ_Quantidade.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTxt_DJ_QuantidadeKeyReleased(evt);
+            }
+        });
 
         jLabel5.setText("Valor Unitário");
 
@@ -137,6 +164,11 @@ public class JDlg_DJ_ComprasProdutos extends javax.swing.JDialog {
 
     private void JBtn_DJ_OKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtn_DJ_OKActionPerformed
         // TODO add your handling code here:
+        Dj_compras_produtos dj_compras_produtos = new Dj_compras_produtos();
+        dj_compras_produtos.setDj_fkProdutos((Dj_produtos) jCbo_DJ_Produtos.getSelectedItem());
+        dj_compras_produtos.setDj_quantidade(Util.strToInt(jTxt_DJ_Quantidade.getText()) );
+        dj_compras_produtos.setDj_valor_unitario(Util.strToDouble(jTxt_DJ_ValorUnitario.getText()) );
+        jDlg_DJ_Compras.dJ_Controller_ComprasProdutos.addBean(dj_compras_produtos);
         setVisible(false);
     }//GEN-LAST:event_JBtn_DJ_OKActionPerformed
 
@@ -144,6 +176,25 @@ public class JDlg_DJ_ComprasProdutos extends javax.swing.JDialog {
         // TODO add your handling code here:
         setVisible(false);
     }//GEN-LAST:event_jBtn_DJ_CancelarActionPerformed
+
+    private void jCbo_DJ_ProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCbo_DJ_ProdutosActionPerformed
+        // TODO add your handling code here:
+        Dj_produtos dj_produtos =  (Dj_produtos) jCbo_DJ_Produtos.getSelectedItem();
+        jTxt_DJ_ValorUnitario.setText(Util.DoubleToStr(dj_produtos.getDj_preco()));
+        int quant = Util.strToInt(jTxt_DJ_Quantidade.getText());
+        jTxt_DJ_Total.setText(Util.DoubleToStr(quant*dj_produtos.getDj_preco()));
+    }//GEN-LAST:event_jCbo_DJ_ProdutosActionPerformed
+
+    private void jTxt_DJ_QuantidadeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTxt_DJ_QuantidadeKeyReleased
+        // TODO add your handling code here:
+        if(jTxt_DJ_Quantidade.getText().isEmpty()){
+            jTxt_DJ_Total.setText("");
+        }else {
+            Dj_produtos dj_produtos = (Dj_produtos) jCbo_DJ_Produtos.getSelectedItem();
+            int quant = Util.strToInt(jTxt_DJ_Quantidade.getText());
+            jTxt_DJ_Total.setText(Util.DoubleToStr(quant*dj_produtos.getDj_preco()));
+        }
+    }//GEN-LAST:event_jTxt_DJ_QuantidadeKeyReleased
 
     /**
      * @param args the command line arguments
