@@ -77,6 +77,7 @@ public class JDlg_DJ_Produtos extends javax.swing.JDialog {
         jLabel2 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jTxt_DJ_NomeFlor = new javax.swing.JTextField();
+        jBtn_DJ_Gráficos_Produtos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -148,6 +149,14 @@ public class JDlg_DJ_Produtos extends javax.swing.JDialog {
 
         jLabel6.setText("Nome da Flor");
 
+        jBtn_DJ_Gráficos_Produtos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-gráfico-24.png"))); // NOI18N
+        jBtn_DJ_Gráficos_Produtos.setText("Gráfico de Produtos");
+        jBtn_DJ_Gráficos_Produtos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn_DJ_Gráficos_ProdutosActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -198,6 +207,10 @@ public class JDlg_DJ_Produtos extends javax.swing.JDialog {
                             .addComponent(jLabel1)
                             .addComponent(jTxt_DJ_Codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 619, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(235, 235, 235)
+                .addComponent(jBtn_DJ_Gráficos_Produtos)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -239,6 +252,8 @@ public class JDlg_DJ_Produtos extends javax.swing.JDialog {
                     .addComponent(jBtn_DJ_Confirmar)
                     .addComponent(jBtn_DJ_Cancelar)
                     .addComponent(jBtn_DJ_Pesquisar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jBtn_DJ_Gráficos_Produtos)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -322,6 +337,12 @@ public class JDlg_DJ_Produtos extends javax.swing.JDialog {
         jDlg_DJ_ProdutosPesquisar.setVisible(true);
     }//GEN-LAST:event_jBtn_DJ_PesquisarActionPerformed
 
+    private void jBtn_DJ_Gráficos_ProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_Gráficos_ProdutosActionPerformed
+        // TODO add your handling code here:
+        JDlg_DJ_GraficosProdutos jDlg_DJ_GraficosProdutos = new JDlg_DJ_GraficosProdutos(null, true);
+        jDlg_DJ_GraficosProdutos.setVisible(true);
+    }//GEN-LAST:event_jBtn_DJ_Gráficos_ProdutosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -369,6 +390,7 @@ public class JDlg_DJ_Produtos extends javax.swing.JDialog {
     private javax.swing.JButton jBtn_DJ_Cancelar;
     private javax.swing.JButton jBtn_DJ_Confirmar;
     private javax.swing.JButton jBtn_DJ_Excluir;
+    private javax.swing.JButton jBtn_DJ_Gráficos_Produtos;
     private javax.swing.JButton jBtn_DJ_Incluir;
     private javax.swing.JButton jBtn_DJ_Pesquisar;
     private javax.swing.JFormattedTextField jFmt_DJ_Avaliacao;

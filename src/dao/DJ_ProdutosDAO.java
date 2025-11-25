@@ -6,9 +6,17 @@
 package dao;
 
 import bean.Dj_produtos;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.JFreeChart;
+import org.jfree.data.category.CategoryDataset;
+import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.data.general.DefaultPieDataset;
+import org.jfree.data.general.PieDataset;
 
 /**
  *
@@ -51,6 +59,8 @@ public class DJ_ProdutosDAO extends DJ_AbstractDAO{
         return lista;
     }
 
+
+    
     @Override
     public Object listAll() {
         session.beginTransaction();
