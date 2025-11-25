@@ -62,7 +62,7 @@ public class Dj_compras implements java.io.Serializable {
         this.dj_idCompras = dj_idCompras;
     }
 
-@ManyToOne(fetch=FetchType.LAZY)
+@ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="dj_fkFornecedor")
     public Dj_fornecedor getDj_fkFornecedor() {
         return this.dj_fkFornecedor;
@@ -72,7 +72,7 @@ public class Dj_compras implements java.io.Serializable {
         this.dj_fkFornecedor = dj_fkFornecedor;
     }
 
-@ManyToOne(fetch=FetchType.LAZY)
+@ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="dj_fkUsuario")
     public Dj_usuarios getDj_fkUsuarios() {
         return this.dj_fkUsuarios;

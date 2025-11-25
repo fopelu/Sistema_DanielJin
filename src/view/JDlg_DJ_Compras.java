@@ -6,6 +6,7 @@
 package view;
 
 import bean.Dj_compras;
+import bean.Dj_compras_produtos;
 import bean.Dj_fornecedor;
 import bean.Dj_usuarios;
 import java.util.List;
@@ -40,13 +41,11 @@ public class JDlg_DJ_Compras extends javax.swing.JDialog {
      
         List usuarios = (List) dJ_UsuariosDAO.listAll();
         List fornecedor = (List) dJ_FornecedorDAO.listAll();
-        for (int i = 0; i < usuarios.size(); i++) {
-            jCbo_DJ_Usuarios.addItem((Dj_usuarios) usuarios.get(i));
-            
+        for (Object object : usuarios) {
+            jCbo_DJ_Usuarios.addItem((Dj_usuarios) object);
         }
-        for (int i = 0; i < fornecedor.size(); i++) {
-            jCbo_DJ_Fornecedor.addItem((Dj_fornecedor) fornecedor.get(i));
-            
+        for (Object object : fornecedor) {
+            jCbo_DJ_Fornecedor.addItem((Dj_fornecedor) object);
         }
         dJ_Controller_ComprasProdutos = new DJ_Controller_ComprasProdutos();
         dJ_Controller_ComprasProdutos.setList(new ArrayList());
@@ -338,12 +337,17 @@ public class JDlg_DJ_Compras extends javax.swing.JDialog {
 
     private void jBtn_DJ_ExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_ExcluirActionPerformed
         // TODO add your handling code here:
-        if(Util.perguntar("Deseja Excluir?")){
+        if (Util.perguntar("Deseja realmente excluir o registro?")) {
             DJ_ComprasDAO dJ_ComprasDAO = new DJ_ComprasDAO();
-            dJ_ComprasDAO.delete(viewBean());
-            Util.mensagem("Exluido com sucesso!");
+            DJ_ComprasProdutosDAO dJ_ComprasProdutosDAO = new DJ_ComprasProdutosDAO();
+            Dj_compras dj_compras = viewBean();            
+            for (int ind = 0; ind < jTbl_DJ_Compras.getRowCount(); ind++) {
+                Dj_compras_produtos dj_compras_produtos = dJ_Controller_ComprasProdutos.getBean(ind);
+                dJ_ComprasProdutosDAO.delete(dj_compras_produtos);
+            }
+            dJ_ComprasDAO.delete(dj_compras);
         } else {
-            Util.mensagem("Exclusão cancelada!");
+            Util.mensagem("Exclusão cancelada.");
         }
         Util.limpar( jTxt_DJ_Codigo, jTxt_DJ_Total, jFmt_DJ_DataCompras, jCbo_DJ_Fornecedor, jCbo_DJ_Usuarios);
     }//GEN-LAST:event_jBtn_DJ_ExcluirActionPerformed
@@ -351,11 +355,19 @@ public class JDlg_DJ_Compras extends javax.swing.JDialog {
     private void jBtn_DJ_ConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_ConfirmarActionPerformed
         // TODO add your handling code here:
         DJ_ComprasDAO dJ_ComprasDAO = new DJ_ComprasDAO();
+        DJ_ComprasProdutosDAO dJ_ComprasProdutosDAO = new DJ_ComprasProdutosDAO();
+        Dj_compras dj_compras = viewBean();
+        if (incluir == true) {
+            dJ_ComprasDAO.insert(dj_compras);
+            for (int ind = 0; ind < jTbl_DJ_Compras.getRowCount(); ind++) {
+                Dj_compras_produtos dj_compras_produtos = dJ_Controller_ComprasProdutos.getBean(ind);
+                dj_compras_produtos.setDj_fkCompras(dj_compras);
+                dJ_ComprasProdutosDAO.insert(dj_compras_produtos);
+            }
+        } else {
+            dJ_ComprasDAO.update(dj_compras);
+            //remove todos os pedidosprodutos 
 
-        if(incluir == true){
-            dJ_ComprasDAO.insert(viewBean());
-        }else{
-            dJ_ComprasDAO.update(viewBean());
         }
 
         Util.habilitar(false, jTxt_DJ_Codigo, jTxt_DJ_Total, jFmt_DJ_DataCompras, jCbo_DJ_Fornecedor, jCbo_DJ_Usuarios,
@@ -403,8 +415,10 @@ public class JDlg_DJ_Compras extends javax.swing.JDialog {
 
     private void jBtn_DJ_IncluirProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_IncluirProdActionPerformed
         // TODO add your handling code here:
-        JDlg_DJ_ComprasProdutos jDlg_DJ_ComprasProdutos = new JDlg_DJ_ComprasProdutos(null, true);
+        JDlg_DJ_ComprasProdutos jDlg_DJ_ComprasProdutos =  new JDlg_DJ_ComprasProdutos(null, true);
+        jDlg_DJ_ComprasProdutos.setTelaAnterior(this);
         jDlg_DJ_ComprasProdutos.setVisible(true);
+
     }//GEN-LAST:event_jBtn_DJ_IncluirProdActionPerformed
 
     private void jBtn_DJ_AlterarProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_AlterarProdActionPerformed
@@ -415,8 +429,10 @@ public class JDlg_DJ_Compras extends javax.swing.JDialog {
 
     private void jBtn_DJ_ExcluirProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_ExcluirProdActionPerformed
         // TODO add your handling code here:
-        JDlg_DJ_ComprasProdutos jDlg_DJ_ComprasProdutos = new JDlg_DJ_ComprasProdutos(null, true);
-        jDlg_DJ_ComprasProdutos.setVisible(true);
+        if(Util.perguntar("Deseja Excluir?" )== true ){
+            int rowindex = jTbl_DJ_Compras.getSelectedRow();
+            dJ_Controller_ComprasProdutos.removeBean(rowindex);
+        }
     }//GEN-LAST:event_jBtn_DJ_ExcluirProdActionPerformed
 
     private void jTxt_DJ_TotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxt_DJ_TotalActionPerformed
