@@ -125,7 +125,7 @@ public class Dj_produtos  implements java.io.Serializable {
     public boolean equals(Object object){
         if (object instanceof Dj_produtos){
             Dj_produtos dj_produtos = (Dj_produtos)object;
-            if (this.getDj_idProdutos()== dj_produtos.getDj_idProdutos()){
+            if (this.getDj_idProdutos() == dj_produtos.getDj_idProdutos()){
                 return true;
             }
         }

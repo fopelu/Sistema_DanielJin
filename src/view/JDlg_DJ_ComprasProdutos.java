@@ -28,13 +28,13 @@ public class JDlg_DJ_ComprasProdutos extends javax.swing.JDialog {
         initComponents();
         setLocationRelativeTo(null);
         setTitle("Tela de Movimento de Compras de Produtos");
-        Util.habilitar(false, jTxt_DJ_ValorUnitario, jTxt_DJ_Total);
-        jTxt_DJ_Quantidade.setText("1");
-        DJ_ProdutosDAO produtosDAO = new DJ_ProdutosDAO();
-        List lista = (List) produtosDAO.listAll();
-        for (Object object : lista) {
-            jCbo_DJ_Produtos.addItem((Dj_produtos) object);
-        }
+            Util.habilitar(false, jTxt_DJ_ValorUnitario, jTxt_DJ_Total);
+            jTxt_DJ_Quantidade.setText("1");
+            DJ_ProdutosDAO produtosDAO = new DJ_ProdutosDAO();
+            List lista = (List) produtosDAO.listAll();
+            for (Object object : lista) {
+                jCbo_DJ_Produtos.addItem((Dj_produtos) object);
+            }
 
     }
         public void setTelaAnterior(JDlg_DJ_Compras jDlg_DJ_Compras){

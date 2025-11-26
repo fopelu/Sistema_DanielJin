@@ -35,21 +35,23 @@ public class JDlg_DJ_Compras extends javax.swing.JDialog {
         setLocationRelativeTo(null);
         Util.habilitar(false, jTxt_DJ_Codigo, jTxt_DJ_Total, jFmt_DJ_DataCompras, jCbo_DJ_Fornecedor, jCbo_DJ_Usuarios,
                 jBtn_DJ_Cancelar, jBtn_DJ_Confirmar, jBtn_DJ_AlterarProd, jBtn_DJ_ExcluirProd, jBtn_DJ_IncluirProd, 
-                jTbl_DJ_Compras);
-        DJ_UsuariosDAO dJ_UsuariosDAO = new DJ_UsuariosDAO();
-        DJ_FornecedorDAO dJ_FornecedorDAO = new DJ_FornecedorDAO();
+                jTable1);
      
+        DJ_UsuariosDAO dJ_UsuariosDAO = new DJ_UsuariosDAO();
         List usuarios = (List) dJ_UsuariosDAO.listAll();
-        List fornecedor = (List) dJ_FornecedorDAO.listAll();
         for (Object object : usuarios) {
             jCbo_DJ_Usuarios.addItem((Dj_usuarios) object);
         }
+        
+        DJ_FornecedorDAO dJ_FornecedorDAO = new DJ_FornecedorDAO();
+        List fornecedor = (List) dJ_FornecedorDAO.listAll();
         for (Object object : fornecedor) {
             jCbo_DJ_Fornecedor.addItem((Dj_fornecedor) object);
         }
+        
         dJ_Controller_ComprasProdutos = new DJ_Controller_ComprasProdutos();
         dJ_Controller_ComprasProdutos.setList(new ArrayList());
-        jTbl_DJ_Compras.setModel(dJ_Controller_ComprasProdutos);
+        jTable1.setModel(dJ_Controller_ComprasProdutos);
     }
     
     
@@ -93,7 +95,7 @@ public class JDlg_DJ_Compras extends javax.swing.JDialog {
         jTxt_DJ_Total = new javax.swing.JTextField();
         jFmt_DJ_DataCompras = new javax.swing.JFormattedTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTbl_DJ_Compras = new javax.swing.JTable();
+        jTable1 = new javax.swing.JTable();
         jBtn_DJ_Alterar = new javax.swing.JButton();
         jBtn_DJ_Excluir = new javax.swing.JButton();
         jBtn_DJ_Confirmar = new javax.swing.JButton();
@@ -134,7 +136,7 @@ public class JDlg_DJ_Compras extends javax.swing.JDialog {
             ex.printStackTrace();
         }
 
-        jTbl_DJ_Compras.setModel(new javax.swing.table.DefaultTableModel(
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -145,7 +147,7 @@ public class JDlg_DJ_Compras extends javax.swing.JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTbl_DJ_Compras);
+        jScrollPane1.setViewportView(jTable1);
 
         jBtn_DJ_Alterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-alter-24.png"))); // NOI18N
         jBtn_DJ_Alterar.setText("Alterar");
@@ -325,7 +327,7 @@ public class JDlg_DJ_Compras extends javax.swing.JDialog {
         // TODO add your handling code here:
         Util.habilitar(true, jTxt_DJ_Codigo, jTxt_DJ_Total, jFmt_DJ_DataCompras, jCbo_DJ_Fornecedor, jCbo_DJ_Usuarios,
                 jBtn_DJ_Cancelar, jBtn_DJ_Confirmar, jBtn_DJ_AlterarProd, jBtn_DJ_ExcluirProd, jBtn_DJ_IncluirProd, 
-                jTbl_DJ_Compras);
+                jTable1);
 
         Util.habilitar(false, jBtn_DJ_Alterar, jBtn_DJ_Excluir, jBtn_DJ_Pesquisar, jBtn_DJ_Incluir, jTxt_DJ_Codigo);
 
@@ -341,7 +343,7 @@ public class JDlg_DJ_Compras extends javax.swing.JDialog {
             DJ_ComprasDAO dJ_ComprasDAO = new DJ_ComprasDAO();
             DJ_ComprasProdutosDAO dJ_ComprasProdutosDAO = new DJ_ComprasProdutosDAO();
             Dj_compras dj_compras = viewBean();            
-            for (int ind = 0; ind < jTbl_DJ_Compras.getRowCount(); ind++) {
+            for (int ind = 0; ind < jTable1.getRowCount(); ind++) {
                 Dj_compras_produtos dj_compras_produtos = dJ_Controller_ComprasProdutos.getBean(ind);
                 dJ_ComprasProdutosDAO.delete(dj_compras_produtos);
             }
@@ -359,31 +361,31 @@ public class JDlg_DJ_Compras extends javax.swing.JDialog {
         Dj_compras dj_compras = viewBean();
         if (incluir == true) {
             dJ_ComprasDAO.insert(dj_compras);
-            for (int ind = 0; ind < jTbl_DJ_Compras.getRowCount(); ind++) {
+            for (int ind = 0; ind < jTable1.getRowCount(); ind++) {
                 Dj_compras_produtos dj_compras_produtos = dJ_Controller_ComprasProdutos.getBean(ind);
+                dj_compras_produtos.setDj_id_compras_produtos(ind);
                 dj_compras_produtos.setDj_fkCompras(dj_compras);
                 dJ_ComprasProdutosDAO.insert(dj_compras_produtos);
             }
         } else {
             dJ_ComprasDAO.update(dj_compras);
-            //remove todos os pedidosprodutos 
 
         }
 
         Util.habilitar(false, jTxt_DJ_Codigo, jTxt_DJ_Total, jFmt_DJ_DataCompras, jCbo_DJ_Fornecedor, jCbo_DJ_Usuarios,
                 jBtn_DJ_Cancelar, jBtn_DJ_Confirmar, jBtn_DJ_AlterarProd, jBtn_DJ_ExcluirProd, jBtn_DJ_IncluirProd, 
-                jTbl_DJ_Compras);
+                jTable1);
         
         Util.habilitar(true, jBtn_DJ_Alterar, jBtn_DJ_Excluir, jBtn_DJ_Pesquisar, jBtn_DJ_Incluir);
 
-        Util.limpar( jTxt_DJ_Codigo, jTxt_DJ_Total, jFmt_DJ_DataCompras, jCbo_DJ_Fornecedor, jCbo_DJ_Usuarios);
+        Util.limpar(jTxt_DJ_Codigo, jTxt_DJ_Total, jFmt_DJ_DataCompras, jCbo_DJ_Fornecedor, jCbo_DJ_Usuarios, jTable1);
     }//GEN-LAST:event_jBtn_DJ_ConfirmarActionPerformed
 
     private void jBtn_DJ_CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_CancelarActionPerformed
         // TODO add your handling code here:
         Util.habilitar(false, jTxt_DJ_Codigo, jTxt_DJ_Total, jFmt_DJ_DataCompras, jCbo_DJ_Fornecedor, jCbo_DJ_Usuarios,
                 jBtn_DJ_Cancelar, jBtn_DJ_Confirmar, jBtn_DJ_AlterarProd, jBtn_DJ_ExcluirProd, jBtn_DJ_IncluirProd, 
-                jTbl_DJ_Compras);
+                jTable1);
 
         Util.habilitar(true, jBtn_DJ_Alterar, jBtn_DJ_Excluir, jBtn_DJ_Pesquisar, jBtn_DJ_Incluir);
 
@@ -401,8 +403,8 @@ public class JDlg_DJ_Compras extends javax.swing.JDialog {
         // TODO add your handling code here:
         Util.habilitar(true, jTxt_DJ_Codigo, jTxt_DJ_Total, jFmt_DJ_DataCompras, jCbo_DJ_Fornecedor, jCbo_DJ_Usuarios,
                 jBtn_DJ_Cancelar, jBtn_DJ_Confirmar, jBtn_DJ_AlterarProd, jBtn_DJ_ExcluirProd, jBtn_DJ_IncluirProd, 
-                jTbl_DJ_Compras);
-//
+                jTable1);
+
         Util.habilitar(false, jBtn_DJ_Alterar, jBtn_DJ_Excluir, jBtn_DJ_Pesquisar, jBtn_DJ_Incluir);
 
         Util.limpar( jTxt_DJ_Codigo, jTxt_DJ_Total, jFmt_DJ_DataCompras, jCbo_DJ_Fornecedor, jCbo_DJ_Usuarios);
@@ -410,7 +412,9 @@ public class JDlg_DJ_Compras extends javax.swing.JDialog {
         jTxt_DJ_Codigo.grabFocus();
 
         incluir = true;
-
+        
+        dJ_Controller_ComprasProdutos.setList(new ArrayList());
+        dJ_Controller_ComprasProdutos.fireTableDataChanged();
     }//GEN-LAST:event_jBtn_DJ_IncluirActionPerformed
 
     private void jBtn_DJ_IncluirProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_IncluirProdActionPerformed
@@ -430,7 +434,7 @@ public class JDlg_DJ_Compras extends javax.swing.JDialog {
     private void jBtn_DJ_ExcluirProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_ExcluirProdActionPerformed
         // TODO add your handling code here:
         if(Util.perguntar("Deseja Excluir?" )== true ){
-            int rowindex = jTbl_DJ_Compras.getSelectedRow();
+            int rowindex = jTable1.getSelectedRow();
             dJ_Controller_ComprasProdutos.removeBean(rowindex);
         }
     }//GEN-LAST:event_jBtn_DJ_ExcluirProdActionPerformed
@@ -500,7 +504,7 @@ public class JDlg_DJ_Compras extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTbl_DJ_Compras;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTxt_DJ_Codigo;
     private javax.swing.JTextField jTxt_DJ_Total;
     // End of variables declaration//GEN-END:variables
