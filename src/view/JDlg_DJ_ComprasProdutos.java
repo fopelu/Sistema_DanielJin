@@ -20,6 +20,7 @@ import tools.Util;
 public class JDlg_DJ_ComprasProdutos extends javax.swing.JDialog {
 
     JDlg_DJ_Compras jDlg_DJ_Compras;
+    private boolean incluir;
     /**
      * Creates new form JDlg_DJ_ComprasProdutos
      */
@@ -30,15 +31,21 @@ public class JDlg_DJ_ComprasProdutos extends javax.swing.JDialog {
         setTitle("Tela de Movimento de Compras de Produtos");
             Util.habilitar(false, jTxt_DJ_ValorUnitario, jTxt_DJ_Total);
             jTxt_DJ_Quantidade.setText("1");
-            DJ_ProdutosDAO produtosDAO = new DJ_ProdutosDAO();
-            List lista = (List) produtosDAO.listAll();
+            DJ_ProdutosDAO dJ_ProdutosDAO = new DJ_ProdutosDAO();
+            List lista = (List) dJ_ProdutosDAO.listAll();
             for (Object object : lista) {
                 jCbo_DJ_Produtos.addItem((Dj_produtos) object);
             }
 
     }
-        public void setTelaAnterior(JDlg_DJ_Compras jDlg_DJ_Compras){
+        public void setTelaAnterior(JDlg_DJ_Compras jDlg_DJ_Compras, Dj_compras_produtos dj_compras_produtos){
             this.jDlg_DJ_Compras = jDlg_DJ_Compras;
+            incluir = true;
+                if (dj_compras_produtos != null){
+                incluir = false;
+                jCbo_DJ_Produtos.setSelectedItem(dj_compras_produtos.getDj_fkProdutos());
+                jTxt_DJ_Quantidade.setText(Util.intToStr(dj_compras_produtos.getDj_quantidade()));
+            }
         }
 
     /**
@@ -168,6 +175,9 @@ public class JDlg_DJ_ComprasProdutos extends javax.swing.JDialog {
         dj_compras_produtos.setDj_fkProdutos((Dj_produtos) jCbo_DJ_Produtos.getSelectedItem());
         dj_compras_produtos.setDj_quantidade(Util.strToInt(jTxt_DJ_Quantidade.getText()) );
         dj_compras_produtos.setDj_valor_unitario(Util.strToDouble(jTxt_DJ_ValorUnitario.getText()) );
+        if(incluir == false){
+            jDlg_DJ_Compras.dJ_Controller_ComprasProdutos.removeBean(jDlg_DJ_Compras.getjTable1().getSelectedRow() );
+        }
         jDlg_DJ_Compras.dJ_Controller_ComprasProdutos.addBean(dj_compras_produtos);
         setVisible(false);
     }//GEN-LAST:event_JBtn_DJ_OKActionPerformed

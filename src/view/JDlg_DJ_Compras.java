@@ -16,6 +16,7 @@ import dao.DJ_FornecedorDAO;
 import dao.DJ_ComprasDAO;
 import dao.DJ_ComprasProdutosDAO;
 import java.util.ArrayList;
+import javax.swing.JTable;
 import view_Controller.DJ_Controller_ComprasProdutos;
 import view_Pesquisar.JDlg_DJ_ComprasPesquisar;
 /**
@@ -64,6 +65,11 @@ public class JDlg_DJ_Compras extends javax.swing.JDialog {
         dj_compras.setDj_total(Util.strToDouble(jTxt_DJ_Total.getText())); 
         return dj_compras;
     }
+    
+    public JTable getjTable1() {
+        return jTable1;
+    }
+    
     public void beanView(Dj_compras dj_compras){
         jTxt_DJ_Codigo.setText(Util.intToStr(dj_compras.getDj_idCompras()));
         jFmt_DJ_DataCompras.setText(Util.datetoStr(dj_compras.getDj_dataCompras()));
@@ -325,6 +331,11 @@ public class JDlg_DJ_Compras extends javax.swing.JDialog {
 
     private void jBtn_DJ_AlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_AlterarActionPerformed
         // TODO add your handling code here:
+        if (jTxt_DJ_Codigo.getText().trim().isEmpty()) {
+            Util.mensagem("Você não pesquisou nadie!");
+            return;
+        }
+        
         Util.habilitar(true, jTxt_DJ_Codigo, jTxt_DJ_Total, jFmt_DJ_DataCompras, jCbo_DJ_Fornecedor, jCbo_DJ_Usuarios,
                 jBtn_DJ_Cancelar, jBtn_DJ_Confirmar, jBtn_DJ_AlterarProd, jBtn_DJ_ExcluirProd, jBtn_DJ_IncluirProd, 
                 jTable1);
@@ -352,6 +363,8 @@ public class JDlg_DJ_Compras extends javax.swing.JDialog {
             Util.mensagem("Exclusão cancelada.");
         }
         Util.limpar( jTxt_DJ_Codigo, jTxt_DJ_Total, jFmt_DJ_DataCompras, jCbo_DJ_Fornecedor, jCbo_DJ_Usuarios);
+        dJ_Controller_ComprasProdutos.setList(new ArrayList());
+        dJ_Controller_ComprasProdutos.fireTableDataChanged();
     }//GEN-LAST:event_jBtn_DJ_ExcluirActionPerformed
 
     private void jBtn_DJ_ConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_ConfirmarActionPerformed
@@ -363,12 +376,17 @@ public class JDlg_DJ_Compras extends javax.swing.JDialog {
             dJ_ComprasDAO.insert(dj_compras);
             for (int ind = 0; ind < jTable1.getRowCount(); ind++) {
                 Dj_compras_produtos dj_compras_produtos = dJ_Controller_ComprasProdutos.getBean(ind);
-                dj_compras_produtos.setDj_id_compras_produtos(ind);
                 dj_compras_produtos.setDj_fkCompras(dj_compras);
                 dJ_ComprasProdutosDAO.insert(dj_compras_produtos);
             }
         } else {
             dJ_ComprasDAO.update(dj_compras);
+            dJ_ComprasProdutosDAO.deleteCompras(dj_compras);
+            for (int ind = 0; ind < jTable1.getRowCount(); ind++) {
+                Dj_compras_produtos dj_compras_produtos = dJ_Controller_ComprasProdutos.getBean(ind);
+                dj_compras_produtos.setDj_fkCompras(dj_compras);
+                dJ_ComprasProdutosDAO.insert(dj_compras_produtos);
+            }
 
         }
 
@@ -379,6 +397,9 @@ public class JDlg_DJ_Compras extends javax.swing.JDialog {
         Util.habilitar(true, jBtn_DJ_Alterar, jBtn_DJ_Excluir, jBtn_DJ_Pesquisar, jBtn_DJ_Incluir);
 
         Util.limpar(jTxt_DJ_Codigo, jTxt_DJ_Total, jFmt_DJ_DataCompras, jCbo_DJ_Fornecedor, jCbo_DJ_Usuarios, jTable1);
+        
+        dJ_Controller_ComprasProdutos.setList(new ArrayList());
+        dJ_Controller_ComprasProdutos.fireTableDataChanged();
     }//GEN-LAST:event_jBtn_DJ_ConfirmarActionPerformed
 
     private void jBtn_DJ_CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_CancelarActionPerformed
@@ -390,6 +411,9 @@ public class JDlg_DJ_Compras extends javax.swing.JDialog {
         Util.habilitar(true, jBtn_DJ_Alterar, jBtn_DJ_Excluir, jBtn_DJ_Pesquisar, jBtn_DJ_Incluir);
 
         Util.limpar( jTxt_DJ_Codigo, jTxt_DJ_Total, jFmt_DJ_DataCompras, jCbo_DJ_Fornecedor, jCbo_DJ_Usuarios);
+        
+        dJ_Controller_ComprasProdutos.setList(new ArrayList());
+        dJ_Controller_ComprasProdutos.fireTableDataChanged();
     }//GEN-LAST:event_jBtn_DJ_CancelarActionPerformed
 
     private void jBtn_DJ_PesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_PesquisarActionPerformed
@@ -420,14 +444,18 @@ public class JDlg_DJ_Compras extends javax.swing.JDialog {
     private void jBtn_DJ_IncluirProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_IncluirProdActionPerformed
         // TODO add your handling code here:
         JDlg_DJ_ComprasProdutos jDlg_DJ_ComprasProdutos =  new JDlg_DJ_ComprasProdutos(null, true);
-        jDlg_DJ_ComprasProdutos.setTelaAnterior(this);
+        jDlg_DJ_ComprasProdutos.setTelaAnterior(this, null);
         jDlg_DJ_ComprasProdutos.setVisible(true);
-
     }//GEN-LAST:event_jBtn_DJ_IncluirProdActionPerformed
 
     private void jBtn_DJ_AlterarProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_AlterarProdActionPerformed
         // TODO add your handling code here:
-        JDlg_DJ_ComprasProdutos jDlg_DJ_ComprasProdutos = new JDlg_DJ_ComprasProdutos(null, true);
+        if(jTable1.getSelectedRow() == -1){
+            Util.mensagem("Não esttá selecionado nadie");
+        }
+        JDlg_DJ_ComprasProdutos jDlg_DJ_ComprasProdutos =  new JDlg_DJ_ComprasProdutos(null, true);
+        Dj_compras_produtos dj_compras_produtos = dJ_Controller_ComprasProdutos.getBean(jTable1.getSelectedRow());
+        jDlg_DJ_ComprasProdutos.setTelaAnterior(this, dj_compras_produtos);
         jDlg_DJ_ComprasProdutos.setVisible(true);
     }//GEN-LAST:event_jBtn_DJ_AlterarProdActionPerformed
 

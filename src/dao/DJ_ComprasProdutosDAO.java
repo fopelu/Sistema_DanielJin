@@ -59,6 +59,17 @@ public class DJ_ComprasProdutosDAO extends DJ_AbstractDAO{
         session.getTransaction().commit();
         return lista;
     }
+    
+        public void deleteCompras(Dj_compras dj_compras){
+        //pegar todos os produtos de compras
+        List lista = (List) listProdutos(dj_compras);
+        //remover todos os produtos daquele compras
+        for (int i = 0; i < lista.size(); i++) {
+            Dj_compras_produtos dj_compras_produtos = (Dj_compras_produtos) lista.get(i);
+            delete(dj_compras_produtos);
+            
+        }
+    }
 
     @Override
     public Object listAll() {

@@ -5,6 +5,8 @@ package bean;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -37,7 +39,7 @@ public class Dj_compras_produtos  implements java.io.Serializable {
        this.dj_valor_unitario = dj_valor_unitario;
     }
    
-     @Id 
+     @Id @GeneratedValue(strategy=IDENTITY)
 
     
     @Column(name="dj_id_compras_produtos", unique=true, nullable=false)
@@ -49,7 +51,7 @@ public class Dj_compras_produtos  implements java.io.Serializable {
         this.dj_id_compras_produtos = dj_id_compras_produtos;
     }
 
-@ManyToOne(fetch=FetchType.LAZY)
+@ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="dj_fkCompras", nullable=false)
     public Dj_compras getDj_fkCompras() {
         return this.dj_fkCompras;
@@ -59,7 +61,7 @@ public class Dj_compras_produtos  implements java.io.Serializable {
         this.dj_fkCompras = dj_fkCompras;
     }
 
-@ManyToOne(fetch=FetchType.LAZY)
+@ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="dj_fkProdutos", nullable=false)
     public Dj_produtos getDj_fkProdutos() {
         return this.dj_fkProdutos;
