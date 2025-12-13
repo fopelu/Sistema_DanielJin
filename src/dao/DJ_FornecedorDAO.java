@@ -51,6 +51,34 @@ public class DJ_FornecedorDAO extends DJ_AbstractDAO{
         session.getTransaction().commit();
         return lista;
     }
+    
+    public Object listNome(String nome) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(Dj_fornecedor.class);
+        criteria.add(Restrictions.like("dj_nome", "%" + nome + "%"));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+    }
+        
+    public Object listCnpj(String cnpj ){
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(Dj_fornecedor.class);
+        criteria.add(Restrictions.like("dj_cnpj", "%" + cnpj));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+    }
+    
+    public Object listNomeCnpj(String nome, String cnpj) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(Dj_fornecedor.class);
+        criteria.add(Restrictions.like("dj_nome", "%" + nome + "%"));
+        criteria.add(Restrictions.like("dj_cnpj", "%" + cnpj));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+    }
 
     @Override
     public Object listAll() {

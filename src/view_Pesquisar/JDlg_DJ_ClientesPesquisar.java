@@ -19,12 +19,12 @@ public class JDlg_DJ_ClientesPesquisar extends javax.swing.JDialog {
     private JDlg_DJ_Clientes jDlg_DJ_Clientes;
     DJ_Controller_Clientes dJ_Controller_Clientes;
     /**
-     * Creates new form JDlg_DJ_VendedorPesquisar
+     * Creates new form JDlg_DJ_ClientesPesquisar
      */
     public JDlg_DJ_ClientesPesquisar(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        setTitle("Tabela de Vendedor");
+        setTitle("Tabela de Clientes");
         setLocationRelativeTo(null);
         dJ_Controller_Clientes = new DJ_Controller_Clientes();
         DJ_ClientesDAO dJ_ClientesDAO = new DJ_ClientesDAO();

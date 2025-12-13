@@ -37,7 +37,7 @@ public class DJ_Controller_ConsultaCompras extends AbstractTableModel{
         if ( columnIndex == 0 ){
             return dj_compras.getDj_idCompras();
         } else if (columnIndex ==1) {
-            return dj_compras.getDj_fkFornecedor();        
+            return dj_compras.getDj_fkFornecedor().getDj_nome();        
         } else if (columnIndex ==2) {
             return dj_compras.getDj_total();
         }

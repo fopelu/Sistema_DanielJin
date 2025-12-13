@@ -17,7 +17,7 @@ public class JDlg_DJ_Clientes extends javax.swing.JDialog {
 
     private boolean incluir;
     /**
-     * Creates new form JDlg_DJ_Vendedor
+     * Creates new form JDlg_DJ_Clientes
      */
     public JDlg_DJ_Clientes(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -29,25 +29,25 @@ public class JDlg_DJ_Clientes extends javax.swing.JDialog {
     }
     
     public Dj_clientes viewBean(){
-        Dj_clientes djVendedor = new Dj_clientes();
-        djVendedor.setDj_idClientes(Util.strToInt(jTxt_DJ_Codigo.getText()));
-        djVendedor.setDj_nome((jTxt_DJ_Nome.getText()));
-        djVendedor.setDj_email((jTxt_DJ_Email.getText()));
-        djVendedor.setDj_endereco((jTxt_DJ_Endereco.getText()));
-        djVendedor.setDj_cep((jFmt_DJ_CEP.getText()));
-        djVendedor.setDj_cpf((jFmt_DJ_CPF.getText()));
-        djVendedor.setDj_telefone((jFmt_DJ_Telefone.getText()));
-        return djVendedor;
+        Dj_clientes dj_clientes = new Dj_clientes();
+        dj_clientes.setDj_idClientes(Util.strToInt(jTxt_DJ_Codigo.getText()));
+        dj_clientes.setDj_nome((jTxt_DJ_Nome.getText()));
+        dj_clientes.setDj_email((jTxt_DJ_Email.getText()));
+        dj_clientes.setDj_endereco((jTxt_DJ_Endereco.getText()));
+        dj_clientes.setDj_cep((jFmt_DJ_CEP.getText()));
+        dj_clientes.setDj_cpf((jFmt_DJ_CPF.getText()));
+        dj_clientes.setDj_telefone((jFmt_DJ_Telefone.getText()));
+        return dj_clientes;
     }
     
-    public void beanView(Dj_clientes djVendedor){
-        jTxt_DJ_Codigo.setText(Util.intToStr(djVendedor.getDj_idClientes()));
-        jTxt_DJ_Nome.setText((djVendedor.getDj_nome()));
-        jTxt_DJ_Email.setText((djVendedor.getDj_email()));
-        jTxt_DJ_Endereco.setText((djVendedor.getDj_endereco()));
-        jFmt_DJ_CEP.setText((djVendedor.getDj_cep()));
-        jFmt_DJ_CPF.setText((djVendedor.getDj_cpf()));
-        jFmt_DJ_Telefone.setText((djVendedor.getDj_telefone()));
+    public void beanView(Dj_clientes dj_clientes){
+        jTxt_DJ_Codigo.setText(Util.intToStr(dj_clientes.getDj_idClientes()));
+        jTxt_DJ_Nome.setText((dj_clientes.getDj_nome()));
+        jTxt_DJ_Email.setText((dj_clientes.getDj_email()));
+        jTxt_DJ_Endereco.setText((dj_clientes.getDj_endereco()));
+        jFmt_DJ_CEP.setText((dj_clientes.getDj_cep()));
+        jFmt_DJ_CPF.setText((dj_clientes.getDj_cpf()));
+        jFmt_DJ_Telefone.setText((dj_clientes.getDj_telefone()));
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -303,12 +303,12 @@ public class JDlg_DJ_Clientes extends javax.swing.JDialog {
 
     private void jBtn_DJ_ConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_ConfirmarActionPerformed
         // TODO add your handling code here:
-        DJ_ClientesDAO dJ_VendedorDAO = new DJ_ClientesDAO();
+        DJ_ClientesDAO dJ_ClientesDAO = new DJ_ClientesDAO();
         
         if(incluir == true){
-            dJ_VendedorDAO.insert(viewBean());
+            dJ_ClientesDAO.insert(viewBean());
         }else{
-            dJ_VendedorDAO.update(viewBean());
+            dJ_ClientesDAO.update(viewBean());
         }
         
         Util.habilitar(false, jTxt_DJ_Nome, jTxt_DJ_Endereco, jTxt_DJ_Email, jTxt_DJ_Codigo,
@@ -323,8 +323,8 @@ public class JDlg_DJ_Clientes extends javax.swing.JDialog {
     private void jBtn_DJ_ExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_ExcluirActionPerformed
         // TODO add your handling code here:
         if(Util.perguntar("Deseja Excluir?")){
-            DJ_ClientesDAO dJ_VendedorDAO = new DJ_ClientesDAO();
-            dJ_VendedorDAO.delete(viewBean());
+            DJ_ClientesDAO dJ_ClientesDAO = new DJ_ClientesDAO();
+            dJ_ClientesDAO.delete(viewBean());
             Util.mensagem("Exluido com sucesso!");
         } else {
             Util.mensagem("Exclusão cancelada!");
@@ -335,9 +335,9 @@ public class JDlg_DJ_Clientes extends javax.swing.JDialog {
 
     private void jBtn_DJ_PesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_PesquisarActionPerformed
         // TODO add your handling code here:
-        JDlg_DJ_ClientesPesquisar jDlg_DJ_VendedorPesquisar = new JDlg_DJ_ClientesPesquisar(null, true);
-        jDlg_DJ_VendedorPesquisar.SetTelaPai(this);
-        jDlg_DJ_VendedorPesquisar.setVisible(true);
+        JDlg_DJ_ClientesPesquisar dJ_ClientesPesquisar = new JDlg_DJ_ClientesPesquisar(null, true);
+        dJ_ClientesPesquisar.SetTelaPai(this);
+        dJ_ClientesPesquisar.setVisible(true);
     }//GEN-LAST:event_jBtn_DJ_PesquisarActionPerformed
 
     /**

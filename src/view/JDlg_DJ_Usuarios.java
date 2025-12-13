@@ -230,7 +230,7 @@ public class JDlg_DJ_Usuarios extends javax.swing.JDialog {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel6)
                                     .addComponent(jLabel4))
-                                .addGap(366, 366, 366)
+                                .addGap(359, 359, 359)
                                 .addComponent(jLabel5)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())

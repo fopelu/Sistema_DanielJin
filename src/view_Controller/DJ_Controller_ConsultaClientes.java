@@ -12,39 +12,34 @@ import javax.swing.table.AbstractTableModel;
  *
  * @author danie
  */
-public class DJ_Controller_Clientes extends AbstractTableModel{
-    private List lstVendedor;
+public class DJ_Controller_ConsultaClientes extends AbstractTableModel{
+    private List lstConsultaClientes;
 
-    public void setList(List lstClientes) {
-        this.lstVendedor = lstClientes;
-    }
-    
-    public Dj_clientes getBean(int rowIndex) {
-        return (Dj_clientes) lstVendedor.get(rowIndex);
+    public void setList(List lstConsultaClientes) {
+        this.lstConsultaClientes = lstConsultaClientes;
+        this.fireTableDataChanged();
     }
 
     @Override
     public int getRowCount() {
-        return lstVendedor.size();
+        return lstConsultaClientes.size();
                 
     }
 
     @Override
     public int getColumnCount() {
-        return 4;
+        return 3;
     }
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Dj_clientes dj_clientes = (Dj_clientes) lstVendedor.get( rowIndex);
+        Dj_clientes dj_clientes = (Dj_clientes) lstConsultaClientes.get( rowIndex);
         if ( columnIndex == 0 ){
             return dj_clientes.getDj_idClientes();
         } else if (columnIndex ==1) {
             return dj_clientes.getDj_nome();        
         } else if (columnIndex ==2) {
             return dj_clientes.getDj_telefone();
-        } else if (columnIndex ==3) {
-            return dj_clientes.getDj_cpf();
         }
         return "";
     }
@@ -57,9 +52,7 @@ public class DJ_Controller_Clientes extends AbstractTableModel{
             return "Nome";         
         } else if ( columnIndex == 2) {
             return "Telefone";
-        } else if ( columnIndex == 3) {
-            return "CPF";
-        } 
+        }
         return "";
     }
 }

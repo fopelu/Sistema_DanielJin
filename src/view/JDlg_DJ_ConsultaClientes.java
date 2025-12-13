@@ -5,31 +5,32 @@
  */
 package view;
 
-import dao.DJ_ProdutosDAO;
+import dao.DJ_ClientesDAO;
 import java.util.List;
 import tools.Util;
-import view_Controller.DJ_Controller_ConsultaProdutos;
+import view_Controller.DJ_Controller_ConsultaClientes;
+
 /**
  *
  * @author u11200121120
  */
-public class JDlg_DJ_ConsultaProdutos extends javax.swing.JDialog {
+public class JDlg_DJ_ConsultaClientes extends javax.swing.JDialog {
 
-    DJ_Controller_ConsultaProdutos dJ_Controller_ConsultaProdutos;
-    DJ_ProdutosDAO dJ_ProdutosDAO;
+    DJ_Controller_ConsultaClientes dJ_Controller_ConsultaClientes;
+    DJ_ClientesDAO dJ_ClientesDAO;
     /**
-     * Creates new form JDlg_DJ_ConsultaProdutos
+     * Creates new form JDlg_DJ_ConsultaClientes
      */
-    public JDlg_DJ_ConsultaProdutos(java.awt.Frame parent, boolean modal) {
+    public JDlg_DJ_ConsultaClientes(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
-        setTitle("Consulta de flores");
-        dJ_Controller_ConsultaProdutos = new DJ_Controller_ConsultaProdutos();
-        dJ_ProdutosDAO = new DJ_ProdutosDAO();
-        List lista = (List) dJ_ProdutosDAO.listAll();
-        dJ_Controller_ConsultaProdutos.setList(lista);
-        jTable1.setModel(dJ_Controller_ConsultaProdutos);
+        setTitle("Consulta de Clientes");
+        dJ_Controller_ConsultaClientes = new DJ_Controller_ConsultaClientes();
+        dJ_ClientesDAO = new DJ_ClientesDAO();
+        List lista = (List) dJ_ClientesDAO.listAll();
+        dJ_Controller_ConsultaClientes.setList(lista);
+        jTable1.setModel(dJ_Controller_ConsultaClientes);
     }
 
     /**
@@ -42,19 +43,27 @@ public class JDlg_DJ_ConsultaProdutos extends javax.swing.JDialog {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jTxt_Nome = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTxt_Avaliação = new javax.swing.JTextField();
+        jBtn_Fechar = new javax.swing.JButton();
         jBtn_Consultar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jBtn_Fechar = new javax.swing.JButton();
+        jTxt_Nome = new javax.swing.JTextField();
+        jTxt_DDD = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Nome");
 
-        jLabel2.setText("Avaliação maior que");
+        jLabel2.setText("DDD");
+
+        jBtn_Fechar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-exportar-24.png"))); // NOI18N
+        jBtn_Fechar.setText("Fechar");
+        jBtn_Fechar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn_FecharActionPerformed(evt);
+            }
+        });
 
         jBtn_Consultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-letras-miúdas.png"))); // NOI18N
         jBtn_Consultar.setText("Consultar");
@@ -77,14 +86,6 @@ public class JDlg_DJ_ConsultaProdutos extends javax.swing.JDialog {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jBtn_Fechar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-exportar-24.png"))); // NOI18N
-        jBtn_Fechar.setText("Fechar");
-        jBtn_Fechar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtn_FecharActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -94,17 +95,17 @@ public class JDlg_DJ_ConsultaProdutos extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTxt_Nome, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTxt_Avaliação, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jBtn_Consultar)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                .addComponent(jLabel1)
+                                .addGap(121, 121, 121)
+                                .addComponent(jLabel2))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jTxt_Nome, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTxt_DDD)))
+                        .addGap(10, 10, 10)
+                        .addComponent(jBtn_Consultar))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 429, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jBtn_Fechar)))
@@ -114,19 +115,21 @@ public class JDlg_DJ_ConsultaProdutos extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTxt_Nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTxt_Avaliação, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBtn_Consultar))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTxt_Nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTxt_DDD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jBtn_Consultar, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jBtn_Fechar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         pack();
@@ -139,30 +142,41 @@ public class JDlg_DJ_ConsultaProdutos extends javax.swing.JDialog {
 
     private void jBtn_ConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_ConsultarActionPerformed
         // TODO add your handling code here:
-        
-        if (!jTxt_Avaliação.getText().isEmpty() && !jTxt_Nome.getText().isEmpty()) {
+        if (!jTxt_DDD.getText().isEmpty() && !jTxt_Nome.getText().isEmpty()) {
+
             String nome = jTxt_Nome.getText();
-            double avaliacao = Util.strToDouble(jTxt_Avaliação.getText());
-            
-            List listaNomeAvaliacao = (List) dJ_ProdutosDAO.listNomeAvaliacao(nome, avaliacao);
-            dJ_Controller_ConsultaProdutos.setList(listaNomeAvaliacao);
-            
+            String DDD = jTxt_DDD.getText().trim();
+
+            if (DDD.length() != 2) {
+                Util.mensagem("Digite apenas o DDD");
+                return;
+            }
+
+            List listaNomeDDD = (List) dJ_ClientesDAO.listNomeDDD(nome, DDD);
+            dJ_Controller_ConsultaClientes.setList(listaNomeDDD);
+
         } else if (!jTxt_Nome.getText().isEmpty()) {
+
             String nome = jTxt_Nome.getText();
-            
-            List listaNome = (List) dJ_ProdutosDAO.listNome(nome);
-            dJ_Controller_ConsultaProdutos.setList(listaNome);
-            
-        } else if (!jTxt_Avaliação.getText().isEmpty()){
-            double avaliacao = Util.strToDouble(jTxt_Avaliação.getText());
-            
-            List listaAvaliacao = (List) dJ_ProdutosDAO.listAvaliacao(avaliacao);
-            dJ_Controller_ConsultaProdutos.setList(listaAvaliacao);
-            
+            List listaNome = (List) dJ_ClientesDAO.listNome(nome);
+            dJ_Controller_ConsultaClientes.setList(listaNome);
+
+        } else if (!jTxt_DDD.getText().isEmpty()) {
+
+            String DDD = jTxt_DDD.getText().trim();
+
+            if (DDD.length() != 2) {
+                Util.mensagem("Digite apenas o DDD");
+                return;
+            }
+
+            List listaCnpj = (List) dJ_ClientesDAO.listDDD(DDD);
+            dJ_Controller_ConsultaClientes.setList(listaCnpj);
+
         } else {
-            
-            List lista = (List) dJ_ProdutosDAO.listAll();
-            dJ_Controller_ConsultaProdutos.setList(lista);
+
+            List lista = (List) dJ_ClientesDAO.listAll();
+            dJ_Controller_ConsultaClientes.setList(lista);
         }
     }//GEN-LAST:event_jBtn_ConsultarActionPerformed
 
@@ -183,20 +197,20 @@ public class JDlg_DJ_ConsultaProdutos extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JDlg_DJ_ConsultaProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JDlg_DJ_ConsultaClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JDlg_DJ_ConsultaProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JDlg_DJ_ConsultaClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JDlg_DJ_ConsultaProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JDlg_DJ_ConsultaClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JDlg_DJ_ConsultaProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JDlg_DJ_ConsultaClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                JDlg_DJ_ConsultaProdutos dialog = new JDlg_DJ_ConsultaProdutos(new javax.swing.JFrame(), true);
+                JDlg_DJ_ConsultaClientes dialog = new JDlg_DJ_ConsultaClientes(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -215,7 +229,7 @@ public class JDlg_DJ_ConsultaProdutos extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTxt_Avaliação;
+    private javax.swing.JTextField jTxt_DDD;
     private javax.swing.JTextField jTxt_Nome;
     // End of variables declaration//GEN-END:variables
 }

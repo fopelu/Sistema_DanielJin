@@ -30,10 +30,11 @@ public class JFrm_DJ_Principal extends javax.swing.JFrame {
     private void initComponents() {
 
         jTbr_DJ_Consulta = new javax.swing.JToolBar();
+        jBtn_DJ_Usuario = new javax.swing.JButton();
+        jBtn_DJ_Fornecedor = new javax.swing.JButton();
         jBtn_DJ_Clientes = new javax.swing.JButton();
-        jBtn_DJ_Produtos = new javax.swing.JButton();
-        jBtn_Fornecedor = new javax.swing.JButton();
-        jBtn_Compras = new javax.swing.JButton();
+        jBtn_DJ_ConsultaCompras = new javax.swing.JButton();
+        jBtn_DJ_ConsultaProdutos = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMnu_DJ_Cadastros = new javax.swing.JMenu();
         jMni_DJ_Usuarios = new javax.swing.JMenuItem();
@@ -45,16 +46,38 @@ public class JFrm_DJ_Principal extends javax.swing.JFrame {
         jMnu_DJ_Movimentos = new javax.swing.JMenu();
         jMni_DJ_Compras = new javax.swing.JMenuItem();
         jMnu_Consultas = new javax.swing.JMenu();
-        jMni_ConsultaProdutos = new javax.swing.JMenuItem();
-        jMni_ConsultaCompras = new javax.swing.JMenuItem();
-        jMni_ConsultaClientes = new javax.swing.JMenuItem();
-        jMni_ConsultaFornecedor = new javax.swing.JMenuItem();
+        jMni_DJ_ConsultaProdutos = new javax.swing.JMenuItem();
+        jMni_DJ_ConsultaCompras = new javax.swing.JMenuItem();
+        jMni_DJ_ConsultaClientes = new javax.swing.JMenuItem();
+        jMni_DJ_ConsultaFornecedor = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jTbr_DJ_Consulta.setRollover(true);
 
-        jBtn_DJ_Clientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-gestão-de-cliente.png"))); // NOI18N
+        jBtn_DJ_Usuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-usuário-24.png"))); // NOI18N
+        jBtn_DJ_Usuario.setFocusable(false);
+        jBtn_DJ_Usuario.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBtn_DJ_Usuario.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jBtn_DJ_Usuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn_DJ_UsuarioActionPerformed(evt);
+            }
+        });
+        jTbr_DJ_Consulta.add(jBtn_DJ_Usuario);
+
+        jBtn_DJ_Fornecedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-fornecedor-24.png"))); // NOI18N
+        jBtn_DJ_Fornecedor.setFocusable(false);
+        jBtn_DJ_Fornecedor.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBtn_DJ_Fornecedor.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jBtn_DJ_Fornecedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn_DJ_FornecedorActionPerformed(evt);
+            }
+        });
+        jTbr_DJ_Consulta.add(jBtn_DJ_Fornecedor);
+
+        jBtn_DJ_Clientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-pessoa-24.png"))); // NOI18N
         jBtn_DJ_Clientes.setFocusable(false);
         jBtn_DJ_Clientes.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jBtn_DJ_Clientes.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -65,28 +88,27 @@ public class JFrm_DJ_Principal extends javax.swing.JFrame {
         });
         jTbr_DJ_Consulta.add(jBtn_DJ_Clientes);
 
-        jBtn_DJ_Produtos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-produto.png"))); // NOI18N
-        jBtn_DJ_Produtos.setFocusable(false);
-        jBtn_DJ_Produtos.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jBtn_DJ_Produtos.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jBtn_DJ_Produtos.addActionListener(new java.awt.event.ActionListener() {
+        jBtn_DJ_ConsultaCompras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-comprar.png"))); // NOI18N
+        jBtn_DJ_ConsultaCompras.setFocusable(false);
+        jBtn_DJ_ConsultaCompras.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBtn_DJ_ConsultaCompras.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jBtn_DJ_ConsultaCompras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtn_DJ_ProdutosActionPerformed(evt);
+                jBtn_DJ_ConsultaComprasActionPerformed(evt);
             }
         });
-        jTbr_DJ_Consulta.add(jBtn_DJ_Produtos);
+        jTbr_DJ_Consulta.add(jBtn_DJ_ConsultaCompras);
 
-        jBtn_Fornecedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-fornecedor.png"))); // NOI18N
-        jBtn_Fornecedor.setFocusable(false);
-        jBtn_Fornecedor.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jBtn_Fornecedor.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jTbr_DJ_Consulta.add(jBtn_Fornecedor);
-
-        jBtn_Compras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-comprar.png"))); // NOI18N
-        jBtn_Compras.setFocusable(false);
-        jBtn_Compras.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jBtn_Compras.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jTbr_DJ_Consulta.add(jBtn_Compras);
+        jBtn_DJ_ConsultaProdutos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-produto.png"))); // NOI18N
+        jBtn_DJ_ConsultaProdutos.setFocusable(false);
+        jBtn_DJ_ConsultaProdutos.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBtn_DJ_ConsultaProdutos.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jBtn_DJ_ConsultaProdutos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn_DJ_ConsultaProdutosActionPerformed(evt);
+            }
+        });
+        jTbr_DJ_Consulta.add(jBtn_DJ_ConsultaProdutos);
 
         jMnu_DJ_Cadastros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-cadastro-24.png"))); // NOI18N
         jMnu_DJ_Cadastros.setText("Cadastros");
@@ -162,35 +184,45 @@ public class JFrm_DJ_Principal extends javax.swing.JFrame {
         jMnu_Consultas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-letras-miúdas.png"))); // NOI18N
         jMnu_Consultas.setText("Consultas");
 
-        jMni_ConsultaProdutos.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_MASK));
-        jMni_ConsultaProdutos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-produto.png"))); // NOI18N
-        jMni_ConsultaProdutos.setText("Produtos");
-        jMni_ConsultaProdutos.addActionListener(new java.awt.event.ActionListener() {
+        jMni_DJ_ConsultaProdutos.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_MASK));
+        jMni_DJ_ConsultaProdutos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-produto.png"))); // NOI18N
+        jMni_DJ_ConsultaProdutos.setText("Produtos");
+        jMni_DJ_ConsultaProdutos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMni_ConsultaProdutosActionPerformed(evt);
+                jMni_DJ_ConsultaProdutosActionPerformed(evt);
             }
         });
-        jMnu_Consultas.add(jMni_ConsultaProdutos);
+        jMnu_Consultas.add(jMni_DJ_ConsultaProdutos);
 
-        jMni_ConsultaCompras.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_MASK));
-        jMni_ConsultaCompras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-comprar.png"))); // NOI18N
-        jMni_ConsultaCompras.setText("Compras");
-        jMni_ConsultaCompras.addActionListener(new java.awt.event.ActionListener() {
+        jMni_DJ_ConsultaCompras.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_MASK));
+        jMni_DJ_ConsultaCompras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-comprar.png"))); // NOI18N
+        jMni_DJ_ConsultaCompras.setText("Compras");
+        jMni_DJ_ConsultaCompras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMni_ConsultaComprasActionPerformed(evt);
+                jMni_DJ_ConsultaComprasActionPerformed(evt);
             }
         });
-        jMnu_Consultas.add(jMni_ConsultaCompras);
+        jMnu_Consultas.add(jMni_DJ_ConsultaCompras);
 
-        jMni_ConsultaClientes.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_J, java.awt.event.InputEvent.CTRL_MASK));
-        jMni_ConsultaClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-gestão-de-cliente.png"))); // NOI18N
-        jMni_ConsultaClientes.setText("Clientes");
-        jMnu_Consultas.add(jMni_ConsultaClientes);
+        jMni_DJ_ConsultaClientes.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_J, java.awt.event.InputEvent.CTRL_MASK));
+        jMni_DJ_ConsultaClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-gestão-de-cliente.png"))); // NOI18N
+        jMni_DJ_ConsultaClientes.setText("Clientes");
+        jMni_DJ_ConsultaClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMni_DJ_ConsultaClientesActionPerformed(evt);
+            }
+        });
+        jMnu_Consultas.add(jMni_DJ_ConsultaClientes);
 
-        jMni_ConsultaFornecedor.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        jMni_ConsultaFornecedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-fornecedor.png"))); // NOI18N
-        jMni_ConsultaFornecedor.setText("Fornecedor");
-        jMnu_Consultas.add(jMni_ConsultaFornecedor);
+        jMni_DJ_ConsultaFornecedor.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        jMni_DJ_ConsultaFornecedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-fornecedor.png"))); // NOI18N
+        jMni_DJ_ConsultaFornecedor.setText("Fornecedor");
+        jMni_DJ_ConsultaFornecedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMni_DJ_ConsultaFornecedorActionPerformed(evt);
+            }
+        });
+        jMnu_Consultas.add(jMni_DJ_ConsultaFornecedor);
 
         jMenuBar1.add(jMnu_Consultas);
 
@@ -226,8 +258,8 @@ public class JFrm_DJ_Principal extends javax.swing.JFrame {
 
     private void jMni_DJ_FornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMni_DJ_FornecedorActionPerformed
         // TODO add your handling code here:
-        JDlg_DJ_Clientes jDlg_DJ_Vendedor = new JDlg_DJ_Clientes(null, true);
-        jDlg_DJ_Vendedor.setVisible(true);
+        JDlg_DJ_Fornecedor jDlg_DJ_Fornecedor = new JDlg_DJ_Fornecedor(null, true);
+        jDlg_DJ_Fornecedor.setVisible(true);
     }//GEN-LAST:event_jMni_DJ_FornecedorActionPerformed
 
     private void jMni_DJ_ProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMni_DJ_ProdutosActionPerformed
@@ -247,26 +279,54 @@ public class JFrm_DJ_Principal extends javax.swing.JFrame {
         jDlg_DJ_Compras.setVisible(true);
     }//GEN-LAST:event_jMni_DJ_ComprasActionPerformed
 
-    private void jBtn_DJ_ProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_ProdutosActionPerformed
+    private void jBtn_DJ_ConsultaProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_ConsultaProdutosActionPerformed
         // TODO add your handling code here:
-        jMni_ConsultaProdutosActionPerformed(null);
-    }//GEN-LAST:event_jBtn_DJ_ProdutosActionPerformed
+        jMni_DJ_ConsultaProdutosActionPerformed(null);
+    }//GEN-LAST:event_jBtn_DJ_ConsultaProdutosActionPerformed
+
+    private void jBtn_DJ_UsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_UsuarioActionPerformed
+        // TODO add your handling code here:
+        jMni_DJ_UsuariosActionPerformed(null);
+    }//GEN-LAST:event_jBtn_DJ_UsuarioActionPerformed
+
+    private void jMni_DJ_ConsultaProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMni_DJ_ConsultaProdutosActionPerformed
+        // TODO add your handling code here:
+        JDlg_DJ_ConsultaProdutos jDlg_DJ_ConsultaProdutos = new JDlg_DJ_ConsultaProdutos(null, true);
+        jDlg_DJ_ConsultaProdutos.setVisible(true);
+    }//GEN-LAST:event_jMni_DJ_ConsultaProdutosActionPerformed
+
+    private void jMni_DJ_ConsultaComprasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMni_DJ_ConsultaComprasActionPerformed
+        // TODO add your handling code here:
+        JDlg_DJ_ConsultaCompras jDlg_DJ_ConsultaCompras = new JDlg_DJ_ConsultaCompras(null, true);
+        jDlg_DJ_ConsultaCompras.setVisible(true);
+    }//GEN-LAST:event_jMni_DJ_ConsultaComprasActionPerformed
+
+    private void jBtn_DJ_FornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_FornecedorActionPerformed
+        // TODO add your handling code here:
+        jMni_DJ_FornecedorActionPerformed(null);
+    }//GEN-LAST:event_jBtn_DJ_FornecedorActionPerformed
 
     private void jBtn_DJ_ClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_ClientesActionPerformed
         // TODO add your handling code here:
         jMni_DJ_ClientesActionPerformed(null);
     }//GEN-LAST:event_jBtn_DJ_ClientesActionPerformed
 
-    private void jMni_ConsultaProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMni_ConsultaProdutosActionPerformed
+    private void jBtn_DJ_ConsultaComprasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_DJ_ConsultaComprasActionPerformed
         // TODO add your handling code here:
-        JDlg_DJ_ConsultaProdutos jDlg_DJ_ConsultaProdutos = new JDlg_DJ_ConsultaProdutos(null, true);
-        jDlg_DJ_ConsultaProdutos.setVisible(true);
-    }//GEN-LAST:event_jMni_ConsultaProdutosActionPerformed
+        jMni_DJ_ConsultaComprasActionPerformed(null);
+    }//GEN-LAST:event_jBtn_DJ_ConsultaComprasActionPerformed
 
-    private void jMni_ConsultaComprasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMni_ConsultaComprasActionPerformed
+    private void jMni_DJ_ConsultaClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMni_DJ_ConsultaClientesActionPerformed
         // TODO add your handling code here:
-        
-    }//GEN-LAST:event_jMni_ConsultaComprasActionPerformed
+        JDlg_DJ_ConsultaClientes jDlg_DJ_ConsultaClientes = new JDlg_DJ_ConsultaClientes(null, true);
+        jDlg_DJ_ConsultaClientes.setVisible(true);
+    }//GEN-LAST:event_jMni_DJ_ConsultaClientesActionPerformed
+
+    private void jMni_DJ_ConsultaFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMni_DJ_ConsultaFornecedorActionPerformed
+        // TODO add your handling code here:
+        JDlg_DJ_ConsultaFornecedor jDlg_DJ_ConsultaFornecedor = new JDlg_DJ_ConsultaFornecedor(null, true);
+        jDlg_DJ_ConsultaFornecedor.setVisible(true);
+    }//GEN-LAST:event_jMni_DJ_ConsultaFornecedorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -304,17 +364,18 @@ public class JFrm_DJ_Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBtn_Compras;
     private javax.swing.JButton jBtn_DJ_Clientes;
-    private javax.swing.JButton jBtn_DJ_Produtos;
-    private javax.swing.JButton jBtn_Fornecedor;
+    private javax.swing.JButton jBtn_DJ_ConsultaCompras;
+    private javax.swing.JButton jBtn_DJ_ConsultaProdutos;
+    private javax.swing.JButton jBtn_DJ_Fornecedor;
+    private javax.swing.JButton jBtn_DJ_Usuario;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMni_ConsultaClientes;
-    private javax.swing.JMenuItem jMni_ConsultaCompras;
-    private javax.swing.JMenuItem jMni_ConsultaFornecedor;
-    private javax.swing.JMenuItem jMni_ConsultaProdutos;
     private javax.swing.JMenuItem jMni_DJ_Clientes;
     private javax.swing.JMenuItem jMni_DJ_Compras;
+    private javax.swing.JMenuItem jMni_DJ_ConsultaClientes;
+    private javax.swing.JMenuItem jMni_DJ_ConsultaCompras;
+    private javax.swing.JMenuItem jMni_DJ_ConsultaFornecedor;
+    private javax.swing.JMenuItem jMni_DJ_ConsultaProdutos;
     private javax.swing.JMenuItem jMni_DJ_Fornecedor;
     private javax.swing.JMenuItem jMni_DJ_Produtos;
     private javax.swing.JMenuItem jMni_DJ_Sair;

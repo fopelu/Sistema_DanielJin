@@ -50,6 +50,35 @@ public class DJ_ClientesDAO extends DJ_AbstractDAO{
         session.getTransaction().commit();
         return lista;
     }
+    
+    
+    public Object listNome(String nome) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(Dj_clientes.class);
+        criteria.add(Restrictions.like("dj_nome", "%" + nome + "%"));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+    }
+    
+    public Object listDDD(String ddd) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(Dj_clientes.class);
+        criteria.add(Restrictions.like("dj_telefone", "(" + ddd + "%"));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+    }
+    
+    public Object listNomeDDD(String nome, String ddd) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(Dj_clientes.class);
+        criteria.add(Restrictions.like("dj_nome", "%" + nome + "%"));
+        criteria.add(Restrictions.like("dj_telefone", "(" + ddd + "%"));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+    }
 
     @Override
     public Object listAll() {

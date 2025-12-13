@@ -5,46 +5,41 @@
  */
 package view_Controller;
 
-import bean.Dj_clientes;
+import bean.Dj_fornecedor;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 /**
  *
  * @author danie
  */
-public class DJ_Controller_Clientes extends AbstractTableModel{
-    private List lstVendedor;
+public class DJ_Controller_ConsultaFornecedor extends AbstractTableModel{
+    private List lstConsultaFornecedor;
 
-    public void setList(List lstClientes) {
-        this.lstVendedor = lstClientes;
-    }
-    
-    public Dj_clientes getBean(int rowIndex) {
-        return (Dj_clientes) lstVendedor.get(rowIndex);
+    public void setList(List lstConsultaFornecedor) {
+        this.lstConsultaFornecedor = lstConsultaFornecedor;
+        this.fireTableDataChanged();
     }
 
     @Override
     public int getRowCount() {
-        return lstVendedor.size();
+        return lstConsultaFornecedor.size();
                 
     }
 
     @Override
     public int getColumnCount() {
-        return 4;
+        return 3;
     }
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Dj_clientes dj_clientes = (Dj_clientes) lstVendedor.get( rowIndex);
+        Dj_fornecedor dj_fornecedor = (Dj_fornecedor) lstConsultaFornecedor.get( rowIndex);
         if ( columnIndex == 0 ){
-            return dj_clientes.getDj_idClientes();
+            return dj_fornecedor.getDj_idFornecedor();
         } else if (columnIndex ==1) {
-            return dj_clientes.getDj_nome();        
+            return dj_fornecedor.getDj_nome();        
         } else if (columnIndex ==2) {
-            return dj_clientes.getDj_telefone();
-        } else if (columnIndex ==3) {
-            return dj_clientes.getDj_cpf();
+            return dj_fornecedor.getDj_cnpj();
         }
         return "";
     }
@@ -56,10 +51,8 @@ public class DJ_Controller_Clientes extends AbstractTableModel{
         } else if ( columnIndex == 1) {
             return "Nome";         
         } else if ( columnIndex == 2) {
-            return "Telefone";
-        } else if ( columnIndex == 3) {
-            return "CPF";
-        } 
+            return "CNPJ";
+        }
         return "";
     }
 }
